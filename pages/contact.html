@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Paul-Yann Bouvier</title>
+    <link rel="icon" href="/assets/images/logo.webp" type="image/webp">
+    <link href="/style/css_google/css2.css" rel="stylesheet">
+    <link rel="stylesheet" href="/style/style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="menu-toggle" id="mobile-menu"><span></span><span></span><span></span></div>
+            <ul id="nav-list">
+                <li><a href="/index.html">Accueil</a></li>
+                <li><a href="/pages/apropos.html">À propos</a></li>
+                <li><a href="/pages/bts-sio.html">BTS SIO</a></li>
+                <li><a href="/pages/ecole-entreprise.html">École & Entreprise</a></li>
+                <li><a href="/pages/missions.html">Missions (E5)</a></li>
+                <li><a href="/pages/projets.html">Projets (E6)</a></li>
+                <li><a href="/pages/veille.html">Veille</a></li>
+                <li><a href="/pages/contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="page-content">
+        <section class="section-secondary-dark">
+            <div class="container">
+                <h2>CONTACT</h2>
+                
+                <div class="contact-info-block">
+                    <p>📞 <span>06.64.59.69.04</span> | 📧 <span>bouvier.py@gmail.com</span></p>
+                </div>
+                
+                <form class="contact-form" action="https://formspree.io/f/manlrrlg" method="POST">
+                    
+                    <div class="form-group">
+                        <label for="prenom">Prénom</label>
+                        <input type="text" id="prenom" name="prenom" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="nom">Nom</label>
+                        <input type="text" id="nom" name="nom" required>
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <label for="email">Votre Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="7" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Envoyer le message</button>
+                    
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Paul-Yann Bouvier - Portfolio BTS SIO SISR</p>
+    </footer>
+    <script src="/script/script.js"></script>
+</body>
+</html>

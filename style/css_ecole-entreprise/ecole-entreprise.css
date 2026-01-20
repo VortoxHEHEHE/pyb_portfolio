@@ -1,0 +1,61 @@
+.ynov-showcase {
+    background: linear-gradient(145deg, rgba(0, 168, 0, 0.1), rgba(0, 20, 0, 0.4));
+    border: 2px solid var(--neon-green);
+    border-radius: 20px;
+    padding: 3rem;
+    text-align: center;
+    margin-top: 2rem;
+    box-shadow: 0 0 30px rgba(0, 255, 0, 0.15);
+}
+
+.ynov-logo-large {
+    width: 150px;
+    height: auto;
+    margin-bottom: 2rem;
+    filter: drop-shadow(0 0 10px rgba(255,255,255,0.2));
+}
+
+.ynov-content {
+    text-align: left;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.ynov-content h3 {
+    color: var(--neon-green);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.ynov-details {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.ynov-detail-box {
+    background: rgba(0,0,0,0.3);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 3px solid var(--neon-green);
+}
+
+.ynov-detail-box h4 {
+    color: var(--text-white);
+    margin-bottom: 0.5rem;
+    font-family: 'Space Mono', monospace;
+}
+
+.school-intro-text {
+    text-align: justify; 
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+@media(max-width: 768px) {
+    .ynov-details {
+        grid-template-columns: 1fr;
+    }
+}
