@@ -47,22 +47,6 @@ L'architecture du projet est organisée comme suit :
 
 ---
 
-## 🔧 Installation locale
-
-Si vous souhaitez cloner ce projet pour voir le code sur votre machine :
-
-1.  **Cloner le dépôt :**
-    ```bash
-    git clone [https://github.com/vortoxhehehe/pyb_portfolio.git](https://github.com/vortoxhehehe/pyb_portfolio.git)
-    ```
-
-2.  **Ouvrir le dossier :**
-    Ouvrez le dossier dans votre éditeur de code favori (VS Code recommandé).
-
-3.  **Lancer le site :**
-    Ouvrez simplement le fichier `index.html` dans votre navigateur.
-
----
 
 ## 👤 Auteur
 
