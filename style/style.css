@@ -943,3 +943,21 @@ nav ul li a.active {
     font-weight: bold;
     border-bottom: 2px solid #00a800;
 }
+/* --- Bouton Documentation --- */
+.btn-doc {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #007bff; /* Bleu (tu peux changer ce code couleur) */
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    transition: background 0.3s ease;
+}
+
+.btn-doc:hover {
+    background-color: #0056b3; /* Couleur au survol de la souris */
+    color: #ffffff;
+}
