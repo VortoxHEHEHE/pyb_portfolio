@@ -1048,3 +1048,16 @@ body.home-page footer {
     background: transparent; /* Optionnel : le rend transparent si tu veux */
     border-top: none; /* Optionnel : enlève la ligne verte du haut si tu veux un look plus épuré */
 }
+
+/* --- EASTER EGG (Le lien caché) --- */
+.secret-link {
+    text-decoration: none;  /* Enlève le soulignement */
+    color: inherit;         /* Garde la même couleur que le texte d'à côté (gris) */
+    cursor: default;        /* Astuce : Le curseur reste une flèche, il ne se transforme pas en main ! */
+}
+
+/* Optionnel : Si tu veux un micro indice quand même (enlevé si tu veux 100% invisible) */
+/* .secret-link:hover {
+    color: var(--neon-green); 
+    cursor: pointer;
+} */
