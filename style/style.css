@@ -961,3 +961,21 @@ nav ul li a.active {
     background-color: #0056b3; /* Couleur au survol de la souris */
     color: #ffffff;
 }
+
+/* --- CORRECTION MOBILE POUR LA PAGE D'ACCUEIL --- */
+@media screen and (max-width: 768px) {
+    .hero {
+        /* On annule la hauteur forcée de 100% de l'écran */
+        min-height: auto !important;
+        height: auto !important;
+        
+        /* On ajuste les espacements pour que ça respire mais sans grand vide */
+        padding-top: 140px; /* Espace pour ne pas être caché par le menu */
+        padding-bottom: 60px; /* Espace avant le footer */
+    }
+    
+    .hero-content {
+        /* On s'assure que le texte est bien centré */
+        margin-top: 0;
+    }
+}
