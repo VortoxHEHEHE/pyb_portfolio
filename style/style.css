@@ -26,9 +26,9 @@ body {
     color: var(--text-light);
     overflow-x: hidden;
     
-    /* --- MODIFICATION 1 : FOND TRANSPARENT --- */
-    /* On met transparent pour voir les particules derrière */
-    background-color: transparent !important; 
+    /* --- CORRECTION FINALE : FOND SOMBRE ICI --- */
+    /* Le fond est appliqué au corps de la page, donc visible partout */
+    background: radial-gradient(circle at center, #1a1c29 0%, #050510 100%);
     
     /* Permet au footer de rester en bas même si la page est vide */
     display: flex;
@@ -138,8 +138,7 @@ nav a.active-link::after {
     align-items: center;
     justify-content: center;
     
-    /* --- MODIFICATION 2 : FOND HERO RETIRÉ --- */
-    background: transparent; /* On enlève la couleur pour voir les particules */
+    background: transparent; /* Transparent pour laisser voir le body */
     
     color: var(--text-white);
     text-align: center;
@@ -210,7 +209,7 @@ nav a.active-link::after {
     margin-right: auto;
 }
 
-/* --- MODIFICATION 3 : NOUVEAU BOUTON VERT --- */
+/* --- BOUTON VERT ACCUEIL --- */
 .btn-primary {
     display: inline-block;
     margin-top: 2rem;
@@ -1005,7 +1004,7 @@ nav ul li a.active {
     }
 }
 
-/* --- EFFET PARTICULES (MODIFIÉ) --- */
+/* --- EFFET PARTICULES (CORRIGÉ) --- */
 #particles-canvas {
     position: fixed;
     top: 0;
@@ -1015,6 +1014,7 @@ nav ul li a.active {
     z-index: -1;
     pointer-events: none;
     
-    /* --- MODIFICATION 4 : LE FOND NOIR EST ICI MAINTENANT --- */
-    background: radial-gradient(circle at center, #1a1c29 0%, #050510 100%);
+    /* --- CORRECTION FINALE : CANVAS TRANSPARENT --- */
+    /* Le fond sombre est maintenant sur le BODY, donc le canvas ne cache plus rien */
+    background: transparent;
 }
