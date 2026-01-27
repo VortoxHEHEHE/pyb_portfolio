@@ -25,7 +25,11 @@ body {
     line-height: 1.6;
     color: var(--text-light);
     overflow-x: hidden;
-    background: var(--background-dark);
+    
+    /* --- MODIFICATION 1 : FOND TRANSPARENT --- */
+    /* On met transparent pour voir les particules derrière */
+    background-color: transparent !important; 
+    
     /* Permet au footer de rester en bas même si la page est vide */
     display: flex;
     flex-direction: column;
@@ -33,10 +37,9 @@ body {
 }
 
 /* --- AJOUT SPÉCIFIQUE MULTI-PAGE --- */
-/* Pousse le contenu sous la barre de navigation fixe */
 .page-content {
     padding-top: 8rem; 
-    flex: 1; /* Occupe tout l'espace disponible pour pousser le footer */
+    flex: 1; 
 }
 
 /* =========================================
@@ -46,7 +49,6 @@ nav {
     position: fixed;
     top: 0;
     width: 100%;
-    /* Fond légèrement opaque pour la lisibilité sur toutes les pages */
     background: rgba(15, 15, 32, 0.95);
     backdrop-filter: blur(8px);
     box-shadow: 0 2px 20px rgba(0,0,0,0.4);
@@ -82,7 +84,7 @@ nav a {
     font-weight: 600;
     transition: color 0.3s;
     font-size: 1rem;
-    position: relative; /* Pour l'effet de soulignement */
+    position: relative;
 }
 
 nav a:hover {
@@ -90,7 +92,7 @@ nav a:hover {
     text-shadow: 0 0 8px var(--accent-glow);
 }
 
-/* --- STYLE LIEN ACTIF (Page Courante) --- */
+/* --- STYLE LIEN ACTIF --- */
 nav a.active-link {
     color: var(--neon-green);
     text-shadow: 0 0 8px var(--accent-glow);
@@ -135,11 +137,14 @@ nav a.active-link::after {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--secondary-dark);
+    
+    /* --- MODIFICATION 2 : FOND HERO RETIRÉ --- */
+    background: transparent; /* On enlève la couleur pour voir les particules */
+    
     color: var(--text-white);
     text-align: center;
     padding: 2rem;
-    padding-top: 8rem; /* Compensation header */
+    padding-top: 8rem;
     position: relative;
     overflow: hidden;
 }
@@ -205,10 +210,31 @@ nav a.active-link::after {
     margin-right: auto;
 }
 
+/* --- MODIFICATION 3 : NOUVEAU BOUTON VERT --- */
+.btn-primary {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 15px 35px;
+    background-color: #00e600; /* Vert fluo */
+    color: #000000; /* Texte noir */
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(0, 230, 0, 0.4);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 25px rgba(0, 230, 0, 0.7);
+    background-color: #00ff00;
+}
+
 /* =========================================
    5. COMPOSANTS GENERAUX
    ========================================= */
-/* Boutons */
+/* Boutons Standards */
 .btn {
     display: inline-block;
     padding: 1rem 2.5rem;
@@ -283,7 +309,7 @@ section h3.section-subtitle {
     display: inline-block;
 }
 
-/* Placeholder (Section en construction) */
+/* Placeholder */
 .placeholder-text {
     font-size: 1.1rem;
     color: var(--gray-subtle);
@@ -796,7 +822,7 @@ footer {
     border-top: 1px solid var(--neon-green);
     box-shadow: 0 0 15px var(--accent-glow);
     font-family: 'Space Mono', monospace;
-    margin-top: auto; /* Footer reste en bas */
+    margin-top: auto;
 }
 
 /* =========================================
@@ -937,18 +963,19 @@ footer {
     .timeline-item { padding: 1.5rem; }
 }
 
-/* C'est ce qui rend le lien rouge quand tu es sur la page */
+/* Lien actif (Menu) */
 nav ul li a.active {
-    color: #00ff00; /* Change la couleur ici si tu veux */
+    color: #00ff00;
     font-weight: bold;
     border-bottom: 2px solid #00a800;
 }
-/* --- Bouton Documentation --- */
+
+/* Bouton Documentation */
 .btn-doc {
     display: inline-block;
     margin-top: 15px;
     padding: 10px 20px;
-    background-color: #007bff; /* Bleu (tu peux changer ce code couleur) */
+    background-color: #007bff;
     color: #ffffff;
     text-decoration: none;
     border-radius: 5px;
@@ -958,39 +985,36 @@ nav ul li a.active {
 }
 
 .btn-doc:hover {
-    background-color: #0056b3; /* Couleur au survol de la souris */
+    background-color: #0056b3;
     color: #ffffff;
 }
 
 /* --- CORRECTION MOBILE FORCEE --- */
 @media screen and (max-width: 768px) {
     .hero {
-        /* On casse la hauteur forcée */
         min-height: auto !important;
         height: auto !important;
-        
-        /* On désactive le Flexbox pour reprendre le contrôle manuel */
         display: block !important; 
-        
-        /* On place le texte exactement où on veut */
-        padding-top: 110px !important; /* Distance du haut (sous le menu) */
-        padding-bottom: 40px !important; /* Distance avant le footer */
+        padding-top: 110px !important;
+        padding-bottom: 40px !important; 
     }
     
     .hero-content {
         margin-top: 0 !important;
-        /* On s'assure que le contenu ne force pas d'espaces bizarres */
         transform: none !important; 
     }
 }
 
-/* --- EFFET PARTICULES --- */
+/* --- EFFET PARTICULES (MODIFIÉ) --- */
 #particles-canvas {
-    position: fixed; /* Reste fixe même quand on scroll */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1; /* Très important : met le canvas DERRIÈRE tout le reste */
-    pointer-events: none; /* Laisse passer les clics au travers (pour cliquer sur tes boutons) */
+    z-index: -1;
+    pointer-events: none;
+    
+    /* --- MODIFICATION 4 : LE FOND NOIR EST ICI MAINTENANT --- */
+    background: radial-gradient(circle at center, #1a1c29 0%, #050510 100%);
 }
