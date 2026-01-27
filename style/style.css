@@ -371,6 +371,16 @@ section h3.section-subtitle {
     font-size: 0.9rem;
 }
 
+/* --- Correction pour égaliser la taille des boutons --- */
+.about-text .btn {
+    min-width: 250px;       /* Force une largeur minimale de 250px */
+    text-align: center;     /* Centre le texte à l'intérieur */
+    justify-content: center; /* Centre horizontalement (si flex) */
+    display: inline-flex;   /* Permet de bien centrer texte + icône */
+    align-items: center;    /* Centre verticalement */
+    margin-bottom: 10px;    /* Petit espace si jamais ils passent l'un sous l'autre sur mobile */
+}
+
 /* --- Skills & Cards --- */
 .skills-grid {
     display: grid;
