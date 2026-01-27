@@ -1050,14 +1050,25 @@ body.home-page footer {
 }
 
 /* --- EASTER EGG (Le lien caché) --- */
-.secret-link {
-    text-decoration: none;  /* Enlève le soulignement */
-    color: inherit;         /* Garde la même couleur que le texte d'à côté (gris) */
-    cursor: default;        /* Astuce : Le curseur reste une flèche, il ne se transforme pas en main ! */
+/* --- CORRECTION EASTER EGG (Vraiment invisible) --- */
+/* On cible le lien dans le footer et tous ses états (survol, clic...) */
+footer .secret-link,
+footer .secret-link:hover,
+footer .secret-link:focus,
+footer .secret-link:active {
+    /* Force la couleur à être exactement celle du texte d'à côté (gris) */
+    color: inherit !important;
+    
+    /* Enlève absolument tout soulignement, bordure ou ombre */
+    text-decoration: none !important;
+    border-bottom: none !important;
+    text-shadow: none !important;
+    background: none !important;
+    
+    /* Le curseur reste une flèche normale, pas une main */
+    cursor: default !important;
+    
+    /* Empêche toute animation */
+    transition: none !important;
+    transform: none !important;
 }
-
-/* Optionnel : Si tu veux un micro indice quand même (enlevé si tu veux 100% invisible) */
-/* .secret-link:hover {
-    color: var(--neon-green); 
-    cursor: pointer;
-} */
