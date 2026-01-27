@@ -1032,3 +1032,19 @@ nav ul li a.active {
     /* Le fond sombre est maintenant sur le BODY, donc le canvas ne cache plus rien */
     background: transparent;
 }
+
+/* --- CORRECTION SCROLL ACCUEIL --- */
+/* Cible uniquement la page d'accueil grâce à la classe qu'on vient d'ajouter */
+body.home-page {
+    overflow: hidden; /* Interdit tout dépassement (donc supprime la barre de scroll) */
+    height: 100vh;    /* Force la page à faire exactement la taille de l'écran */
+}
+
+/* On s'assure que le footer de l'accueil reste bien collé en bas par-dessus le fond */
+body.home-page footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: transparent; /* Optionnel : le rend transparent si tu veux */
+    border-top: none; /* Optionnel : enlève la ligne verte du haut si tu veux un look plus épuré */
+}
