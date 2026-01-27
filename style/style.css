@@ -965,17 +965,17 @@ nav ul li a.active {
 /* --- CORRECTION MOBILE POUR LA PAGE D'ACCUEIL --- */
 @media screen and (max-width: 768px) {
     .hero {
-        /* On annule la hauteur forcée de 100% de l'écran */
         min-height: auto !important;
         height: auto !important;
         
-        /* On ajuste les espacements pour que ça respire mais sans grand vide */
-        padding-top: 140px; /* Espace pour ne pas être caché par le menu */
-        padding-bottom: 60px; /* Espace avant le footer */
+        /* C'est ici qu'on gère l'écart du haut */
+        /* On passe de 140px à 90px pour remonter le texte */
+        padding-top: 90px !important; 
+        
+        padding-bottom: 60px !important; /* Espace du bas inchangé */
     }
     
     .hero-content {
-        /* On s'assure que le texte est bien centré */
         margin-top: 0;
     }
 }
