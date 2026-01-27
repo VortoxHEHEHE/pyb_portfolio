@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="/style/style.css">
 </head>
 <body>
+    <canvas id="particles-canvas"></canvas>
+
     <nav>
         <div class="nav-container">
             <div class="menu-toggle" id="mobile-menu"><span></span><span></span><span></span></div>
@@ -20,7 +22,7 @@
                 <li><a href="/pages/missions.html">Missions (U5)</a></li>
                 <li><a href="/pages/projets.html">Projets (U6)</a></li>
                 <li><a href="/pages/veille.html">Veille</a></li>
-                <li><a href="/pages/contact.html">Contact</a></li>
+                <li><a href="/pages/contact.html" class="active">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -31,41 +33,96 @@
                 <h2>CONTACT</h2>
                 
                 <div class="contact-info-block">
-                    <p>📞 <span>06.64.59.69.04</span> | 📧 <span>bouvier.py@gmail.com</span></p>
+                    <p>
+                        📞 06.64.59.69.04 
+                        <span>|</span> 
+                        ✉️ bouvier.py@gmail.com
+                    </p>
                 </div>
-                
-                <form class="contact-form" action="https://formspree.io/f/manlrrlg" method="POST">
+
+                <form id="my-form" action="https://formspree.io/f/manlrrlg" method="POST" class="contact-form">
                     
                     <div class="form-group">
                         <label for="prenom">Prénom</label>
                         <input type="text" id="prenom" name="prenom" required>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="nom">Nom</label>
                         <input type="text" id="nom" name="nom" required>
                     </div>
-                    
+
                     <div class="form-group full-width">
                         <label for="email">Votre Email</label>
                         <input type="email" id="email" name="email" required>
                     </div>
-                    
+
                     <div class="form-group full-width">
                         <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="7" required></textarea>
+                        <textarea id="message" name="message" rows="5" required></textarea>
                     </div>
+
+                    <button id="my-form-button" class="submit-btn">Envoyer le message</button>
                     
-                    <button type="submit" class="submit-btn">Envoyer le message</button>
-                    
+                    <p id="my-form-status" class="full-width"></p>
                 </form>
+
             </div>
         </section>
     </main>
 
     <footer>
         <p>&copy; 2025 Paul-Yann Bouvier - Portfolio BTS SIO SISR</p>
+        <p style="font-size: 0.9rem; margin-top: 5px;">
+            <a href="https://github.com/vortoxhehehe/pyb_portfolio" target="_blank" style="color: white; text-decoration: none; opacity: 0.8;">
+                Code source disponible sur GitHub 🐙
+            </a>
+        </p>
     </footer>
+
     <script src="/script/script.js"></script>
+    <script src="/script/particles.js"></script>
+
+    <script>
+        var form = document.getElementById("my-form");
+        
+        async function handleSubmit(event) {
+            event.preventDefault(); // Bloque la redirection Formspree
+            var status = document.getElementById("my-form-status");
+            var data = new FormData(event.target);
+            
+            fetch(event.target.action, {
+                method: form.method,
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    // SUCCÈS : On affiche le message et on vide le formulaire
+                    status.innerHTML = "✅ Merci ! Votre message a bien été envoyé.";
+                    status.className = "full-width success"; // Ajoute la classe CSS verte
+                    status.style.display = "block"; // Force l'affichage
+                    form.reset(); // Vide les champs
+                } else {
+                    // ERREUR
+                    response.json().then(data => {
+                        if (Object.hasOwn(data, 'errors')) {
+                            status.innerHTML = "❌ " + data["errors"].map(error => error["message"]).join(", ");
+                        } else {
+                            status.innerHTML = "❌ Oups ! Il y a eu un problème lors de l'envoi.";
+                        }
+                        status.className = "full-width error"; // Ajoute la classe CSS rouge
+                        status.style.display = "block";
+                    })
+                }
+            }).catch(error => {
+                status.innerHTML = "❌ Oups ! Il y a eu un problème de connexion.";
+                status.className = "full-width error";
+                status.style.display = "block";
+            });
+        }
+        form.addEventListener("submit", handleSubmit);
+    </script>
 </body>
 </html>
