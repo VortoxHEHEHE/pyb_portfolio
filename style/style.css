@@ -267,8 +267,12 @@ section {
     padding: 0 2rem;
 }
 
+/* --- Modification pour voir les particules --- */
 .section-secondary-dark {
-    background: var(--secondary-dark);
+    /* Avant c'était : background: var(--secondary-dark); */
+    
+    /* Maintenant, on met transparent pour voir le fond du body et les particules */
+    background: transparent; 
 }
 
 /* Titres */
