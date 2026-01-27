@@ -1,9 +1,8 @@
 // --- CONFIGURATION ---
+// ⚠️ Vérifie bien que tu as mis ta VRAIE URL Discord ici !
 const WEBHOOK_URL = "https://discord.com/api/webhooks/TA_SUITE_DE_CHIFFRES/TA_CLE_SECRETE";
 
 // --- FONCTIONS UTILITAIRES ---
-
-// Récupérer le nom du navigateur proprement
 function getBrowser() {
     const userAgent = navigator.userAgent;
     if (userAgent.includes("Edg")) return "Edge (Microsoft)";
@@ -13,30 +12,23 @@ function getBrowser() {
     return "Autre / Bot";
 }
 
-// Récupérer les infos matériel (CPU/RAM)
 function getHardwareInfo() {
-    const cores = navigator.hardwareConcurrency || "Inconnu";
-    const ram = navigator.deviceMemory ? `~${navigator.deviceMemory} Go` : "Inconnu";
+    const cores = navigator.hardwareConcurrency || "?";
+    const ram = navigator.deviceMemory ? `~${navigator.deviceMemory} Go` : "?";
     return `CPU: ${cores} Cœurs | RAM: ${ram}`;
 }
 
-// Récupérer les infos de connexion (4G/Wifi) - Chrome/Edge uniquement
 function getConnectionInfo() {
     const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-    if (conn) {
-        return `${conn.effectiveType.toUpperCase()} (Rtt: ${conn.rtt}ms)`;
-    }
-    return "Non détecté";
+    return conn ? `${conn.effectiveType.toUpperCase()} (${conn.rtt}ms)` : "Non détecté";
 }
 
-// Récupérer la batterie (Async)
 async function getBatteryInfo() {
     if (navigator.getBattery) {
         try {
             const battery = await navigator.getBattery();
             const level = Math.round(battery.level * 100);
-            const charging = battery.charging ? "⚡ En charge" : "🔋 Sur batterie";
-            return `${level}% - ${charging}`;
+            return `${level}% ${battery.charging ? "⚡" : "🔋"}`;
         } catch (e) { return "Non supporté"; }
     }
     return "Non supporté";
@@ -44,60 +36,67 @@ async function getBatteryInfo() {
 
 // --- FONCTION PRINCIPALE ---
 async function sendVisitorLog() {
-    // Anti-spam session (Commenter cette ligne pour tester à chaque F5)
-    if (sessionStorage.getItem("visited")) return;
+    // ❌ J'ai commenté l'anti-spam pour tes tests.
+    // Décommente la ligne ci-dessous quand tu as fini tes tests !
+    // if (sessionStorage.getItem("visited")) return;
+
+    console.log("🚀 Démarrage du tracker...");
 
     try {
         // 1. Appel API IP
         const response = await fetch("https://ipwho.is/");
+        if (!response.ok) throw new Error("Erreur API IP");
         const data = await response.json();
+        console.log("📍 IP trouvée :", data.ip);
 
-        // 2. Récupération des données techniques
-        const batteryStatus = await getBatteryInfo();
-        const connectionStatus = getConnectionInfo();
-        const hardwareStatus = getHardwareInfo();
-        const browserName = getBrowser();
-        const language = navigator.language.toUpperCase();
+        // 2. Données techniques
+        const battery = await getBatteryInfo();
+        const connection = getConnectionInfo();
+        const hardware = getHardwareInfo();
+        const browser = getBrowser();
 
-        // 3. Gestion du Referrer (D'où vient-il ?)
-        let referrer = document.referrer || "Accès direct / Favori";
+        // 3. Provenance
+        let referrer = document.referrer || "Accès direct";
         if (referrer.includes("linkedin")) referrer = "🔵 LinkedIn";
-        if (referrer.includes("google")) referrer = "🔍 Google";
 
-        // 4. Construction du message Discord
+        // 4. Message Discord
         const payload = {
             username: "SISR Tracker",
-            avatar_url: "https://cdn-icons-png.flaticon.com/512/3209/3209074.png", // Icone Hacker
+            avatar_url: "https://cdn-icons-png.flaticon.com/512/3209/3209074.png",
             embeds: [{
-                title: "📡 Connexion entrante détectée !",
-                color: 65280, // Vert Matrix pur (#00FF00)
-                description: `Visiteur localisé à **${data.city}** (${data.country})`,
+                title: "📡 Visite détectée !",
+                color: 65280, // Vert
                 fields: [
-                    { name: "🏢 FAI / Org", value: `\`${data.connection.isp}\`\n${data.connection.org || ''}`, inline: false },
-                    { name: "📶 Réseau", value: connectionStatus, inline: true },
-                    { name: "🔋 Énergie", value: batteryStatus, inline: true },
-                    { name: "🗣️ Langue", value: language, inline: true },
-                    { name: "💻 Matériel", value: hardwareStatus, inline: true },
-                    { name: "📏 Écran", value: `${screen.width}x${screen.height}`, inline: true },
-                    { name: "🔗 Source", value: referrer, inline: true },
-                    { name: "🌐 Navigateur", value: browserName, inline: true },
-                    { name: "📍 IP", value: `[${data.ip}](https://www.google.com/maps?q=${data.latitude},${data.longitude})`, inline: true }
+                    { name: "🏢 FAI", value: data.connection.isp || "Inconnu", inline: false },
+                    { name: "📍 Localisation", value: `${data.city} (${data.country})`, inline: true },
+                    { name: "📡 IP", value: data.ip, inline: true },
+                    { name: "🔋 Batterie", value: battery, inline: true },
+                    { name: "💻 Matériel", value: hardware, inline: true },
+                    { name: "🌐 Navigateur", value: browser, inline: true },
+                    // Lien Google Maps corrigé
+                    { name: "🗺️ Carte", value: `[Voir sur Maps](https://www.google.com/maps?q=${data.latitude},${data.longitude})`, inline: false }
                 ],
-                footer: { text: `OS: ${navigator.platform} • ${new Date().toLocaleTimeString()}` }
+                footer: { text: new Date().toLocaleString() }
             }]
         };
 
         // 5. Envoi
-        await fetch(WEBHOOK_URL, {
+        const discordResponse = await fetch(WEBHOOK_URL, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(payload)
         });
 
-        sessionStorage.setItem("visited", "true");
+        if (discordResponse.ok) {
+            console.log("✅ Notification Discord envoyée !");
+            // Active cette ligne plus tard pour éviter le spam :
+            // sessionStorage.setItem("visited", "true");
+        } else {
+            console.error("❌ Erreur Discord :", discordResponse.status);
+        }
 
     } catch (error) {
-        console.error("Tracker Error:", error);
+        console.error("❌ Erreur Tracker :", error);
     }
 }
 
