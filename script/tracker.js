@@ -1,6 +1,6 @@
 // --- CONFIGURATION ---
 // ⚠️ Vérifie bien que tu as mis ta VRAIE URL Discord ici !
-const WEBHOOK_URL = "https://discord.com/api/webhooks/TA_SUITE_DE_CHIFFRES/TA_CLE_SECRETE";
+const WEBHOOK_URL = "https://discord.com/api/webhooks/1465691104006377618/IGLkGAilsG__jfx7Zr4PQivN4b8t6n006yEPF6qWwdICP95vu-7TJ54ax6w7muQhKuDA";
 
 // --- FONCTIONS UTILITAIRES ---
 function getBrowser() {
