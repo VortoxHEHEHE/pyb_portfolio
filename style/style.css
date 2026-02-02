@@ -97,24 +97,28 @@ nav a.active-link {
 
 /* --- STYLE DOUBLE LIGNE (ACTIVE & HOVER) --- */
 
-/* 1. Sécurité */
+/* 1. Sécurité : On cache ::after pour éviter les doublons */
 nav a.active-link::after,
 nav a:hover::after {
     content: none !important;
     display: none;
 }
 
-/* 2. Style Double Ligne ACTIVE */
+/* 2. Style Double Ligne ACTIVE (Fines & Espacées) */
 nav a.active-link::before {
     content: '';
     position: absolute;
     width: 100%;
+    /* Hauteur totale : 1px ligne + 4px vide + 1px ligne = 6px */
     height: 6px;             
     background: transparent; 
+    /* Lignes FINES (1px) */
     border-top: 1px solid var(--accent-color); 
     border-bottom: 1px solid var(--accent-color);
+    /* Position */
     bottom: -6px; 
     left: 0;
+    /* Lueur légère */
     box-shadow: 0 0 5px var(--accent-glow);
     z-index: -1; 
 }
@@ -237,58 +241,74 @@ nav a:hover::before {
     margin-right: auto;
 }
 
-/* --- BOUTON PRINCIPAL (HERO) - NOUVEAU STYLE --- */
+/* --- BOUTON PRINCIPAL (Hérite du style maître en section 5) --- */
 .btn-primary {
-    display: inline-block;
-    margin-top: 2rem;
-    padding: 15px 35px;
+    margin-top: 2rem; /* Juste la marge spécifique */
+}
+
+/* =========================================
+   5. COMPOSANTS GENERAUX (STYLE MAÎTRE BOUTONS)
+   ========================================= */
+/* CIBLE TOUS LES BOUTONS DU SITE POUR UNIFORMISER */
+.btn, 
+.btn-primary, 
+.btn-action, 
+.submit-btn, 
+.btn-doc {
+    /* --- STRUCTURE --- */
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 2rem;
+    gap: 12px;
     
-    /* NOUVEAU STYLE : Fond foncé et coins adoucis */
-    background-color: var(--accent-darker);
+    /* --- STYLE VISUEL (RECTANGLE ADOUCI) --- */
+    background: var(--accent-darker);
     color: #ffffff;
-    border-radius: 10px; /* Remplacé 50px par 10px */
-    font-family: 'Space Mono', monospace; /* Ajout de la police tech */
+    border: 2px solid transparent;
+    border-radius: 10px; /* Radius 10px pour tout le monde */
     
+    /* --- TYPOGRAPHIE --- */
+    font-family: 'Space Mono', monospace;
+    font-size: 1.1rem;
     font-weight: 700;
     text-decoration: none;
-    font-size: 1.1rem;
+    text-shadow: none;
+    cursor: pointer;
+    
+    /* --- EFFETS --- */
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
-.btn-primary:hover {
-    transform: translateY(-3px);
-    /* Au survol : devient bleu clair vif avec texte foncé */
-    background-color: var(--accent-color);
-    color: #0f172a;
-    box-shadow: 0 0 25px var(--accent-glow);
-}
-
-/* =========================================
-   5. COMPOSANTS GENERAUX
-   ========================================= */
-.btn {
-    display: inline-block;
-    padding: 1rem 2.5rem;
-    background: var(--accent-darker); 
-    color: var(--text-white); 
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    font-size: 1.1rem;
-    text-shadow: none;
-    border: 2px solid transparent;
-}
-
-.btn:hover {
+/* --- SURVOL UNIFIÉ --- */
+.btn:hover, 
+.btn-primary:hover, 
+.btn-action:hover, 
+.submit-btn:hover, 
+.btn-doc:hover {
     transform: translateY(-3px);
     background: transparent;
     color: var(--accent-color);
-    box-shadow: 0 0 20px var(--accent-glow);
     border-color: var(--accent-color);
+    box-shadow: 0 0 20px var(--accent-glow);
 }
 
+/* --- Gestion des icônes dans les boutons --- */
+.btn i, .btn img, 
+.btn-action i, .btn-action img, 
+.btn-icon {
+    font-size: 1.2rem;
+    line-height: 1;
+    transition: transform 0.3s;
+}
+
+.btn:hover i, .btn-action:hover i,
+.btn-action:hover .btn-icon {
+    transform: scale(1.2);
+}
+
+/* --- AUTRES COMPOSANTS --- */
 section { padding: 5rem 0; }
 
 .container {
@@ -337,25 +357,6 @@ section h3.section-subtitle {
     display: inline-block;
 }
 
-.placeholder-text {
-    font-size: 1.1rem;
-    color: var(--gray-subtle);
-    text-align: center;
-    font-family: 'Space Mono', monospace;
-    border: 1px dashed var(--gray-subtle);
-    padding: 4rem 2rem;
-    border-radius: 5px;
-    margin: 2rem auto;
-    max-width: 800px;
-}
-
-.construction-title {
-    display: block;
-    color: var(--accent-color);
-    margin-bottom: 2rem;
-    font-size: 1.2rem;
-}
-
 /* =========================================
    6. SECTIONS SPÉCIFIQUES
    ========================================= */
@@ -397,15 +398,6 @@ section h3.section-subtitle {
     margin-bottom: 0.5rem;
     font-family: 'Space Mono', monospace;
     font-size: 0.9rem;
-}
-
-.about-text .btn {
-    min-width: 250px;
-    text-align: center;
-    justify-content: center;
-    display: inline-flex;
-    align-items: center;
-    margin-bottom: 10px;
 }
 
 /* --- Skills --- */
@@ -775,25 +767,8 @@ section h3.section-subtitle {
 .diploma-card li { margin-bottom: 0.5rem; }
 
 .btn-doc {
-    display: inline-block;
     margin-top: auto; 
     align-self: flex-start;
-    padding: 10px 20px;
-    background-color: var(--accent-darker);
-    color: #ffffff;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    text-align: center;
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
-}
-
-.btn-doc:hover {
-    background-color: var(--accent-color);
-    color: #0f172a;
-    border-color: var(--accent-color);
-    box-shadow: 0 0 15px var(--accent-glow);
 }
 
 /* --- Contact Form --- */
@@ -852,25 +827,7 @@ section h3.section-subtitle {
 
 .submit-btn {
     grid-column: 1 / -1;
-    background: var(--accent-darker);
-    color: var(--text-white);
-    font-family: 'Space Mono', monospace;
-    font-size: 1.2rem;
-    font-weight: 700;
-    border: 2px solid transparent;
-    padding: 1rem 2rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-shadow: none;
-}
-
-.submit-btn:hover {
-    transform: translateY(-3px);
-    background: transparent;
-    color: var(--accent-color);
-    box-shadow: 0 0 20px var(--accent-glow);
-    border-color: var(--accent-color);
+    width: 100%; /* Le bouton prend toute la largeur du formulaire */
 }
 
 /* =========================================
@@ -962,7 +919,7 @@ footer {
     .timeline-item { padding: 1.5rem; }
 }
 
-/* Lien actif (Menu Mobile) - CORRIGÉ : SUPPRESSION DE LA BORDURE PARASITE */
+/* Lien actif (Menu Mobile) - Suppression bordure parasite */
 nav ul li a.active {
     color: var(--accent-color);
     font-weight: bold;
@@ -1026,7 +983,7 @@ footer .secret-link:active {
    10. AJOUTS DECORATION
    ========================================= */
 
-/* --- Correctif Badge : Force le passage à la ligne et style rectangulaire --- */
+/* --- 1. Badge "Open to Work" (Rectangle 10px) --- */
 .status-badge {
     display: flex;
     align-items: center;
@@ -1037,13 +994,10 @@ footer .secret-link:active {
     margin-top: 2rem;
     margin-bottom: 0;
 
-    /* --- Le style (Couleurs Vertes & Forme Rectangulaire) --- */
     background: rgba(16, 185, 129, 0.1);
     border: 1px solid rgba(16, 185, 129, 0.4);
     padding: 8px 16px;
-    
-    /* MODIFICATION ICI : 10px au lieu de 20px */
-    border-radius: 10px; 
+    border-radius: 10px; /* RECTANGLE */
     
     font-size: 0.9rem;
     color: #10b981;
@@ -1083,14 +1037,13 @@ footer .secret-link:active {
 .glow-right { bottom: 10%; right: -150px; background: radial-gradient(circle, rgba(16, 185, 129, 0.08) 0%, transparent 70%); }
 
 /* =========================================
-   11. BARRE TECH & FOOTER SOCIAL (NOUVEAU)
+   11. BARRE TECH & FOOTER SOCIAL
    ========================================= */
 
-/* --- Barre Tech (Hero) - RETOUR STYLE VERRE --- */
+/* --- Barre Tech (Hero) - STYLE VERRE PILULE (RESTORÉ) --- */
 .hero-tech-bar {
     margin-top: 3rem; 
     
-    /* --- RETOUR À L'EFFET ORIGINAL (VERRE/PILULE) --- */
     background: rgba(30, 41, 59, 0.6);   /* Fond sombre semi-transparent */
     border: 1px solid rgba(56, 189, 248, 0.2); /* Fine bordure bleue */
     backdrop-filter: blur(8px);          /* Effet de flou derrière */
@@ -1102,7 +1055,6 @@ footer .secret-link:active {
     align-items: center;
     gap: 1.5rem;
     
-    /* Animation d'apparition */
     opacity: 0;
     animation: fadeInUp 0.8s ease-out 0.5s forwards;
     
@@ -1132,16 +1084,11 @@ footer .secret-link:active {
     filter: grayscale(100%) brightness(1.2) contrast(0.8);
     opacity: 0.7;
     transition: all 0.3s ease;
-    
-    /* MODIFICATION ICI : On remet la flèche normale */
     cursor: default; 
 }
 
-/* Effet au survol : couleur + lueur */
 .tech-icons img:hover {
-    /* On met tout sur la même ligne filter */
     filter: grayscale(0%) brightness(1) drop-shadow(0 0 8px rgba(56, 189, 248, 0.6));
-    
     opacity: 1;
     transform: scale(1.15) translateY(-2px);
 }
@@ -1310,67 +1257,29 @@ footer .secret-link:active {
 }
 
 /* =========================================
-   BOUTONS À PROPOS (STYLE PLEIN & LIGNE & RECTANGLE)
+   BOUTONS À PROPOS (LAYOUT SEULEMENT)
    ========================================= */
+/* Le style visuel est hérité de .btn en section 5 */
 
-/* Le conteneur (prend toute la largeur maintenant) */
 .about-actions {
     display: flex;
-    flex-wrap: wrap;       /* Permet de passer à la ligne si l'écran est trop petit */
-    justify-content: center; /* CENTRE les boutons horizontalement */
-    gap: 2rem;             /* Espace plus large entre les boutons */
-    margin-top: 4rem;      /* Espace au-dessus */
+    flex-wrap: wrap;       
+    justify-content: center; 
+    gap: 2rem;             
+    margin-top: 4rem;      
     margin-bottom: 2rem;
-    width: 100%;           /* Force la pleine largeur */
+    width: 100%;           
 }
 
-/* Le style du bouton (Nouveau look) */
 .btn-action {
-    /* Taille fixe */
-    width: 250px;
+    width: 250px; /* Seule spécificité : la largeur fixe */
     height: 55px;
-
-    /* Alignement */
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
-
-    /* --- NOUVEAU STYLE (Fond Bleu + Forme Rectangulaire Adoucie) --- */
-    background: var(--accent-darker); 
-    border: 2px solid transparent;    
-    border-radius: 10px; /* MODIFICATION ICI : 10px au lieu de 50px */
-    
-    /* Texte */
-    color: #ffffff;
-    font-family: 'Space Mono', monospace;
-    font-size: 1rem;
-    font-weight: 700;
-    text-decoration: none;
-    
-    /* Effets */
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-}
-
-.btn-icon {
-    font-size: 1.3rem;
-    line-height: 1;
-}
-
-/* --- EFFET AU SURVOL (HOVER) --- */
-.btn-action:hover {
-    transform: translateY(-5px);
-    background: var(--accent-color); /* Devient bleu clair vif */
-    color: #0f172a;                  /* Texte devient sombre pour le contraste */
-    box-shadow: 0 0 25px var(--accent-glow);
-    border-color: var(--accent-color);
 }
 
 /* --- MOBILE --- */
 @media (max-width: 768px) {
     .about-actions {
-        flex-direction: column; /* Repasse en colonne sur mobile */
+        flex-direction: column; 
         align-items: center;
         gap: 1rem;
     }
