@@ -3,16 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parcours - Paul-Yann Bouvier</title>
+    <title>École & Entreprise - Paul-Yann Bouvier</title>
     <link rel="icon" href="/assets/images/logo.webp" type="image/webp">
     <link href="/style/css_google/css2.css" rel="stylesheet">
+    
     <link rel="stylesheet" href="/style/style.css">
     <link rel="stylesheet" href="/style/css_ecole-entreprise/ecole-entreprise.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
 </head>
 <body>
 
     <div class="scan-line left"></div>
     <div class="scan-line right"></div>
+    <div class="glow-bg glow-left" style="top: 15%; opacity: 0.4;"></div>
+    <div class="glow-bg glow-right" style="bottom: 20%; opacity: 0.4;"></div>
 
     <nav>
         <div class="nav-container">
@@ -33,52 +38,62 @@
     <main class="page-content">
         <section class="section-secondary-dark">
             <div class="container">
-                <h2>FORMATION ACTUELLE</h2>
                 
-                <h3 class="section-subtitle">Mon école : Ynov Campus</h3>
+                <div class="terminal-title">
+                    <span class="prompt">root@paulyann:~/ecole-entreprise#</span> <span class="command">./status.sh</span><span class="cursor">_</span>
+                </div>
                 
-                <div class="ynov-showcase is-visible">
-                    <img src="/assets/images/ynov.png" alt="Logo Ynov Paris" class="ynov-logo-large">
+                <h3 class="section-subtitle">Formation Actuelle</h3>
+                
+                <div class="glass-card ynov-card" data-tilt data-tilt-glare data-tilt-max-glare="0.1">
                     
-                    <div class="ynov-content">
+                    <div class="ynov-header">
+                        <div class="status-indicator online">
+                            <span class="dot"></span> En cours
+                        </div>
+                        <img src="/assets/images/ynov.png" alt="Logo Ynov Paris" class="ynov-logo-main">
+                    </div>
+
+                    <div class="ynov-body">
                         <h3>Paris YNOV Campus</h3>
-                        <p class="school-intro-text">
-                            Je poursuis actuellement mes études au sein de <strong>Paris YNOV Campus</strong>, une école supérieure spécialisée dans les métiers du numérique. Cette formation me permet d'allier théorie technique et projets concrets, dans un environnement dynamique et professionnalisant.
+                        <p class="school-desc">
+                            École supérieure spécialisée dans les métiers du numérique. Formation alliant théorie technique et projets concrets dans un environnement professionnalisant.
                         </p>
 
-                        <div class="ynov-details">
-                            <div class="ynov-detail-box">
-                                <h4>🎓 Cursus</h4>
-                                <p><strong>BTS SIO - Option SISR</strong><br>
-                                (Solutions d'Infrastructure, Systèmes et Réseaux)<br>
-                                <em>Promotion 2025 - 2027</em></p>
+                        <div class="specs-grid">
+                            <div class="spec-item">
+                                <span class="label">CURSUS</span>
+                                <span class="value">BTS SIO - Option SISR</span>
                             </div>
-
-                            <div class="ynov-detail-box">
-                                <h4>💻 Compétences Clés</h4>
-                                <p>
-                                - Administration Système (Windows/Linux)<br>
-                                - Cybersécurité & Réseaux<br>
-                                - Gestion de projets IT<br>
-                                - Virtualisation & Cloud
-                                </p>
+                            <div class="spec-item">
+                                <span class="label">PROMO</span>
+                                <span class="value">2025 - 2027</span>
                             </div>
-                            
-                            <div class="ynov-detail-box" style="grid-column: 1 / -1;">
-                                <h4>🚀 Pourquoi Ynov ?</h4>
-                                <p>J'ai choisi Ynov pour sa pédagogie par projets qui me prépare directement aux réalités du monde de l'entreprise, ainsi que pour ses infrastructures modernes permettant de travailler sur du matériel professionnel (Laboratoires Cisco, serveurs de virtualisation).</p>
+                            <div class="spec-item full-width">
+                                <span class="label">COMPÉTENCES CLÉS</span>
+                                <div class="skill-tags small-tags">
+                                    <span class="skill-tag">Admin Sys (Win/Linux)</span>
+                                    <span class="skill-tag">Cybersécurité</span>
+                                    <span class="skill-tag">Virtualisation</span>
+                                    <span class="skill-tag">Gestion Projet IT</span>
+                                </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
 
-                <div style="margin-top: 5rem;">
-                    <h3 class="section-subtitle">Entreprise</h3>
-                    <div class="placeholder-text">
-                        <span class="construction-title">[ Recherche d'Alternance ]</span>
-                        <p>Je suis actuellement à la recherche d'une alternance en tant que Technicien Systèmes et Réseaux pour mettre en application les compétences acquises chez Ynov.</p>
-                        <a href="/pages/contact.html" class="btn" style="margin-top: 1rem;">Me contacter</a>
+                <h3 class="section-subtitle" style="margin-top: 4rem;">Situation Professionnelle</h3>
+                
+                <div class="search-alert-card" data-tilt>
+                    <div class="alert-icon">📡</div>
+                    <div class="alert-content">
+                        <h4>RECHERCHE D'ALTERNANCE EN COURS...</h4>
+                        <p>Je suis actuellement à la recherche d'un poste de <strong>Technicien Systèmes et Réseaux</strong> en alternance (Rythme : 2j École / 3j Entreprise).</p>
+                        <p class="sub-text">Disponible pour échanger sur vos besoins et mes compétences.</p>
+                        
+                        <a href="/pages/contact.html" class="btn btn-action" style="margin-top: 1.5rem; width: auto;">
+                            📩 Me contacter
+                        </a>
                     </div>
                 </div>
 
@@ -87,7 +102,10 @@
     </main>
 
     <footer>
-        <p>&copy; 2025 Paul-Yann Bouvier - Portfolio BTS SIO SISR</p>
+        <p>
+            <a href="https://i.ibb.co/Mknrbj1N/IMG-4795.png" target="_blank" class="secret-link">&copy;</a> 
+            2025 Paul-Yann Bouvier - Portfolio BTS SIO SISR
+        </p>
     </footer>
     <script src="/script/script.js"></script>
 </body>
