@@ -97,7 +97,7 @@ nav a.active-link {
 
 /* --- STYLE DOUBLE LIGNE (ACTIVE & HOVER) --- */
 
-/* 1. Sécurité : On cache ::after pour éviter les doublons */
+/* 1. Sécurité : On cache ::after */
 nav a.active-link::after,
 nav a:hover::after {
     content: none !important;
@@ -109,16 +109,12 @@ nav a.active-link::before {
     content: '';
     position: absolute;
     width: 100%;
-    /* Hauteur totale : 1px ligne + 4px vide + 1px ligne = 6px */
     height: 6px;             
     background: transparent; 
-    /* Lignes FINES (1px) */
     border-top: 1px solid var(--accent-color); 
     border-bottom: 1px solid var(--accent-color);
-    /* Position */
     bottom: -6px; 
     left: 0;
-    /* Lueur légère */
     box-shadow: 0 0 5px var(--accent-glow);
     z-index: -1; 
 }
@@ -241,15 +237,15 @@ nav a:hover::before {
     margin-right: auto;
 }
 
-/* --- BOUTON PRINCIPAL (Hérite du style maître en section 5) --- */
+/* --- BOUTON PRINCIPAL (HERO) --- */
 .btn-primary {
-    margin-top: 2rem; /* Juste la marge spécifique */
+    margin-top: 2rem; /* Juste la marge, le reste vient du style maître */
 }
 
 /* =========================================
-   5. COMPOSANTS GENERAUX (STYLE MAÎTRE BOUTONS)
+   5. COMPOSANTS GENERAUX (STYLE MAÎTRE UNIFIÉ)
    ========================================= */
-/* CIBLE TOUS LES BOUTONS DU SITE POUR UNIFORMISER */
+/* CIBLE TOUS LES BOUTONS DU SITE ICI */
 .btn, 
 .btn-primary, 
 .btn-action, 
@@ -261,9 +257,6 @@ nav a:hover::before {
     align-items: center;
     padding: 1rem 2rem;
     gap: 12px;
-
-    /* --- SECURITÉ TEXTE (AJOUTE ÇA) --- */
-    white-space: nowrap; /* Empêche le texte de passer à la ligne */
     
     /* --- STYLE VISUEL (RECTANGLE ADOUCI) --- */
     background: var(--accent-darker);
@@ -278,6 +271,7 @@ nav a:hover::before {
     text-decoration: none;
     text-shadow: none;
     cursor: pointer;
+    white-space: nowrap; /* Empêche le texte de passer à la ligne */
     
     /* --- EFFETS --- */
     transition: all 0.3s ease;
@@ -358,6 +352,25 @@ section h3.section-subtitle {
     border-bottom: 2px solid var(--accent-color);
     padding-bottom: 0.5rem;
     display: inline-block;
+}
+
+.placeholder-text {
+    font-size: 1.1rem;
+    color: var(--gray-subtle);
+    text-align: center;
+    font-family: 'Space Mono', monospace;
+    border: 1px dashed var(--gray-subtle);
+    padding: 4rem 2rem;
+    border-radius: 5px;
+    margin: 2rem auto;
+    max-width: 800px;
+}
+
+.construction-title {
+    display: block;
+    color: var(--accent-color);
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
 }
 
 /* =========================================
@@ -830,7 +843,7 @@ section h3.section-subtitle {
 
 .submit-btn {
     grid-column: 1 / -1;
-    width: 100%; /* Le bouton prend toute la largeur du formulaire */
+    width: 100%;
 }
 
 /* =========================================
@@ -922,7 +935,7 @@ footer {
     .timeline-item { padding: 1.5rem; }
 }
 
-/* Lien actif (Menu Mobile) - Suppression bordure parasite */
+/* Lien actif (Menu Mobile) */
 nav ul li a.active {
     color: var(--accent-color);
     font-weight: bold;
@@ -986,7 +999,7 @@ footer .secret-link:active {
    10. AJOUTS DECORATION
    ========================================= */
 
-/* --- 1. Badge "Open to Work" (Rectangle 10px) --- */
+/* --- 1. Badge "Open to Work" (Rectangulaire 10px) --- */
 .status-badge {
     display: flex;
     align-items: center;
@@ -1043,14 +1056,14 @@ footer .secret-link:active {
    11. BARRE TECH & FOOTER SOCIAL
    ========================================= */
 
-/* --- Barre Tech (Hero) - STYLE VERRE PILULE (RESTORÉ) --- */
+/* --- Barre Tech (Hero) - STYLE VERRE PILULE (50px) --- */
 .hero-tech-bar {
     margin-top: 3rem; 
     
-    background: rgba(30, 41, 59, 0.6);   /* Fond sombre semi-transparent */
-    border: 1px solid rgba(56, 189, 248, 0.2); /* Fine bordure bleue */
-    backdrop-filter: blur(8px);          /* Effet de flou derrière */
-    border-radius: 50px;                 /* Bords très ronds (pilule) */
+    background: rgba(30, 41, 59, 0.6);   
+    border: 1px solid rgba(56, 189, 248, 0.2); 
+    backdrop-filter: blur(8px);          
+    border-radius: 50px; /* PILULE */
     
     padding: 0.8rem 1.5rem;
     
@@ -1143,7 +1156,7 @@ footer .secret-link:active {
    12. PAGE A PROPOS (NOUVEAU STYLE)
    ========================================= */
 
-/* --- Titre style Terminal --- */
+/* --- Titre style Terminal (Correction Double Curseur) --- */
 .terminal-title {
     font-family: 'Space Mono', monospace;
     font-size: 1.8rem;
@@ -1156,6 +1169,9 @@ footer .secret-link:active {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
     position: relative;
     z-index: 2;
+    white-space: nowrap; /* Ajout pour empêcher le retour à la ligne */
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .terminal-title .prompt {
@@ -1177,6 +1193,7 @@ footer .secret-link:active {
     animation: blinkCursor 1s infinite;
     margin-left: 5px;
     vertical-align: middle;
+    color: transparent; /* CORRECTION : Cache le caractère "_" pour éviter le doublon */
 }
 
 @keyframes blinkCursor {
