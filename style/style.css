@@ -1650,17 +1650,16 @@ body.contact-page .scan-line {
     position: relative;
     
     /* COULEUR VIBRANTE & GLOW INTENSE */
-    /* On utilise un dégradé plus lumineux, du bleu cyan vers un cyan très clair */
     background: linear-gradient(90deg, var(--accent-color), #a0e7ff);
     
     /* Ombre portée lumineuse pour l'effet néon */
     box-shadow: 0 0 15px var(--accent-glow);
 
-    /* MOTIF HACHURÉ PLUS CLAIR (Rayures blanches plus opaques) */
+    /* MOTIF HACHURÉ PLUS CLAIR */
     background-size: 20px 20px;
     background-image: linear-gradient(
         45deg,
-        rgba(255, 255, 255, 0.4) 25%, /* Plus opaque (0.4 au lieu de 0.15) */
+        rgba(255, 255, 255, 0.4) 25%, 
         transparent 25%,
         transparent 50%,
         rgba(255, 255, 255, 0.4) 50%,
@@ -1669,15 +1668,11 @@ body.contact-page .scan-line {
         transparent
     );
     
-    /* TRIPLE ANIMATION :
-       1. growBar : Remplit la barre (une seule fois au début)
-       2. stripe-move : Fait défiler les rayures (à l'infini)
-       3. barPulse : Fait pulser la lumière (à l'infini) pour que ça "bouge encore"
-    */
+    /* TRIPLE ANIMATION */
     animation: 
         growBar 2.5s ease-out forwards,
-        stripe-move 0.8s linear infinite, /* Un peu plus rapide pour l'énergie */
-        barPulse 1.5s ease-in-out infinite alternate; /* Nouvelle pulsation */
+        stripe-move 0.8s linear infinite, 
+        barPulse 1.5s ease-in-out infinite alternate; 
 }
 
 /* Animation de remplissage (0% -> 72%) */
@@ -1692,14 +1687,13 @@ body.contact-page .scan-line {
     100% { background-position: 20px 20px; }
 }
 
-/* NOUVELLE ANIMATION : Pulsation lumineuse */
+/* Animation Pulsation lumineuse */
 @keyframes barPulse {
     0% {
         box-shadow: 0 0 8px var(--accent-glow);
         filter: brightness(1);
     }
     100% {
-        /* Glow plus intense et un peu plus brillant */
         box-shadow: 0 0 25px var(--accent-color), 0 0 5px #ffffff;
         filter: brightness(1.2);
     }
