@@ -1375,3 +1375,57 @@ body.contact-page::after,
 body.contact-page .scan-line {
     display: none !important;
 }
+
+/* =========================================
+   NAVIGATION BAS DE PAGE (BTS SIO)
+   ========================================= */
+.next-steps {
+    margin-top: 5rem;
+    text-align: center;
+    position: relative;
+    padding-top: 2rem;
+}
+
+.terminal-line {
+    width: 100px;
+    height: 4px;
+    background: var(--accent-color);
+    margin: 0 auto 2rem auto;
+    border-radius: 2px;
+    box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.next-steps h3 {
+    font-family: 'Space Mono', monospace;
+    font-size: 1.8rem;
+    color: var(--text-white);
+    margin-bottom: 1rem;
+}
+
+.next-steps p {
+    color: var(--gray-subtle);
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.next-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+/* Adaptation Mobile */
+@media (max-width: 600px) {
+    .next-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .next-actions .btn {
+        width: 100%;
+        max-width: 280px;
+    }
+}
