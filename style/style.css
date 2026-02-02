@@ -1355,9 +1355,13 @@ body::after { right: 40px; }
     }
 }
 
-/* 2. Masquer sur la PAGE D'ACCUEIL (body.home-page) */
+/* 2. Masquer sur l'ACCUEIL et le CONTACT */
+/* On cible body.home-page ET body.contact-page */
 body.home-page::before,
 body.home-page::after,
-body.home-page .scan-line {
+body.home-page .scan-line,
+body.contact-page::before,
+body.contact-page::after,
+body.contact-page .scan-line {
     display: none !important;
 }
