@@ -7,11 +7,15 @@
     <link rel="icon" href="/assets/images/logo.webp" type="image/webp">
     <link href="/style/css_google/css2.css" rel="stylesheet">
     <link rel="stylesheet" href="/style/style.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
 </head>
 <body>
 
     <div class="scan-line left"></div>
     <div class="scan-line right"></div>
+    <div class="glow-bg glow-left" style="top: 15%; opacity: 0.4;"></div>
+    <div class="glow-bg glow-right" style="bottom: 20%; opacity: 0.4;"></div>
     
     <nav>
         <div class="nav-container">
@@ -30,20 +34,23 @@
     </nav>
 
     <main class="page-content">
-        <section>
+        <section class="section-secondary-dark">
             <div class="container">
-                <h2>PRÉSENTATION DU BTS SIO</h2>
+                
+                <div class="terminal-title">
+                    <span class="prompt">root@paulyann:~/bts-sio#</span> <span class="command">cat info.txt</span><span class="cursor">_</span>
+                </div>
                 
                 <div class="bts-intro">
-                    <h3>Qu'est-ce que le BTS SIO ?</h3>
+                    <h3 class="section-subtitle">Qu'est-ce que le BTS SIO ?</h3>
                     <p>Le <strong>BTS SIO (Services Informatiques aux Organisations)</strong> est un diplôme national de l'enseignement supérieur français. Il forme des informaticiens qui seront capables de gérer des parcs informatiques, d'administrer des réseaux, de développer des applications, de concevoir des bases de données et de sécuriser des systèmes d'information.</p>
                 </div>
                 
-                <h3 class="section-subtitle" style="margin-top: 0; text-align: center; display: block; width: 100%; border: none;">Quelles sont les différentes spécialités ?</h3>
+                <h3 class="section-subtitle">Les Deux Spécialités</h3>
                 
                 <div class="specs-container">
                     
-                    <div class="spec-block slam">
+                    <div class="spec-block slam" data-tilt data-tilt-glare data-tilt-max-glare="0.1">
                         <h3>SLAM</h3>
                         <p class="spec-desc">Solutions Logicielles et Applications Métiers. Cette spécialité forme des développeurs d'applications informatiques.</p>
                         <div class="deb-title">DÉBOUCHÉS</div>
@@ -58,8 +65,8 @@
 
                     <div class="spec-divider"></div>
 
-                    <div class="spec-block sisr">
-                        <h3>SISR <span class="specialty-badge">C'est ma spécialité !</span></h3>
+                    <div class="spec-block sisr" data-tilt data-tilt-glare data-tilt-max-glare="0.2">
+                        <h3>SISR <span class="specialty-badge">Mon choix</span></h3>
                         <p class="spec-desc">Solutions d'Infrastructure, Systèmes et Réseaux. Cette spécialité forme des administrateurs de réseaux et de systèmes.</p>
                         <div class="deb-title">DÉBOUCHÉS</div>
                         <ul class="job-list">
@@ -77,7 +84,10 @@
     </main>
 
     <footer>
-        <p>&copy; 2025 Paul-Yann Bouvier - Portfolio BTS SIO SISR</p>
+        <p>
+            <a href="https://i.ibb.co/Mknrbj1N/IMG-4795.png" target="_blank" class="secret-link">&copy;</a> 
+            2025 Paul-Yann Bouvier - Portfolio BTS SIO SISR
+        </p>
     </footer>
     <script src="/script/script.js"></script>
 </body>
