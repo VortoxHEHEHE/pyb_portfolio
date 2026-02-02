@@ -95,15 +95,47 @@ nav a.active-link {
     text-shadow: 0 0 8px var(--accent-glow);
 }
 
+/* --- Remplace ce bloc dans ton CSS --- */
 nav a.active-link::after {
     content: '';
     position: absolute;
     width: 100%;
-    height: 2px;
-    bottom: -5px;
+    
+    /* --- CONFIGURATION DOUBLE LIGNE --- */
+    height: 6px;             /* Hauteur totale (ligne 1 + espace + ligne 2) */
+    background: transparent; /* Fond transparent (très important) */
+    
+    /* On dessine les deux lignes via les bordures */
+    border-top: 2px solid var(--accent-color); 
+    border-bottom: 2px solid var(--accent-color);
+    
+    /* Positionnement */
+    bottom: -6px;            /* On descend un peu plus pour aérer */
     left: 0;
-    background-color: var(--accent-color);
-    box-shadow: 0 0 8px var(--accent-color);
+    
+    /* Lueur (Glow) ajustée pour ne pas flouter l'espace entre les lignes */
+    box-shadow: 0 0 5px var(--accent-glow);
+}
+
+nav a:hover::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 6px;
+    background: transparent;
+    border-top: 2px solid var(--accent-color);
+    border-bottom: 2px solid var(--accent-color);
+    bottom: -6px;
+    left: 0;
+    box-shadow: 0 0 8px var(--accent-glow);
+    
+    /* Animation d'apparition */
+    animation: expandLine 0.3s ease forwards;
+}
+
+@keyframes expandLine {
+    from { width: 0%; left: 50%; opacity: 0; }
+    to { width: 100%; left: 0; opacity: 1; }
 }
 
 .menu-toggle {
