@@ -1097,11 +1097,12 @@ footer .secret-link:active {
 .tech-icons img {
     height: 28px;
     width: auto;
-    /* Gris par défaut */
     filter: grayscale(100%) brightness(1.2) contrast(0.8);
     opacity: 0.7;
     transition: all 0.3s ease;
-    cursor: help;
+    
+    /* MODIFICATION ICI : On remet la flèche normale */
+    cursor: default; 
 }
 
 /* Effet au survol : couleur + lueur */
@@ -1156,14 +1157,111 @@ footer .secret-link:active {
     filter: drop-shadow(0 0 8px rgba(0, 119, 181, 0.6));
 }
 
-/* --- L'animation qui fait apparaître les éléments --- */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+/* =========================================
+   12. PAGE A PROPOS (NOUVEAU STYLE)
+   ========================================= */
+
+/* --- Titre style Terminal --- */
+.terminal-title {
+    font-family: 'Space Mono', monospace;
+    font-size: 1.8rem;
+    margin-bottom: 3rem;
+    background: rgba(15, 23, 42, 0.9);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    display: inline-block;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    position: relative;
+    z-index: 2;
+}
+
+.terminal-title .prompt {
+    color: #10b981; /* Vert "root" */
+    margin-right: 10px;
+    font-weight: 600;
+}
+
+.terminal-title .command {
+    color: var(--accent-color); /* Bleu Cyan */
+    font-weight: 700;
+}
+
+.terminal-title .cursor {
+    display: inline-block;
+    width: 10px;
+    height: 3px;
+    background-color: var(--text-light);
+    animation: blinkCursor 1s infinite;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+@keyframes blinkCursor {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* --- Panneau Specs Style "Dashboard" --- */
+.system-specs-panel {
+    background: rgba(30, 41, 59, 0.4);
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 2rem;
+    font-family: 'Space Mono', monospace;
+}
+
+.panel-header {
+    background: rgba(56, 189, 248, 0.1);
+    color: var(--accent-color);
+    padding: 8px 15px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-bottom: 1px solid rgba(56, 189, 248, 0.1);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.specs-list {
+    list-style: none;
+    padding: 1rem 1.5rem;
+    margin: 0;
+}
+
+.specs-list li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.8rem;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.4rem;
+}
+
+.specs-list li:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.spec-label {
+    color: var(--gray-subtle);
+    font-size: 0.9rem;
+}
+
+.spec-value {
+    color: var(--text-light);
+    font-weight: 600;
+    text-align: right;
+}
+
+.spec-value.status-ok {
+    color: #10b981; /* Vert validation */
+}
+
+/* Adaptation mobile pour le terminal */
+@media (max-width: 600px) {
+    .terminal-title {
+        font-size: 1.2rem;
+        width: 100%;
+        text-align: left;
     }
 }

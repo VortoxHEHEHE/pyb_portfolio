@@ -7,14 +7,20 @@
     <link rel="icon" href="/assets/images/logo.webp" type="image/webp">
     <link href="/style/css_google/css2.css" rel="stylesheet">
     <link rel="stylesheet" href="/style/style.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
 </head>
 <body>
+    
+    <div class="glow-bg glow-left" style="top: 15%; opacity: 0.4;"></div>
+    <div class="glow-bg glow-right" style="bottom: 20%; opacity: 0.4;"></div>
+
     <nav>
         <div class="nav-container">
             <div class="menu-toggle" id="mobile-menu"><span></span><span></span><span></span></div>
             <ul id="nav-list">
                 <li><a href="/">Accueil</a></li>
-                <li><a href="/pages/apropos.html">À propos</a></li>
+                <li><a href="/pages/apropos.html" class="active-link">À propos</a></li>
                 <li><a href="/pages/bts-sio.html">BTS SIO</a></li>
                 <li><a href="/pages/ecole-entreprise.html">École & Entreprise</a></li>
                 <li><a href="/pages/missions.html">Missions (U5)</a></li>
@@ -28,7 +34,10 @@
     <main class="page-content">
         <section class="section-secondary-dark">
             <div class="container">
-                <h2>À PROPOS</h2>
+                
+                <div class="terminal-title">
+                    <span class="prompt">root@paulyann:~#</span> <span class="command">./whoami</span><span class="cursor">_</span>
+                </div>
                 
                 <div class="about-content">
                     <div class="about-text">
@@ -36,28 +45,42 @@
                         <p>Passionné par l'informatique, je suis actuellement en BTS SIO option SISR. Je souhaite mettre en pratique mes compétences en administration systèmes, réseaux et sécurité.</p>
                         <p>Curieux et doté d'une forte capacité d'apprentissage, je souhaite évoluer aux côtés de professionnels et contribuer à des projets d'infrastructure concrets.</p>
                         
-                        <ul class="about-info-list">
-                            <li>📍 Rueil-Malmaison, Île-de-France</li>
-                            <li>🚗 Permis A et B</li>
-                            <li>🇬🇧 Anglais : Niveau B1</li>
-                            <li>🎮 Jeux vidéo : Stratégie & Coopération</li>
-                            <li>🎵 Musique : Rap US & FR</li>
-                        </ul>
+                        <div class="system-specs-panel">
+                            <div class="panel-header">USER_CONFIG.JSON</div>
+                            <ul class="specs-list">
+                                <li>
+                                    <span class="spec-label">LOCATION</span>
+                                    <span class="spec-value">Rueil-Malmaison (92)</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">DRIVER_LIC</span>
+                                    <span class="spec-value status-ok">Permis B & A</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">LANG_EN</span>
+                                    <span class="spec-value">Niveau B1 (Technique)</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">HOBBIES</span>
+                                    <span class="spec-value">Stratégie, Hardware, Rap</span>
+                                </li>
+                            </ul>
+                        </div>
 
-                        <div style="margin-top: 2rem;">
+                        <div style="margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 10px;">
                             <a href="/assets/docs/cv_paul-yann_bouvier.pdf" class="btn" target="_blank">📄 Consulter mon CV </a>
                             
-                            <a href="https://github.com/vortoxhehehe/pyb_portfolio" class="btn" target="_blank" style="margin-left: 10px; background-color: #24292e; border: 1px solid #24292e;">
+                            <a href="https://github.com/vortoxhehehe/pyb_portfolio" class="btn" target="_blank" style="background-color: #24292e; border: 1px solid #24292e;">
                                 👨‍💻 Code Source
                             </a>
 
-                            <a href="https://www.linkedin.com/in/paul-yann-bouvier-9a439b253/" class="btn" target="_blank" style="margin-left: 10px; background-color: #0077b5; border: 1px solid #0077b5;">
+                            <a href="https://www.linkedin.com/in/paul-yann-bouvier-9a439b253/" class="btn" target="_blank" style="background-color: #0077b5; border: 1px solid #0077b5;">
                                 🔗 LinkedIn
                             </a>
                         </div>
                     </div>
                     
-                    <div class="skills-grid glass-card">
+                    <div class="skills-grid glass-card" data-tilt data-tilt-glare data-tilt-max-glare="0.2">
                         <div class="skill-category">
                             <h4>Systèmes & Virtualisation</h4>
                             <div class="skill-tags">
@@ -167,7 +190,9 @@
     </main>
 
     <footer>
-        <p>&copy; 2025 Paul-Yann Bouvier - Portfolio BTS SIO SISR</p>
+        <p>
+            <a href="https://i.ibb.co/Mknrbj1N/IMG-4795.png" target="_blank" class="secret-link">&copy;</a> 
+            2025 Paul-Yann Bouvier - Portfolio BTS SIO SISR
         </p>
     </footer>
     <script src="/script/script.js"></script>
