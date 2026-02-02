@@ -345,8 +345,11 @@ section h3.section-subtitle {
     font-family: 'Space Mono', monospace;
     font-size: 2.2rem;
     font-weight: 600;
-    margin-top: 4rem;
+    
+    /* MODIF ESPACEMENT : Réduit de 4rem à 1rem pour rapprocher le titre */
+    margin-top: 1rem; 
     margin-bottom: 2rem;
+    
     text-align: left;
     color: var(--text-white);
     border-bottom: 2px solid var(--accent-color);
@@ -521,7 +524,10 @@ section h3.section-subtitle {
 .bts-intro {
     text-align: center;
     max-width: 900px;
-    margin: 0 auto 4rem auto;
+    
+    /* MODIF ESPACEMENT : Réduit de 4rem à 2rem pour réduire le trou */
+    margin: 0 auto 2rem auto; 
+    
     font-size: 1.1rem;
     line-height: 1.8;
 }
@@ -529,7 +535,8 @@ section h3.section-subtitle {
 .specs-container {
     display: flex;
     align-items: stretch;
-    gap: 2rem;
+    /* MODIF ESPACEMENT : Réduit de 2rem à 1rem pour rapprocher les cases */
+    gap: 1rem;
     justify-content: space-between;
 }
 
@@ -1160,7 +1167,10 @@ footer .secret-link:active {
 .terminal-title {
     font-family: 'Space Mono', monospace;
     font-size: 1.8rem;
-    margin-bottom: 3rem;
+    
+    /* MODIF ESPACEMENT : Réduit de 3rem à 1.5rem */
+    margin-bottom: 1.5rem;
+    
     background: rgba(15, 23, 42, 0.9);
     border: 1px solid rgba(56, 189, 248, 0.3);
     padding: 1rem 1.5rem;
