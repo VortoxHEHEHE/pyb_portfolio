@@ -681,11 +681,17 @@ section h3.section-subtitle {
 .timeline-item ul { margin-left: 1.5rem; margin-top: 0.5rem; }
 .timeline-item li { margin-bottom: 0.3rem; }
 
-/* --- Diplomas / Missions --- */
+/* =========================================
+   7. DIPLOMAS / MISSIONS (CORRIGÉ & ALIGNÉ)
+   ========================================= */
+
 .diploma-grid {
     display: grid;
+    /* Adaptation automatique : colonnes de min 280px */
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
+    /* Important : "stretch" force toutes les cases à avoir la même hauteur */
+    align-items: stretch; 
 }
 
 .diploma-card {
@@ -695,6 +701,11 @@ section h3.section-subtitle {
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     border-top: 4px solid var(--accent-color);
     transition: transform 0.3s, box-shadow 0.3s;
+    
+    /* --- FLEXBOX POUR L'ALIGNEMENT VERTICAL --- */
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* La carte prend 100% de la hauteur dispo dans la grille */
 }
 
 .diploma-card:hover {
@@ -719,9 +730,11 @@ section h3.section-subtitle {
     margin-bottom: 1rem;
     font-weight: 700;
     text-shadow: none;
+    /* On l'aligne à gauche (flex item) */
+    align-self: flex-start;
 }
 
-.diploma-status.ongoing { background: #10b981; color: #fff; } /* Vert émeraude pour "en cours" */
+.diploma-status.ongoing { background: #10b981; color: #fff; }
 
 .diploma-card p {
     color: var(--text-light);
@@ -737,9 +750,36 @@ section h3.section-subtitle {
     color: var(--text-light);
     padding-left: 1.5rem;
     margin-top: 1rem;
+    /* Marge en bas pour ne pas coller au bouton */
+    margin-bottom: 1.5rem;
 }
 
 .diploma-card li { margin-bottom: 0.5rem; }
+
+/* Bouton Documentation */
+.btn-doc {
+    display: inline-block;
+    /* LA COMMANDE MAGIQUE : Pousse le bouton tout en bas */
+    margin-top: auto; 
+    align-self: flex-start; /* Aligne le bouton à gauche */
+    
+    padding: 10px 20px;
+    background-color: var(--accent-darker);
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.btn-doc:hover {
+    background-color: var(--accent-color);
+    color: #0f172a;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 15px var(--accent-glow);
+}
 
 /* --- Contact Form --- */
 .contact-info-block {
@@ -819,7 +859,7 @@ section h3.section-subtitle {
 }
 
 /* =========================================
-   7. FOOTER
+   8. FOOTER
    ========================================= */
 footer {
     background: var(--background-dark);
@@ -832,9 +872,8 @@ footer {
 }
 
 /* =========================================
-   8. ANIMATIONS & MEDIA QUERIES
+   9. ANIMATIONS & MEDIA QUERIES
    ========================================= */
-/* Les animations restent les mêmes, juste les couleurs changent */
 
 .logo-item, .timeline-item, .diploma-card, .spec-block {
     opacity: 0;
@@ -914,25 +953,6 @@ nav ul li a.active {
     color: var(--accent-color);
     font-weight: bold;
     border-bottom: 2px solid var(--accent-color);
-}
-
-/* Bouton Documentation (Style par défaut conservé mais ajusté au bleu) */
-.btn-doc {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 10px 20px;
-    background-color: var(--accent-darker);
-    color: #ffffff;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    text-align: center;
-    transition: background 0.3s ease;
-}
-
-.btn-doc:hover {
-    background-color: var(--accent-color);
-    color: #0f172a;
 }
 
 /* --- CORRECTIONS PARTICULES & BODY --- */
