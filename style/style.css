@@ -39,7 +39,7 @@ body {
 }
 
 /* =========================================
-   3. NAVIGATION (Simplifiée : Sans double ligne)
+   3. NAVIGATION (Style Curseur Unique)
    ========================================= */
 nav {
     position: fixed;
@@ -79,23 +79,64 @@ nav a {
     text-decoration: none;
     color: var(--text-light);
     font-weight: 500;
-    transition: color 0.3s, text-shadow 0.3s; /* Transition fluide */
+    transition: color 0.3s;
     font-size: 1rem;
     position: relative;
     letter-spacing: 0.5px;
 }
 
-/* Style au survol */
+/* Style au survol (Glow) */
 nav a:hover {
     color: var(--accent-color);
-    text-shadow: 0 0 10px var(--accent-glow);
+    text-shadow: 0 0 8px var(--accent-glow);
 }
 
-/* Style lien actif (Page courante) */
+/* Style lien actif */
 nav a.active-link {
     color: var(--accent-color);
-    text-shadow: 0 0 10px var(--accent-glow);
-    font-weight: 700; /* Un peu plus gras pour marquer la page */
+    text-shadow: 0 0 8px var(--accent-glow);
+    font-weight: 700;
+}
+
+/* --- LE CURSEUR CLIGNOTANT (Ligne unique) --- */
+nav a.active-link::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px; /* Épaisseur du curseur */
+    background: var(--accent-color);
+    bottom: -4px; /* Position sous le texte */
+    left: 0;
+    
+    /* Lueur néon */
+    box-shadow: 0 0 8px var(--accent-glow);
+    
+    /* Animation de clignotement "Robotique" (Marche/Arrêt) */
+    animation: cursorBlink 1.2s infinite step-end;
+}
+
+/* Style Ligne au Survol (Animation d'expansion) */
+nav a:hover::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px; /* Plus fin au survol */
+    background: var(--accent-color);
+    bottom: -4px; 
+    left: 0;
+    box-shadow: 0 0 6px var(--accent-glow);
+    animation: expandLine 0.3s ease forwards;
+}
+
+/* --- Animations Navigation --- */
+@keyframes expandLine {
+    from { width: 0%; left: 50%; opacity: 0; }
+    to { width: 100%; left: 0; opacity: 1; }
+}
+
+@keyframes cursorBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }
 
 .menu-toggle {
@@ -1600,7 +1641,7 @@ body.contact-page .scan-line {
     border: 1px solid rgba(56, 189, 248, 0.2);
 }
 
-/* --- Barre de remplissage VIVANTE --- */
+/* --- Barre de remplissage VIVANTE (CORRIGÉE) --- */
 .loading-fill {
     height: 100%;
     width: 0%; /* Point de départ */
