@@ -39,7 +39,7 @@ body {
 }
 
 /* =========================================
-   3. NAVIGATION (Modifié : Curseur Clignotant)
+   3. NAVIGATION (Simplifiée : Sans double ligne)
    ========================================= */
 nav {
     position: fixed;
@@ -79,81 +79,23 @@ nav a {
     text-decoration: none;
     color: var(--text-light);
     font-weight: 500;
-    transition: color 0.3s;
+    transition: color 0.3s, text-shadow 0.3s; /* Transition fluide */
     font-size: 1rem;
     position: relative;
     letter-spacing: 0.5px;
 }
 
+/* Style au survol */
 nav a:hover {
     color: var(--accent-color);
-    text-shadow: 0 0 8px var(--accent-glow);
+    text-shadow: 0 0 10px var(--accent-glow);
 }
 
+/* Style lien actif (Page courante) */
 nav a.active-link {
     color: var(--accent-color);
-    text-shadow: 0 0 8px var(--accent-glow);
-}
-
-/* --- STYLE DOUBLE LIGNE (ACTIVE & HOVER) --- */
-
-/* 1. Sécurité : On cache ::after */
-nav a.active-link::after,
-nav a:hover::after {
-    content: none !important;
-    display: none;
-}
-
-/* 2. Style Double Ligne ACTIVE (Fines & Espacées) + ANIMATION CURSEUR */
-nav a.active-link::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 6px;             
-    background: transparent; 
-    border-top: 1px solid var(--accent-color); 
-    border-bottom: 1px solid var(--accent-color);
-    bottom: -6px; 
-    left: 0;
-    box-shadow: 0 0 5px var(--accent-glow);
-    z-index: -1; 
-    
-    /* Animation de clignotement robotique (step-end) */
-    animation: cursorBlink 1.2s infinite step-end;
-}
-
-/* 3. Style Double Ligne HOVER */
-nav a:hover::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 6px;
-    background: transparent;
-    border-top: 1px solid var(--accent-color);
-    border-bottom: 1px solid var(--accent-color);
-    bottom: -6px; 
-    left: 0;
-    box-shadow: 0 0 6px var(--accent-glow);
-    animation: expandLine 0.3s ease forwards;
-    z-index: -1;
-}
-
-/* --- ANIMATIONS NAVIGATION --- */
-
-@keyframes expandLine {
-    from { width: 0%; left: 50%; opacity: 0; }
-    to { width: 100%; left: 0; opacity: 1; }
-}
-
-@keyframes cursorBlink {
-    0%, 100% { 
-        opacity: 1; 
-        box-shadow: 0 0 8px var(--accent-color); 
-    }
-    50% { 
-        opacity: 0; 
-        box-shadow: none; 
-    }
+    text-shadow: 0 0 10px var(--accent-glow);
+    font-weight: 700; /* Un peu plus gras pour marquer la page */
 }
 
 .menu-toggle {
@@ -1658,7 +1600,7 @@ body.contact-page .scan-line {
     border: 1px solid rgba(56, 189, 248, 0.2);
 }
 
-/* --- Barre de remplissage VIVANTE (CORRIGÉE) --- */
+/* --- Barre de remplissage VIVANTE --- */
 .loading-fill {
     height: 100%;
     width: 0%; /* Point de départ */
