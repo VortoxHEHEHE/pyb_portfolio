@@ -972,7 +972,6 @@ footer {
 nav ul li a.active {
     color: var(--accent-color);
     font-weight: bold;
-    /* border-bottom: 2px solid var(--accent-color);  <-- C'était ça la ligne du milieu ! Je l'ai enlevée. */
     border-bottom: none; 
 }
 
@@ -1324,75 +1323,69 @@ footer .secret-link:active {
     }
 }
 
-/* --- CONTENEUR DES BOUTONS --- */
+/* =========================================
+   BOUTONS À PROPOS (STYLE PLEIN & LIGNE)
+   ========================================= */
+
+/* Le conteneur (prend toute la largeur maintenant) */
 .about-actions {
     display: flex;
-    flex-wrap: wrap; /* Permet de passer à la ligne sur petit écran */
-    gap: 1.5rem;     /* Espace entre les boutons */
-    margin-top: 2rem;
-    /* Optionnel : si tu veux centrer le groupe de boutons */
-    /* justify-content: center; */ 
+    flex-wrap: wrap;       /* Permet de passer à la ligne si l'écran est trop petit */
+    justify-content: center; /* CENTRE les boutons horizontalement */
+    gap: 2rem;             /* Espace plus large entre les boutons */
+    margin-top: 4rem;      /* Espace au-dessus */
+    margin-bottom: 2rem;
+    width: 100%;           /* Force la pleine largeur */
 }
 
-/* --- STYLE UNIFIÉ DES BOUTONS --- */
+/* Le style du bouton (Nouveau look) */
 .btn-action {
-    /* 1. FORCE LA MÊME TAILLE */
-    width: 260px;      /* Largeur fixe pour tous */
-    height: 55px;      /* Hauteur fixe pour tous */
-    
-    /* 2. ALIGNEMENT INTERNE */
+    /* Taille fixe */
+    width: 250px;
+    height: 55px;
+
+    /* Alignement */
     display: inline-flex;
-    justify-content: center; /* Centre horizontalement */
-    align-items: center;     /* Centre verticalement */
-    gap: 12px;               /* Espace entre l'icône et le texte */
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+
+    /* --- NOUVEAU STYLE (Fond Bleu) --- */
+    background: var(--accent-darker); /* Fond bleu foncé par défaut */
+    border: 2px solid transparent;    /* Pas de bordure visible, mais préparée */
+    border-radius: 50px;
     
-    /* 3. DESIGN TECH/GLASS */
-    background: rgba(30, 41, 59, 0.6); /* Fond sombre semi-transparent */
-    border: 1px solid var(--accent-color); /* Bordure bleue */
-    border-radius: 50px;     /* Bords arrondis */
-    color: var(--text-white);
-    text-decoration: none;
-    
+    /* Texte */
+    color: #ffffff;
     font-family: 'Space Mono', monospace;
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 700;
+    text-decoration: none;
     
-    /* Transition douce */
+    /* Effets */
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
+.btn-icon {
+    font-size: 1.3rem;
+    line-height: 1;
+}
+
 /* --- EFFET AU SURVOL (HOVER) --- */
 .btn-action:hover {
-    transform: translateY(-3px); /* Le bouton monte un peu */
-    background: var(--accent-color); /* Le fond devient bleu */
-    color: var(--background-dark);   /* Le texte devient foncé */
-    box-shadow: 0 0 20px var(--accent-glow); /* Lueur */
+    transform: translateY(-5px);
+    background: var(--accent-color); /* Devient bleu clair vif */
+    color: #0f172a;                  /* Texte devient sombre pour le contraste */
+    box-shadow: 0 0 25px var(--accent-glow);
     border-color: var(--accent-color);
 }
 
-/* --- GESTION DES ICÔNES (si tu utilises <img> ou <i>) --- */
-.btn-action i, 
-.btn-action img {
-    font-size: 1.2rem; /* Taille de l'icône FontAwesome */
-    width: auto;       /* Si c'est une image */
-    height: 20px;      /* Si c'est une image */
-    transition: transform 0.3s;
-}
-
-.btn-action:hover i,
-.btn-action:hover img {
-    transform: scale(1.2); /* L'icône grossit un peu au survol */
-}
-
-/* --- ADAPTATION MOBILE --- */
-@media (max-width: 600px) {
+/* --- MOBILE --- */
+@media (max-width: 768px) {
     .about-actions {
-        justify-content: center; /* Centre les boutons sur mobile */
-    }
-    
-    .btn-action {
-        width: 100%;       /* Prend toute la largeur sur très petit écran */
-        max-width: 300px;  /* Mais pas plus large que 300px */
+        flex-direction: column; /* Repasse en colonne sur mobile */
+        align-items: center;
+        gap: 1rem;
     }
 }
