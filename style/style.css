@@ -1642,7 +1642,7 @@ body.contact-page .scan-line {
     border: 1px solid rgba(56, 189, 248, 0.2);
 }
 
-/* --- Barre de remplissage VIVANTE (Nouvelle Version) --- */
+/* --- Barre de remplissage VIVANTE (FIXED) --- */
 .loading-fill {
     height: 100%;
     width: 0%; /* Point de départ */
@@ -1650,23 +1650,25 @@ body.contact-page .scan-line {
     position: relative;
     
     /* COULEUR VIBRANTE & GLOW INTENSE */
-    background: linear-gradient(90deg, var(--accent-color), #a0e7ff);
-    
-    /* Ombre portée lumineuse pour l'effet néon */
     box-shadow: 0 0 15px var(--accent-glow);
 
-    /* MOTIF HACHURÉ PLUS CLAIR */
-    background-size: 20px 20px;
-    background-image: linear-gradient(
-        45deg,
-        rgba(255, 255, 255, 0.4) 25%, 
-        transparent 25%,
-        transparent 50%,
-        rgba(255, 255, 255, 0.4) 50%,
-        rgba(255, 255, 255, 0.4) 75%,
-        transparent 75%,
-        transparent
-    );
+    /* COMBINAISON DES IMAGES (Rayures + Dégradé Cyan) */
+    background-image: 
+        linear-gradient(
+            45deg,
+            rgba(255, 255, 255, 0.4) 25%, 
+            transparent 25%,
+            transparent 50%,
+            rgba(255, 255, 255, 0.4) 50%,
+            rgba(255, 255, 255, 0.4) 75%,
+            transparent 75%,
+            transparent
+        ),
+        linear-gradient(90deg, var(--accent-color), #a0e7ff);
+    
+    /* Les tailles correspondantes (rayures, dégradé) */
+    background-size: 20px 20px, 100% 100%;
+    background-repeat: repeat, no-repeat;
     
     /* TRIPLE ANIMATION */
     animation: 
@@ -1683,8 +1685,8 @@ body.contact-page .scan-line {
 
 /* Animation des rayures */
 @keyframes stripe-move {
-    0% { background-position: 0 0; }
-    100% { background-position: 20px 20px; }
+    0% { background-position: 0 0, 0 0; }
+    100% { background-position: 20px 20px, 0 0; }
 }
 
 /* Animation Pulsation lumineuse */
