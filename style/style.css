@@ -39,7 +39,7 @@ body {
 }
 
 /* =========================================
-   3. NAVIGATION (CORRIGÉE - DOUBLE LIGNE FINE)
+   3. NAVIGATION
    ========================================= */
 nav {
     position: fixed;
@@ -97,32 +97,24 @@ nav a.active-link {
 
 /* --- STYLE DOUBLE LIGNE (ACTIVE & HOVER) --- */
 
-/* 1. Sécurité : On cache ::after pour éviter les doublons */
+/* 1. Sécurité */
 nav a.active-link::after,
 nav a:hover::after {
     content: none !important;
     display: none;
 }
 
-/* 2. Style Double Ligne ACTIVE (Fines & Espacées) */
+/* 2. Style Double Ligne ACTIVE */
 nav a.active-link::before {
     content: '';
     position: absolute;
     width: 100%;
-    
-    /* Hauteur totale : 1px ligne + 4px vide + 1px ligne = 6px */
     height: 6px;             
     background: transparent; 
-    
-    /* Lignes FINES (1px) */
     border-top: 1px solid var(--accent-color); 
     border-bottom: 1px solid var(--accent-color);
-    
-    /* Position */
     bottom: -6px; 
     left: 0;
-    
-    /* Lueur légère */
     box-shadow: 0 0 5px var(--accent-glow);
     z-index: -1; 
 }
@@ -134,14 +126,10 @@ nav a:hover::before {
     width: 100%;
     height: 6px;
     background: transparent;
-    
-    /* Lignes FINES (1px) */
     border-top: 1px solid var(--accent-color);
     border-bottom: 1px solid var(--accent-color);
-    
     bottom: -6px; 
     left: 0;
-    
     box-shadow: 0 0 6px var(--accent-glow);
     animation: expandLine 0.3s ease forwards;
     z-index: -1;
@@ -1324,7 +1312,7 @@ footer .secret-link:active {
 }
 
 /* =========================================
-   BOUTONS À PROPOS (STYLE PLEIN & LIGNE)
+   BOUTONS À PROPOS (STYLE PLEIN & LIGNE & RECTANGLE)
    ========================================= */
 
 /* Le conteneur (prend toute la largeur maintenant) */
@@ -1350,10 +1338,10 @@ footer .secret-link:active {
     align-items: center;
     gap: 12px;
 
-    /* --- NOUVEAU STYLE (Fond Bleu) --- */
-    background: var(--accent-darker); /* Fond bleu foncé par défaut */
-    border: 2px solid transparent;    /* Pas de bordure visible, mais préparée */
-    border-radius: 50px;
+    /* --- NOUVEAU STYLE (Fond Bleu + Forme Rectangulaire Adoucie) --- */
+    background: var(--accent-darker); 
+    border: 2px solid transparent;    
+    border-radius: 10px; /* MODIFICATION ICI : 10px au lieu de 50px */
     
     /* Texte */
     color: #ffffff;
