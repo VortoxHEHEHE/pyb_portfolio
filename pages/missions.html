@@ -3,15 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Missions E5 - Paul-Yann Bouvier</title>
+    <title>Missions U5 - Paul-Yann Bouvier</title>
     <link rel="icon" href="/assets/images/logo.webp" type="image/webp">
     <link href="/style/css_google/css2.css" rel="stylesheet">
     <link rel="stylesheet" href="/style/style.css">
+    
+    <link rel="stylesheet" href="/style/css_missions/missions.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
 </head>
 <body>
 
     <div class="scan-line left"></div>
     <div class="scan-line right"></div>
+    <div class="glow-bg glow-left" style="top: 15%; opacity: 0.4;"></div>
+    <div class="glow-bg glow-right" style="bottom: 20%; opacity: 0.4;"></div>
 
     <nav>
         <div class="nav-container">
@@ -30,57 +36,106 @@
     </nav>
 
     <main class="page-content">
-        <section>
+        <section class="section-secondary-dark">
             <div class="container">
-                <h2>MISSIONS (U5)</h2>
+                
+                <div class="terminal-title">
+                    <span class="prompt">root@paulyann:~/missions#</span> <span class="command">ls -la ./u5-reports/</span><span class="cursor">_</span>
+                </div>
+                
+                <h3 class="section-subtitle">Dossiers Techniques</h3>
                 
                 <div class="diploma-grid">
 
-                    <div class="diploma-card">
-                        <span class="diploma-status">Documentation Technique</span>
-                        <h3>Projet DHCP Server & Routage</h3>
-                        <p><strong>Atelier Réseau Cisco</strong></p>
-                        <p>Mise en œuvre d'une infrastructure avec distribution IP dynamique sur routeur et serveur autonome.</p>
-                        <p><strong>Compétences clés :</strong></p>
-                        <ul>
-                            <li>Config. DHCP & Relais (Helper)</li>
-                            <li>Routage Statique Inter-réseaux</li>
-                            <li>Segmentation (Masque /27)</li>
-                        </ul>
-                        <a href="/assets/docs/Projet_DHCP_Server.pdf" class="btn-doc" target="_blank">Voir le rapport</a>
+                    <div class="holographic-card" data-tilt data-tilt-glare data-tilt-max-glare="0.2">
+                        <div class="card-bg-icon">
+                            <img src="/assets/images/cisco.png" alt="Cisco">
+                        </div>
+
+                        <div class="card-header-line">
+                            <span class="mission-id">ID: MSN-001</span>
+                            <span class="mission-status success">VALIDATED</span>
+                        </div>
+
+                        <h3>Projet DHCP & Routage</h3>
+                        <p class="mission-context">Atelier Réseau Cisco</p>
+                        
+                        <p class="mission-desc">
+                            Mise en œuvre d'une infrastructure avec distribution IP dynamique sur routeur et serveur autonome.
+                        </p>
+                        
+                        <div class="mission-specs">
+                            <span class="spec-tag">Config DHCP</span>
+                            <span class="spec-tag">Relais IP</span>
+                            <span class="spec-tag">VLSM /27</span>
+                        </div>
+
+                        <a href="/assets/docs/Projet_DHCP_Server.pdf" class="btn-holo" target="_blank">
+                            📄 Voir le rapport
+                        </a>
                     </div>
 
-                    <div class="diploma-card">
-                        <span class="diploma-status">Documentation Technique</span>
-                        <h3>Routage Statique Cisco</h3>
-                        <p><strong>Lab Cisco Packet Tracer</strong></p>
-                        <p>Configuration manuelle de l'interconnexion entre deux réseaux LAN distants via une liaison WAN.</p>
-                        <p><strong>Compétences clés :</strong></p>
-                        <ul>
-                            <li>Config. Interfaces (Série & Ethernet)</li>
-                            <li>Implémentation Routes Statiques IPv4</li>
-                            <li>Diagnostic & Tables de routage</li>
-                        </ul>
-                        <a href="/assets/docs/Routage_Statique.pdf" class="btn-doc" target="_blank">Voir la doc</a>
+                    <div class="holographic-card" data-tilt data-tilt-glare data-tilt-max-glare="0.2">
+                        <div class="card-bg-icon">
+                            <img src="/assets/images/cisco.png" alt="Cisco">
+                        </div>
+
+                        <div class="card-header-line">
+                            <span class="mission-id">ID: MSN-002</span>
+                            <span class="mission-status success">VALIDATED</span>
+                        </div>
+
+                        <h3>Routage Statique</h3>
+                        <p class="mission-context">Lab Cisco Packet Tracer</p>
+                        
+                        <p class="mission-desc">
+                            Configuration manuelle de l'interconnexion entre deux réseaux LAN distants via une liaison WAN.
+                        </p>
+                        
+                        <div class="mission-specs">
+                            <span class="spec-tag">Interfaces Série</span>
+                            <span class="spec-tag">Routes IPv4</span>
+                            <span class="spec-tag">Diagnostic</span>
+                        </div>
+
+                        <a href="/assets/docs/Routage_Statique.pdf" class="btn-holo" target="_blank">
+                            📄 Voir la doc
+                        </a>
                     </div>
 
-                    <div class="diploma-card">
-                        <span class="diploma-status">Documentation Technique</span>
-                        <h3>Serveur Apache</h3>
-                        <p><strong>Apache Web Server</strong></p>
-                        <p>Installation et configuration d'un serveur web Apache sur un système Linux.</p>
-                        <p><strong>Compétences clés :</strong></p>
-                        <ul>
-                            <li>Installation & Configuration Apache</li>
-                            <li>Virtual Hosts & Réécriture d'URLs</li>
-                            <li>Sécurité & Gestion des Permissions</li>
-                        </ul>
-                        <a href="/assets/docs/Serveur_Apache.pdf" class="btn-doc" target="_blank">Voir la doc</a>
+                    <div class="holographic-card" data-tilt data-tilt-glare data-tilt-max-glare="0.2">
+                        <div class="card-bg-icon">
+                            <img src="/assets/images/linux.svg" alt="Linux">
+                        </div>
+
+                        <div class="card-header-line">
+                            <span class="mission-id">ID: MSN-003</span>
+                            <span class="mission-status success">VALIDATED</span>
+                        </div>
+
+                        <h3>Serveur Web Apache</h3>
+                        <p class="mission-context">Système Linux (Debian)</p>
+                        
+                        <p class="mission-desc">
+                            Installation et sécurisation d'un serveur web Apache pour l'hébergement de sites multiples.
+                        </p>
+                        
+                        <div class="mission-specs">
+                            <span class="spec-tag">Virtual Hosts</span>
+                            <span class="spec-tag">Permissions</span>
+                            <span class="spec-tag">Sécurité</span>
+                        </div>
+
+                        <a href="/assets/docs/Serveur_Apache.pdf" class="btn-holo" target="_blank">
+                            📄 Voir la doc
+                        </a>
                     </div>
 
-                </div> <div class="placeholder-text" style="margin-top: 3rem;">
-                    <span class="construction-title">[ Section en évolution ]</span>
-                    <p>Cette section sera enrichie avec les missions réalisées en entreprise pour l'épreuve E5 (Gestion de projet).</p>
+                </div>
+
+                <div class="placeholder-text" style="margin-top: 5rem;">
+                    <span class="construction-title">[ DATA STREAM LOADING... ]</span>
+                    <p>Cette section sera enrichie avec les missions réalisées en entreprise pour l'épreuve U5.</p>
                 </div>
             </div>
         </section>
