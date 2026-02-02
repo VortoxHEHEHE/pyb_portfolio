@@ -8,6 +8,7 @@
     <link href="/style/css_google/css2.css" rel="stylesheet">
     
     <link rel="stylesheet" href="/style/style.css">
+    
     <link rel="stylesheet" href="/style/css_veille/veille.css">
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
@@ -16,8 +17,10 @@
 
     <div class="scan-line left"></div>
     <div class="scan-line right"></div>
+
     <div class="glow-bg glow-left" style="top: 15%; opacity: 0.4;"></div>
     <div class="glow-bg glow-right" style="bottom: 20%; opacity: 0.4;"></div>
+
     <div class="side-data-flow left-flow"></div>
     <div class="side-data-flow right-flow"></div>
 
@@ -45,26 +48,26 @@
                     <span class="prompt">root@paulyann:~/veille#</span> <span class="command">./scan_targets.sh</span><span class="cursor">_</span>
                 </div>
                 
-                <div class="live-feed-section" style="border-top: none; margin-top: 2rem; min-height: 50vh; display: flex; flex-direction: column; justify-content: center;">
+                <div class="live-feed-section">
                     
-                    <div class="radar-container" style="width: 200px; height: 200px;">
+                    <div class="radar-container">
                         <div class="radar-circle"></div>
                         <div class="radar-scan"></div>
-                        </div>
+                    </div>
                     
                     <div class="feed-info">
-                        <h3 style="color: var(--accent-color); font-size: 1.8rem; margin-bottom: 1rem;">INITIALISATION DE LA VEILLE</h3>
+                        <h3>INITIALISATION DE LA VEILLE</h3>
                         
-                        <p style="color: var(--text-light); max-width: 600px; margin: 0 auto 2rem auto; font-size: 1.1rem;">
+                        <p>
                             Le sujet de l'épreuve E4 est en cours de définition.
                             <br><span style="color: var(--gray-subtle); font-size: 0.9rem;">(Analyse des tendances technologiques en cours...)</span>
                         </p>
                         
-                        <div class="console-output" style="max-width: 600px;">
+                        <div class="console-output">
                             <span class="line">> System ready.</span>
                             <span class="line">> Scanning sector "IT Security"... [NO TARGET]</span>
                             <span class="line">> Scanning sector "AI & Cloud"... [ANALYZING]</span>
-                            <span class="line" style="color: #ffaa00;">> Waiting for user selection... <span class="blink-dot" style="display:inline-block; width: 6px; height:6px; background:#ffaa00;"></span></span>
+                            <span class="line" style="color: #ffaa00;">> Waiting for user selection... <span class="blink-dot" style="background-color: #ffaa00;"></span></span>
                         </div>
                     </div>
                 </div>
