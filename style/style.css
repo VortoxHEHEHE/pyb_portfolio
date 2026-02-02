@@ -39,7 +39,7 @@ body {
 }
 
 /* =========================================
-   3. NAVIGATION
+   3. NAVIGATION (Modifié : Curseur Clignotant)
    ========================================= */
 nav {
     position: fixed;
@@ -104,7 +104,7 @@ nav a:hover::after {
     display: none;
 }
 
-/* 2. Style Double Ligne ACTIVE (Fines & Espacées) */
+/* 2. Style Double Ligne ACTIVE (Fines & Espacées) + ANIMATION CURSEUR */
 nav a.active-link::before {
     content: '';
     position: absolute;
@@ -117,6 +117,9 @@ nav a.active-link::before {
     left: 0;
     box-shadow: 0 0 5px var(--accent-glow);
     z-index: -1; 
+    
+    /* Animation de clignotement robotique (step-end) */
+    animation: cursorBlink 1.2s infinite step-end;
 }
 
 /* 3. Style Double Ligne HOVER */
@@ -135,9 +138,22 @@ nav a:hover::before {
     z-index: -1;
 }
 
+/* --- ANIMATIONS NAVIGATION --- */
+
 @keyframes expandLine {
     from { width: 0%; left: 50%; opacity: 0; }
     to { width: 100%; left: 0; opacity: 1; }
+}
+
+@keyframes cursorBlink {
+    0%, 100% { 
+        opacity: 1; 
+        box-shadow: 0 0 8px var(--accent-color); 
+    }
+    50% { 
+        opacity: 0; 
+        box-shadow: none; 
+    }
 }
 
 .menu-toggle {
