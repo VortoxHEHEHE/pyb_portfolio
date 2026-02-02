@@ -95,8 +95,15 @@ nav a.active-link {
     text-shadow: 0 0 8px var(--accent-glow);
 }
 
-/* --- Remplace ce bloc dans ton CSS --- */
+/* --- Remplace l'ENSEMBLE de ton bloc "nav a.active-link::after" avec ceci --- */
+
+/* 1. On SUPPRIME l'ancienne ligne unique du haut */
 nav a.active-link::after {
+    content: none; 
+}
+
+/* 2. On crée la nouvelle double ligne et on l'ajuste plus bas */
+nav a.active-link::before {
     content: '';
     position: absolute;
     width: 100%;
@@ -109,12 +116,38 @@ nav a.active-link::after {
     border-top: 2px solid var(--accent-color); 
     border-bottom: 2px solid var(--accent-color);
     
-    /* Positionnement */
-    bottom: -6px;            /* On descend un peu plus pour aérer */
+    /* --- AJUSTEMENT DE LA POSITION --- */
+    /* On descend le bloc de deux lignes plus bas */
+    bottom: -10px; 
     left: 0;
     
     /* Lueur (Glow) ajustée pour ne pas flouter l'espace entre les lignes */
     box-shadow: 0 0 5px var(--accent-glow);
+    
+    /* On s'assure que les lignes sont derrière le texte */
+    z-index: -1; 
+}
+
+/* --- (OPTIONNEL) Si tu veux l'animation au survol sur les autres liens --- */
+/* Ajoute ou remplace ceci aussi si tu veux que l'effet soit le même au survol */
+nav a:hover::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 6px;
+    background: transparent;
+    border-top: 2px solid var(--accent-color);
+    border-bottom: 2px solid var(--accent-color);
+    bottom: -10px; /* Même ajustement de position ici */
+    left: 0;
+    box-shadow: 0 0 8px var(--accent-glow);
+    animation: expandLine 0.3s ease forwards;
+    z-index: -1;
+}
+
+@keyframes expandLine {
+    from { width: 0%; left: 50%; opacity: 0; }
+    to { width: 100%; left: 0; opacity: 1; }
 }
 
 nav a:hover::after {
