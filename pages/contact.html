@@ -12,7 +12,9 @@
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
 </head>
-<body class="contact-page"> <div class="scan-line left"></div>
+<body class="contact-page">
+
+    <div class="scan-line left"></div>
     <div class="scan-line right"></div>
     <div class="glow-bg glow-left" style="top: 15%; opacity: 0.4;"></div>
     <div class="glow-bg glow-right" style="bottom: 20%; opacity: 0.4;"></div>
@@ -91,7 +93,7 @@
                             <span class="title">Secure Message Protocol</span>
                         </div>
                         
-                        <form action="https://formspree.io/f/manlrrlg" method="POST" class="contact-form">
+                        <form id="my-form" action="https://formspree.io/f/manlrrlg" method="POST" class="contact-form">
                             
                             <div class="form-row">
                                 <div class="form-group">
@@ -115,7 +117,9 @@
                                 <textarea id="message" name="message" rows="5" required placeholder="Initialisation du message..."></textarea>
                             </div>
 
-                            <button type="submit" class="btn submit-btn">
+                            <p id="my-form-status"></p>
+
+                            <button type="submit" id="my-form-button" class="btn submit-btn">
                                 <span class="btn-icon">🚀</span> TRANSMETTRE
                             </button>
                         </form>
@@ -134,5 +138,55 @@
         </p>
     </footer>
     <script src="/script/script.js"></script>
+
+    <script>
+        var form = document.getElementById("my-form");
+        
+        async function handleSubmit(event) {
+            event.preventDefault(); // Empêche la redirection
+            var status = document.getElementById("my-form-status");
+            var btn = document.getElementById("my-form-button");
+            var data = new FormData(event.target);
+            
+            // Animation de chargement sur le bouton
+            btn.innerHTML = "⏳ ENVOI EN COURS...";
+            btn.style.opacity = "0.7";
+
+            fetch(event.target.action, {
+                method: form.method,
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    // SUCCÈS : On remplace le formulaire par un message de succès
+                    form.innerHTML = `
+                        <div class="success-message">
+                            <div class="check-icon">✅</div>
+                            <h4>TRANSMISSION RÉUSSIE</h4>
+                            <p>Votre message a été crypté et envoyé au serveur sécurisé.</p>
+                            <p class="sub-success">Je vous répondrai dans les plus brefs délais.</p>
+                        </div>
+                    `;
+                } else {
+                    response.json().then(data => {
+                        if (Object.hasOwn(data, 'errors')) {
+                            status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
+                        } else {
+                            status.innerHTML = "Oups ! Il y a eu un problème lors de l'envoi.";
+                        }
+                        status.style.color = "#ff5f56";
+                        btn.innerHTML = "🚀 RÉESSAYER";
+                    });
+                }
+            }).catch(error => {
+                status.innerHTML = "Oups ! Il y a eu un problème réseau.";
+                status.style.color = "#ff5f56";
+                btn.innerHTML = "🚀 RÉESSAYER";
+            });
+        }
+        form.addEventListener("submit", handleSubmit);
+    </script>
 </body>
 </html>
