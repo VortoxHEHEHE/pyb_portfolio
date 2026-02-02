@@ -1642,7 +1642,7 @@ body.contact-page .scan-line {
     border: 1px solid rgba(56, 189, 248, 0.2);
 }
 
-/* --- Barre de remplissage VIVANTE (FIXED) --- */
+/* --- Barre de remplissage VIVANTE (CORRIGÉE) --- */
 .loading-fill {
     height: 100%;
     width: 0%; /* Point de départ */
@@ -1656,24 +1656,24 @@ body.contact-page .scan-line {
     background-image: 
         linear-gradient(
             45deg,
-            rgba(255, 255, 255, 0.4) 25%, 
+            rgba(255, 255, 255, 0.6) 25%, 
             transparent 25%,
             transparent 50%,
-            rgba(255, 255, 255, 0.4) 50%,
-            rgba(255, 255, 255, 0.4) 75%,
+            rgba(255, 255, 255, 0.6) 50%,
+            rgba(255, 255, 255, 0.6) 75%,
             transparent 75%,
             transparent
         ),
         linear-gradient(90deg, var(--accent-color), #a0e7ff);
     
-    /* Les tailles correspondantes (rayures, dégradé) */
-    background-size: 20px 20px, 100% 100%;
+    /* Les tailles correspondantes (grosses rayures, dégradé) */
+    background-size: 40px 40px, 100% 100%;
     background-repeat: repeat, no-repeat;
     
     /* TRIPLE ANIMATION */
     animation: 
         growBar 2.5s ease-out forwards,
-        stripe-move 0.8s linear infinite, 
+        stripe-move 1s linear infinite, 
         barPulse 1.5s ease-in-out infinite alternate; 
 }
 
@@ -1686,7 +1686,7 @@ body.contact-page .scan-line {
 /* Animation des rayures */
 @keyframes stripe-move {
     0% { background-position: 0 0, 0 0; }
-    100% { background-position: 20px 20px, 0 0; }
+    100% { background-position: 40px 0, 0 0; }
 }
 
 /* Animation Pulsation lumineuse */
