@@ -978,9 +978,12 @@ nav ul li a.active {
     background: transparent;
 }
 
+/* Remplace l'ancien code par celui-ci */
 body.home-page {
-    overflow: hidden;
-    height: 100vh;
+    overflow-x: hidden; /* On empêche juste le débordement horizontal */
+    overflow-y: auto;   /* On AUTORISE le scroll vertical */
+    height: auto;       /* La hauteur s'adapte au contenu */
+    min-height: 100vh;
 }
 
 body.home-page footer {
