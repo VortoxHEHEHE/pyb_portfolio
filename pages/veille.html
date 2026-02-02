@@ -6,13 +6,20 @@
     <title>Veille Technologique - Paul-Yann Bouvier</title>
     <link rel="icon" href="/assets/images/logo.webp" type="image/webp">
     <link href="/style/css_google/css2.css" rel="stylesheet">
+    
     <link rel="stylesheet" href="/style/style.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
 </head>
 <body>
 
     <div class="scan-line left"></div>
     <div class="scan-line right"></div>
-    
+    <div class="glow-bg glow-left" style="top: 15%; opacity: 0.4;"></div>
+    <div class="glow-bg glow-right" style="bottom: 20%; opacity: 0.4;"></div>
+    <div class="side-data-flow left-flow"></div>
+    <div class="side-data-flow right-flow"></div>
+
     <nav>
         <div class="nav-container">
             <div class="menu-toggle" id="mobile-menu"><span></span><span></span><span></span></div>
@@ -30,19 +37,72 @@
     </nav>
 
     <main class="page-content">
-        <section>
+        <section class="section-secondary-dark">
             <div class="container">
-                <h2>VEILLE TECHNOLOGIQUE</h2>
-                 <div class="placeholder-text">
-                    <span class="construction-title">[ Section en construction ]</span>
-                    <p>Retrouvez ici ma veille technologique et juridique (Epreuve E4).</p>
+                
+                <div class="terminal-title">
+                    <span class="prompt">root@paulyann:~/veille#</span> <span class="command">./start_monitoring.sh</span><span class="cursor">_</span>
                 </div>
+                
+                <h3 class="section-subtitle">Sujets sous Surveillance</h3>
+                
+                <div class="veille-topics-grid">
+                    
+                    <div class="topic-card holographic-card" data-tilt data-tilt-glare data-tilt-max-glare="0.2">
+                        <div class="topic-icon">🛡️</div>
+                        <h4>Cybersécurité</h4>
+                        <p>Analyses des nouvelles menaces (Ransomware, Phishing) et des stratégies de défense (Zero Trust).</p>
+                        <div class="topic-status"><span class="blink-dot"></span> Active Monitoring</div>
+                    </div>
+
+                    <div class="topic-card holographic-card" data-tilt data-tilt-glare data-tilt-max-glare="0.2">
+                        <div class="topic-icon">☁️</div>
+                        <h4>Cloud Computing</h4>
+                        <p>Évolution des infrastructures Azure/AWS et des technologies de conteneurisation (Docker, K8s).</p>
+                        <div class="topic-status"><span class="blink-dot"></span> Active Monitoring</div>
+                    </div>
+
+                    <div class="topic-card holographic-card" data-tilt data-tilt-glare data-tilt-max-glare="0.2">
+                        <div class="topic-icon">⚖️</div>
+                        <h4>Veille Juridique</h4>
+                        <p>RGPD, lois sur la protection des données et régulations du numérique en France et UE.</p>
+                        <div class="topic-status"><span class="blink-dot"></span> Active Monitoring</div>
+                    </div>
+
+                </div>
+
+                <div class="live-feed-section" style="margin-top: 5rem;">
+                    <div class="radar-container">
+                        <div class="radar-circle"></div>
+                        <div class="radar-scan"></div>
+                        <div class="radar-blip blip-1"></div>
+                        <div class="radar-blip blip-2"></div>
+                    </div>
+                    
+                    <div class="feed-info">
+                        <h3 style="color: var(--accent-color);">FLUX D'INFORMATION</h3>
+                        <p style="color: var(--text-light); max-width: 600px; margin: 0 auto;">
+                            Récupération des flux RSS en cours...
+                            <br>Les derniers articles et analyses seront bientôt agrégés ici.
+                        </p>
+                        
+                        <div class="console-output">
+                            <span class="line">> Connecting to feeds... [OK]</span>
+                            <span class="line">> Parsing XML data... [WAITING]</span>
+                            <span class="line">> Filtering keywords... [PENDING]</span>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 Paul-Yann Bouvier - Portfolio BTS SIO SISR</p>
+        <p>
+            <a href="https://i.ibb.co/Mknrbj1N/IMG-4795.png" target="_blank" class="secret-link">&copy;</a> 
+            2025 Paul-Yann Bouvier - Portfolio BTS SIO SISR
+        </p>
     </footer>
     <script src="/script/script.js"></script>
 </body>
