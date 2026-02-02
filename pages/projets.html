@@ -6,13 +6,20 @@
     <title>Projets U6 - Paul-Yann Bouvier</title>
     <link rel="icon" href="/assets/images/logo.webp" type="image/webp">
     <link href="/style/css_google/css2.css" rel="stylesheet">
+    
     <link rel="stylesheet" href="/style/style.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
 </head>
 <body>
 
     <div class="scan-line left"></div>
     <div class="scan-line right"></div>
-    
+    <div class="glow-bg glow-left" style="top: 15%; opacity: 0.4;"></div>
+    <div class="glow-bg glow-right" style="bottom: 20%; opacity: 0.4;"></div>
+    <div class="side-data-flow left-flow"></div>
+    <div class="side-data-flow right-flow"></div>
+
     <nav>
         <div class="nav-container">
             <div class="menu-toggle" id="mobile-menu"><span></span><span></span><span></span></div>
@@ -32,17 +39,59 @@
     <main class="page-content">
         <section class="section-secondary-dark">
             <div class="container">
-                <h2>PROJETS (U6)</h2>
-                <div class="placeholder-text">
-                    <span class="construction-title">[ Section en construction ]</span>
-                    <p>Cette section présentera les projets réalisés pour l'épreuve U6 (Parcours de professionnalisation).</p>
+                
+                <div class="terminal-title">
+                    <span class="prompt">root@paulyann:~/projets#</span> <span class="command">git status</span><span class="cursor">_</span>
                 </div>
+                
+                <h3 class="section-subtitle">Projets de Professionnalisation</h3>
+                
+                <div class="wip-container" style="max-width: 700px; margin: 0 auto;">
+                    
+                    <div class="holographic-card" data-tilt data-tilt-glare data-tilt-max-glare="0.1">
+                        <div class="card-bg-icon">
+                            <img src="/assets/images/git.svg" alt="Git" style="opacity: 0.2;">
+                        </div>
+
+                        <div class="wip-content" style="text-align: center; padding: 2rem 0;">
+                            <div class="wip-icon" style="font-size: 3rem; margin-bottom: 1rem;">🚧</div>
+                            
+                            <h3 style="color: var(--accent-color); margin-bottom: 1rem;">DÉPLOIEMENT EN COURS</h3>
+                            
+                            <p style="color: var(--text-light); margin-bottom: 2rem;">
+                                Les projets de l'épreuve U6 sont en cours de documentation et de mise en ligne.
+                                <br>Revenez bientôt pour découvrir mes réalisations.
+                            </p>
+
+                            <div class="loading-bar-container">
+                                <div class="loading-label">
+                                    <span>UPLOADING DATA...</span>
+                                    <span>72%</span>
+                                </div>
+                                <div class="loading-track">
+                                    <div class="loading-fill"></div>
+                                </div>
+                            </div>
+
+                            <div style="margin-top: 3rem;">
+                                <a href="/pages/contact.html" class="btn">
+                                    📩 Me prévenir quand c'est prêt
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 Paul-Yann Bouvier - Portfolio BTS SIO SISR</p>
+        <p>
+            <a href="https://i.ibb.co/Mknrbj1N/IMG-4795.png" target="_blank" class="secret-link">&copy;</a> 
+            2025 Paul-Yann Bouvier - Portfolio BTS SIO SISR
+        </p>
     </footer>
     <script src="/script/script.js"></script>
 </body>
