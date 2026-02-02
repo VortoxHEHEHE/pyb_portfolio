@@ -1086,14 +1086,15 @@ footer .secret-link:active {
    11. BARRE TECH & FOOTER SOCIAL (NOUVEAU)
    ========================================= */
 
-/* --- Barre Tech (Hero) - NOUVEAU STYLE --- */
+/* --- Barre Tech (Hero) - RETOUR STYLE VERRE --- */
 .hero-tech-bar {
-    margin-top: 3rem;
+    margin-top: 3rem; 
     
-    /* NOUVEAU STYLE : Fond bleu foncé uni et coins adoucis */
-    background: var(--accent-darker); /* Remplace l'effet verre */
-    border-radius: 10px; /* Remplace 50px par 10px */
-    /* On enlève le border et le backdrop-filter qui ne servent plus */
+    /* --- RETOUR À L'EFFET ORIGINAL (VERRE/PILULE) --- */
+    background: rgba(30, 41, 59, 0.6);   /* Fond sombre semi-transparent */
+    border: 1px solid rgba(56, 189, 248, 0.2); /* Fine bordure bleue */
+    backdrop-filter: blur(8px);          /* Effet de flou derrière */
+    border-radius: 50px;                 /* Bords très ronds (pilule) */
     
     padding: 0.8rem 1.5rem;
     
@@ -1101,7 +1102,7 @@ footer .secret-link:active {
     align-items: center;
     gap: 1.5rem;
     
-    /* Animation d'apparition (inchangée) */
+    /* Animation d'apparition */
     opacity: 0;
     animation: fadeInUp 0.8s ease-out 0.5s forwards;
     
