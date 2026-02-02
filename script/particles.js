@@ -1,14 +1,20 @@
+/* =========================================
+   ANIMATION PARTICULES - VERSION TECH BLUE
+   ========================================= */
+
 const canvas = document.getElementById('particles-canvas');
 const ctx = canvas.getContext('2d');
 
 let particlesArray;
 
-// Réglages (Tu peux modifier ces valeurs !)
-const numberOfParticles = 80; // Nombre de points
-const connectionDistance = 120; // Distance pour tracer les lignes
-const particleSpeed = 0.5; // Vitesse de déplacement
-const particleColor = 'rgba(0, 255, 0, 0.8)'; // Couleur des points (Vert)
-const lineColor = 'rgba(0, 255, 0,'; // Couleur des lignes (sans l'opacité)
+// --- RÉGLAGES (Palette Bleu Cyan) ---
+const numberOfParticles = 80;    // Nombre de points
+const connectionDistance = 120;  // Distance pour tracer les lignes
+const particleSpeed = 0.4;       // Vitesse (Légèrement ralentie pour l'élégance)
+
+// COULEUR : rgb(56, 189, 248) correspond au #38bdf8 du CSS
+const particleColor = 'rgba(56, 189, 248, 0.7)'; // Bleu cyan avec transparence
+const lineColor = 'rgba(56, 189, 248,';         // Base pour les lignes (sans l'opacité)
 
 // Adapter la taille du canvas à l'écran
 canvas.width = window.innerWidth;
@@ -42,7 +48,15 @@ class Particle {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
         ctx.fillStyle = this.color;
+        
+        // Ajout d'une petite ombre (glow) bleue pour l'effet néon
+        ctx.shadowBlur = 5;
+        ctx.shadowColor = "rgba(56, 189, 248, 0.5)";
+        
         ctx.fill();
+        
+        // Reset de l'ombre pour ne pas impacter les lignes (performance)
+        ctx.shadowBlur = 0;
     }
 
     // Mettre à jour la position
@@ -55,9 +69,6 @@ class Particle {
             this.directionY = -this.directionY;
         }
 
-        // Interaction avec la souris (les points fuient ou sont attirés ?)
-        // Ici, on laisse juste le mouvement naturel
-        
         // Déplacement
         this.x += this.directionX;
         this.y += this.directionY;
@@ -70,9 +81,12 @@ class Particle {
 function init() {
     particlesArray = [];
     for (let i = 0; i < numberOfParticles; i++) {
-        let size = (Math.random() * 2) + 1; // Taille aléatoire
+        let size = (Math.random() * 2) + 1; // Taille aléatoire entre 1 et 3
+        
+        // Position aléatoire sans toucher les bords au démarrage
         let x = (Math.random() * ((innerWidth - size * 2) - (size * 2)) + size * 2);
         let y = (Math.random() * ((innerHeight - size * 2) - (size * 2)) + size * 2);
+        
         let directionX = (Math.random() * 2) - 1; // Vitesse X
         let directionY = (Math.random() * 2) - 1; // Vitesse Y
         let color = particleColor;
@@ -103,6 +117,8 @@ function connect() {
             // Lignes entre les particules
             if (distance < (connectionDistance * connectionDistance)) {
                 opacityValue = 1 - (distance / 15000);
+                
+                // Utilisation de la couleur bleue définie plus haut
                 ctx.strokeStyle = lineColor + opacityValue + ')';
                 ctx.lineWidth = 1;
                 ctx.beginPath();
@@ -113,18 +129,21 @@ function connect() {
         }
         
         // Lignes entre la souris et les particules (Effet interactif)
-        let dx = mouse.x - particlesArray[a].x;
-        let dy = mouse.y - particlesArray[a].y;
-        let mouseDistance = (dx*dx) + (dy*dy);
-        
-        if (mouseDistance < (mouse.radius * mouse.radius)) {
-             // Si la souris est proche, on dessine une ligne plus forte
-            ctx.strokeStyle = lineColor + '0.5)'; // Opacité fixe pour la souris
-            ctx.lineWidth = 1;
-            ctx.beginPath();
-            ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
-            ctx.lineTo(mouse.x, mouse.y);
-            ctx.stroke();
+        // Vérifie si la souris est sur l'écran (pas undefined)
+        if (mouse.x && mouse.y) {
+            let dx = mouse.x - particlesArray[a].x;
+            let dy = mouse.y - particlesArray[a].y;
+            let mouseDistance = (dx*dx) + (dy*dy);
+            
+            if (mouseDistance < (mouse.radius * mouse.radius)) {
+                // Si la souris est proche, on dessine une ligne plus forte
+                ctx.strokeStyle = lineColor + '0.4)'; // Opacité fixe légère
+                ctx.lineWidth = 1;
+                ctx.beginPath();
+                ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+                ctx.lineTo(mouse.x, mouse.y);
+                ctx.stroke();
+            }
         }
     }
 }
@@ -136,12 +155,12 @@ window.addEventListener('resize', function() {
     init();
 });
 
-// Lancer le script
-init();
-animate();
-
 // Reset la position de la souris quand elle sort de l'écran
 window.addEventListener('mouseout', function(){
     mouse.x = undefined;
     mouse.y = undefined;
 });
+
+// Lancer le script
+init();
+animate();
