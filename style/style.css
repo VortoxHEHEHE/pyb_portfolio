@@ -261,6 +261,9 @@ nav a:hover::before {
     align-items: center;
     padding: 1rem 2rem;
     gap: 12px;
+
+    /* --- SECURITÉ TEXTE (AJOUTE ÇA) --- */
+    white-space: nowrap; /* Empêche le texte de passer à la ligne */
     
     /* --- STYLE VISUEL (RECTANGLE ADOUCI) --- */
     background: var(--accent-darker);
