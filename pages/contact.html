@@ -6,10 +6,18 @@
     <title>Contact - Paul-Yann Bouvier</title>
     <link rel="icon" href="/assets/images/logo.webp" type="image/webp">
     <link href="/style/css_google/css2.css" rel="stylesheet">
+    
     <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" href="/style/css_contact/contact.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
 </head>
-<body class="contact-page">
-    <canvas id="particles-canvas"></canvas>
+<body class="contact-page"> <div class="scan-line left"></div>
+    <div class="scan-line right"></div>
+    <div class="glow-bg glow-left" style="top: 15%; opacity: 0.4;"></div>
+    <div class="glow-bg glow-right" style="bottom: 20%; opacity: 0.4;"></div>
+    <div class="side-data-flow left-flow"></div>
+    <div class="side-data-flow right-flow"></div>
 
     <nav>
         <div class="nav-container">
@@ -30,94 +38,101 @@
     <main class="page-content">
         <section class="section-secondary-dark">
             <div class="container">
-                <h2>CONTACT</h2>
                 
-                <div class="contact-info-block">
-                    <p>
-                        📞 06.64.59.69.04 
-                        <span>|</span> 
-                        ✉️ bouvier.py@gmail.com
-                    </p>
+                <div class="terminal-title">
+                    <span class="prompt">root@paulyann:~/contact#</span> <span class="command">./send_message.sh</span><span class="cursor">_</span>
                 </div>
+                
+                <h3 class="section-subtitle">Établir la Connexion</h3>
 
-                <form id="my-form" action="https://formspree.io/f/manlrrlg" method="POST" class="contact-form">
+                <div class="contact-layout">
                     
-                    <div class="form-group">
-                        <label for="prenom">Prénom</label>
-                        <input type="text" id="prenom" name="prenom" required>
+                    <div class="contact-info-panel holographic-card" data-tilt data-tilt-glare data-tilt-max-glare="0.1">
+                        <h4>COORDONNÉES</h4>
+                        <p class="info-desc">N'hésitez pas à me contacter pour toute opportunité d'alternance ou de collaboration.</p>
+                        
+                        <div class="info-item">
+                            <span class="icon">📞</span>
+                            <div class="details">
+                                <span class="label">MOBILE</span>
+                                <a href="tel:+33664596904" class="value">06.64.59.69.04</a>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <span class="icon">✉️</span>
+                            <div class="details">
+                                <span class="label">EMAIL</span>
+                                <a href="mailto:bouvier.py@gmail.com" class="value">bouvier.py@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <span class="icon">📍</span>
+                            <div class="details">
+                                <span class="label">LOCATION</span>
+                                <span class="value">Rueil-Malmaison (92)</span>
+                            </div>
+                        </div>
+                        
+                        <div class="social-connect">
+                            <a href="https://www.linkedin.com/in/paul-yann-bouvier-9a439b253/" target="_blank" class="social-btn">
+                                <img src="/assets/images/linkedin.png" alt="LinkedIn">
+                                LinkedIn Profile
+                            </a>
+                        </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="nom">Nom</label>
-                        <input type="text" id="nom" name="nom" required>
+                    <div class="contact-form-wrapper">
+                        <div class="form-header">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                            <span class="title">Secure Message Protocol</span>
+                        </div>
+                        
+                        <form action="https://formspree.io/f/xrbepbwj" method="POST" class="contact-form">
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="prenom">PRÉNOM <span class="req">*</span></label>
+                                    <input type="text" id="prenom" name="prenom" required placeholder="John">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="nom">NOM <span class="req">*</span></label>
+                                    <input type="text" id="nom" name="nom" required placeholder="Doe">
+                                </div>
+                            </div>
+
+                            <div class="form-group full-width">
+                                <label for="email">EMAIL <span class="req">*</span></label>
+                                <input type="email" id="email" name="email" required placeholder="john.doe@example.com">
+                            </div>
+
+                            <div class="form-group full-width">
+                                <label for="message">MESSAGE ENCRYPTED DATA <span class="req">*</span></label>
+                                <textarea id="message" name="message" rows="5" required placeholder="Initialisation du message..."></textarea>
+                            </div>
+
+                            <button type="submit" class="btn submit-btn">
+                                <span class="btn-icon">🚀</span> TRANSMETTRE
+                            </button>
+                        </form>
                     </div>
 
-                    <div class="form-group full-width">
-                        <label for="email">Votre Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-
-                    <div class="form-group full-width">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                    </div>
-
-                    <button id="my-form-button" class="submit-btn">Envoyer le message</button>
-                    
-                    <p id="my-form-status" class="full-width"></p>
-                </form>
+                </div>
 
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 Paul-Yann Bouvier - Portfolio BTS SIO SISR</p>
+        <p>
+            <a href="https://i.ibb.co/Mknrbj1N/IMG-4795.png" target="_blank" class="secret-link">&copy;</a> 
+            2025 Paul-Yann Bouvier - Portfolio BTS SIO SISR
+        </p>
     </footer>
-
     <script src="/script/script.js"></script>
-    <script src="/script/particles.js"></script>
-
-    <script>
-        var form = document.getElementById("my-form");
-        
-        async function handleSubmit(event) {
-            event.preventDefault(); // Bloque la redirection Formspree
-            var status = document.getElementById("my-form-status");
-            var data = new FormData(event.target);
-            
-            fetch(event.target.action, {
-                method: form.method,
-                body: data,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            }).then(response => {
-                if (response.ok) {
-                    // SUCCÈS : On affiche le message et on vide le formulaire
-                    status.innerHTML = "✅ Merci ! Votre message a bien été envoyé.";
-                    status.className = "full-width success"; // Ajoute la classe CSS verte
-                    status.style.display = "block"; // Force l'affichage
-                    form.reset(); // Vide les champs
-                } else {
-                    // ERREUR
-                    response.json().then(data => {
-                        if (Object.hasOwn(data, 'errors')) {
-                            status.innerHTML = "❌ " + data["errors"].map(error => error["message"]).join(", ");
-                        } else {
-                            status.innerHTML = "❌ Oups ! Il y a eu un problème lors de l'envoi.";
-                        }
-                        status.className = "full-width error"; // Ajoute la classe CSS rouge
-                        status.style.display = "block";
-                    })
-                }
-            }).catch(error => {
-                status.innerHTML = "❌ Oups ! Il y a eu un problème de connexion.";
-                status.className = "full-width error";
-                status.style.display = "block";
-            });
-        }
-        form.addEventListener("submit", handleSubmit);
-    </script>
 </body>
 </html>
