@@ -8,18 +8,14 @@
 }
 
 :root {
-    /* --- NOUVELLE PALETTE : TECH BLUE --- */
-    --background-dark: #0f172a;    /* Bleu nuit très sombre (Slate 900) */
-    --secondary-dark: #1e293b;     /* Bleu nuit un peu plus clair (Slate 800) */
-    
-    --text-light: #cbd5e1;         /* Gris clair bleuté pour le texte */
+    /* --- PALETTE : TECH BLUE --- */
+    --background-dark: #0f172a;    
+    --secondary-dark: #1e293b;     
+    --text-light: #cbd5e1;         
     --text-white: #ffffff;
-    
-    /* La couleur principale : Cyan Électrique (remplace le vert) */
-    --accent-color: #38bdf8;       /* Sky Blue 400 - Très lumineux sur fond sombre */
-    --accent-darker: #0284c7;      /* Sky Blue 600 - Pour les survols */
-    
-    --accent-glow: rgba(56, 189, 248, 0.4); /* Lueur bleue */
+    --accent-color: #38bdf8;       
+    --accent-darker: #0284c7;      
+    --accent-glow: rgba(56, 189, 248, 0.4); 
     --gray-subtle: #94a3b8;
 }
 
@@ -31,10 +27,7 @@ body {
     line-height: 1.6;
     color: var(--text-light);
     overflow-x: hidden;
-    
-    /* FOND SOMBRE : Dégradé subtil bleu nuit */
     background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
-    
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -52,7 +45,7 @@ nav {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(15, 23, 42, 0.90); /* Adapté au fond bleu nuit */
+    background: rgba(15, 23, 42, 0.90);
     backdrop-filter: blur(10px);
     box-shadow: 0 4px 20px rgba(0,0,0,0.3);
     transition: background-color 0.4s ease, box-shadow 0.4s ease;
@@ -97,7 +90,6 @@ nav a:hover {
     text-shadow: 0 0 8px var(--accent-glow);
 }
 
-/* --- STYLE LIEN ACTIF --- */
 nav a.active-link {
     color: var(--accent-color);
     text-shadow: 0 0 8px var(--accent-glow);
@@ -114,7 +106,6 @@ nav a.active-link::after {
     box-shadow: 0 0 8px var(--accent-color);
 }
 
-/* Bouton Hamburger */
 .menu-toggle {
     display: none;
     flex-direction: column;
@@ -151,7 +142,6 @@ nav a.active-link::after {
     overflow: hidden;
 }
 
-/* Scanline plus subtile et bleutée */
 .hero::before {
     content: '';
     position: absolute;
@@ -185,7 +175,6 @@ nav a.active-link::after {
     margin-bottom: 1rem;
     font-weight: 700;
     color: var(--text-white);
-    /* Ombre bleue */
     text-shadow: 0 0 20px rgba(56, 189, 248, 0.4); 
     line-height: 1.2;
 }
@@ -220,7 +209,7 @@ nav a.active-link::after {
     margin-top: 2rem;
     padding: 15px 35px;
     background-color: var(--accent-color);
-    color: #0f172a; /* Texte foncé sur bouton clair */
+    color: #0f172a;
     font-weight: 700;
     text-decoration: none;
     border-radius: 50px;
@@ -232,13 +221,12 @@ nav a.active-link::after {
 .btn-primary:hover {
     transform: translateY(-3px);
     box-shadow: 0 0 25px rgba(56, 189, 248, 0.7);
-    background-color: #7dd3fc; /* Plus clair au survol */
+    background-color: #7dd3fc;
 }
 
 /* =========================================
    5. COMPOSANTS GENERAUX
    ========================================= */
-/* Boutons Standards */
 .btn {
     display: inline-block;
     padding: 1rem 2.5rem;
@@ -261,7 +249,6 @@ nav a.active-link::after {
     border-color: var(--accent-color);
 }
 
-/* Sections */
 section { padding: 5rem 0; }
 
 .container {
@@ -274,7 +261,6 @@ section { padding: 5rem 0; }
     background: transparent; 
 }
 
-/* Titres */
 section h2 {
     font-family: 'Space Mono', monospace;
     font-size: 3rem;
@@ -311,7 +297,6 @@ section h3.section-subtitle {
     display: inline-block;
 }
 
-/* Placeholder */
 .placeholder-text {
     font-size: 1.1rem;
     color: var(--gray-subtle);
@@ -335,7 +320,7 @@ section h3.section-subtitle {
    6. SECTIONS SPÉCIFIQUES
    ========================================= */
 
-/* --- About Section --- */
+/* --- About --- */
 .about-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -383,14 +368,14 @@ section h3.section-subtitle {
     margin-bottom: 10px;
 }
 
-/* --- Skills & Cards --- */
+/* --- Skills --- */
 .skills-grid {
     display: grid;
     gap: 1.5rem;
 }
 
 .glass-card {
-    background: rgba(56, 189, 248, 0.05); /* Teinte bleutée très légère */
+    background: rgba(56, 189, 248, 0.05);
     backdrop-filter: blur(12px);
     border-radius: 15px;
     padding: 2rem;
@@ -484,7 +469,7 @@ section h3.section-subtitle {
     font-family: 'Space Mono', monospace;
 }
 
-/* --- BTS SIO Section --- */
+/* --- BTS SIO --- */
 .bts-intro {
     text-align: center;
     max-width: 900px;
@@ -682,15 +667,12 @@ section h3.section-subtitle {
 .timeline-item li { margin-bottom: 0.3rem; }
 
 /* =========================================
-   7. DIPLOMAS / MISSIONS (CORRIGÉ & ALIGNÉ)
+   7. DIPLOMAS / MISSIONS
    ========================================= */
-
 .diploma-grid {
     display: grid;
-    /* Adaptation automatique : colonnes de min 280px */
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
-    /* Important : "stretch" force toutes les cases à avoir la même hauteur */
     align-items: stretch; 
 }
 
@@ -701,11 +683,9 @@ section h3.section-subtitle {
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     border-top: 4px solid var(--accent-color);
     transition: transform 0.3s, box-shadow 0.3s;
-    
-    /* --- FLEXBOX POUR L'ALIGNEMENT VERTICAL --- */
     display: flex;
     flex-direction: column;
-    height: 100%; /* La carte prend 100% de la hauteur dispo dans la grille */
+    height: 100%;
 }
 
 .diploma-card:hover {
@@ -730,7 +710,6 @@ section h3.section-subtitle {
     margin-bottom: 1rem;
     font-weight: 700;
     text-shadow: none;
-    /* On l'aligne à gauche (flex item) */
     align-self: flex-start;
 }
 
@@ -750,19 +729,15 @@ section h3.section-subtitle {
     color: var(--text-light);
     padding-left: 1.5rem;
     margin-top: 1rem;
-    /* Marge en bas pour ne pas coller au bouton */
     margin-bottom: 1.5rem;
 }
 
 .diploma-card li { margin-bottom: 0.5rem; }
 
-/* Bouton Documentation */
 .btn-doc {
     display: inline-block;
-    /* LA COMMANDE MAGIQUE : Pousse le bouton tout en bas */
     margin-top: auto; 
-    align-self: flex-start; /* Aligne le bouton à gauche */
-    
+    align-self: flex-start;
     padding: 10px 20px;
     background-color: var(--accent-darker);
     color: #ffffff;
@@ -874,7 +849,6 @@ footer {
 /* =========================================
    9. ANIMATIONS & MEDIA QUERIES
    ========================================= */
-
 .logo-item, .timeline-item, .diploma-card, .spec-block {
     opacity: 0;
     transform: translateY(20px);
@@ -978,11 +952,10 @@ nav ul li a.active {
     background: transparent;
 }
 
-/* Remplace l'ancien code par celui-ci */
 body.home-page {
-    overflow-x: hidden; /* On empêche juste le débordement horizontal */
-    overflow-y: auto;   /* On AUTORISE le scroll vertical */
-    height: auto;       /* La hauteur s'adapte au contenu */
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: auto;
     min-height: 100vh;
 }
 
@@ -994,7 +967,7 @@ body.home-page footer {
     border-top: none;
 }
 
-/* EASTER EGG (Le lien caché) */
+/* EASTER EGG */
 footer .secret-link,
 footer .secret-link:hover,
 footer .secret-link:focus,
@@ -1010,10 +983,10 @@ footer .secret-link:active {
 }
 
 /* =========================================
-   10. AJOUTS DECORATION (Nouveau)
+   10. AJOUTS DECORATION
    ========================================= */
 
-/* --- 1. Badge "Open to Work" --- */
+/* --- 1. Badge "Open to Work" (VERSION BAS) --- */
 .status-badge {
     display: inline-flex;
     align-items: center;
@@ -1026,9 +999,9 @@ footer .secret-link:active {
     font-family: 'Space Mono', monospace;
     font-weight: 600;
     
-    /* C'est ici que ça se joue pour l'option BAS */
-    margin-top: 2rem;    /* Espace au-dessus */
-    margin-bottom: 0;    /* Pas d'espace en dessous */
+    /* MARGES POUR LE BAS */
+    margin-top: 2rem;    
+    margin-bottom: 0; 
 }
 
 .status-dot {
@@ -1047,62 +1020,7 @@ footer .secret-link:active {
     100% { opacity: 1; box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
 }
 
-/* --- 2. Souris de Scroll --- */
-.scroll-down {
-    position: absolute;
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    opacity: 0.8;
-    z-index: 10;
-}
-
-.mouse {
-    width: 30px;
-    height: 50px;
-    border: 2px solid var(--text-light);
-    border-radius: 20px;
-    margin-bottom: 10px;
-}
-
-.wheel {
-    width: 4px;
-    height: 8px;
-    background: var(--accent-color);
-    border-radius: 2px;
-    margin: 8px auto 0;
-    animation: scrollWheel 1.5s infinite;
-}
-
-.arrow-scroll span {
-    display: block;
-    width: 10px;
-    height: 10px;
-    border-bottom: 2px solid var(--text-light);
-    border-right: 2px solid var(--text-light);
-    transform: rotate(45deg);
-    margin: -5px auto;
-    animation: scrollArrow 1.5s infinite;
-}
-
-.arrow-scroll span:nth-child(2) { animation-delay: 0.2s; }
-.arrow-scroll span:nth-child(3) { animation-delay: 0.4s; }
-
-@keyframes scrollWheel {
-    0% { transform: translateY(0); opacity: 1; }
-    100% { transform: translateY(15px); opacity: 0; }
-}
-
-@keyframes scrollArrow {
-    0% { opacity: 0; transform: rotate(45deg) translate(-5px, -5px); }
-    50% { opacity: 1; }
-    100% { opacity: 0; transform: rotate(45deg) translate(5px, 5px); }
-}
-
-/* --- 3. Lueurs d'ambiance (Glow) --- */
+/* --- 2. Lueurs d'ambiance (Glow) --- */
 .glow-bg {
     position: absolute;
     width: 400px;
@@ -1110,7 +1028,7 @@ footer .secret-link:active {
     background: radial-gradient(circle, rgba(56, 189, 248, 0.1) 0%, transparent 70%);
     border-radius: 50%;
     pointer-events: none;
-    z-index: -1; /* Derrière le texte */
+    z-index: -1;
     filter: blur(60px);
 }
 
