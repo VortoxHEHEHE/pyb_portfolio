@@ -8,6 +8,7 @@
     <link href="/style/css_google/css2.css" rel="stylesheet">
     
     <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" href="/style/css_veille/veille.css">
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
 </head>
@@ -41,55 +42,29 @@
             <div class="container">
                 
                 <div class="terminal-title">
-                    <span class="prompt">root@paulyann:~/veille#</span> <span class="command">./start_monitoring.sh</span><span class="cursor">_</span>
+                    <span class="prompt">root@paulyann:~/veille#</span> <span class="command">./scan_targets.sh</span><span class="cursor">_</span>
                 </div>
                 
-                <h3 class="section-subtitle">Sujets sous Surveillance</h3>
-                
-                <div class="veille-topics-grid">
+                <div class="live-feed-section" style="border-top: none; margin-top: 2rem; min-height: 50vh; display: flex; flex-direction: column; justify-content: center;">
                     
-                    <div class="topic-card holographic-card" data-tilt data-tilt-glare data-tilt-max-glare="0.2">
-                        <div class="topic-icon">🛡️</div>
-                        <h4>Cybersécurité</h4>
-                        <p>Analyses des nouvelles menaces (Ransomware, Phishing) et des stratégies de défense (Zero Trust).</p>
-                        <div class="topic-status"><span class="blink-dot"></span> Active Monitoring</div>
-                    </div>
-
-                    <div class="topic-card holographic-card" data-tilt data-tilt-glare data-tilt-max-glare="0.2">
-                        <div class="topic-icon">☁️</div>
-                        <h4>Cloud Computing</h4>
-                        <p>Évolution des infrastructures Azure/AWS et des technologies de conteneurisation (Docker, K8s).</p>
-                        <div class="topic-status"><span class="blink-dot"></span> Active Monitoring</div>
-                    </div>
-
-                    <div class="topic-card holographic-card" data-tilt data-tilt-glare data-tilt-max-glare="0.2">
-                        <div class="topic-icon">⚖️</div>
-                        <h4>Veille Juridique</h4>
-                        <p>RGPD, lois sur la protection des données et régulations du numérique en France et UE.</p>
-                        <div class="topic-status"><span class="blink-dot"></span> Active Monitoring</div>
-                    </div>
-
-                </div>
-
-                <div class="live-feed-section" style="margin-top: 5rem;">
-                    <div class="radar-container">
+                    <div class="radar-container" style="width: 200px; height: 200px;">
                         <div class="radar-circle"></div>
                         <div class="radar-scan"></div>
-                        <div class="radar-blip blip-1"></div>
-                        <div class="radar-blip blip-2"></div>
-                    </div>
+                        </div>
                     
                     <div class="feed-info">
-                        <h3 style="color: var(--accent-color);">FLUX D'INFORMATION</h3>
-                        <p style="color: var(--text-light); max-width: 600px; margin: 0 auto;">
-                            Récupération des flux RSS en cours...
-                            <br>Les derniers articles et analyses seront bientôt agrégés ici.
+                        <h3 style="color: var(--accent-color); font-size: 1.8rem; margin-bottom: 1rem;">INITIALISATION DE LA VEILLE</h3>
+                        
+                        <p style="color: var(--text-light); max-width: 600px; margin: 0 auto 2rem auto; font-size: 1.1rem;">
+                            Le sujet de l'épreuve E4 est en cours de définition.
+                            <br><span style="color: var(--gray-subtle); font-size: 0.9rem;">(Analyse des tendances technologiques en cours...)</span>
                         </p>
                         
-                        <div class="console-output">
-                            <span class="line">> Connecting to feeds... [OK]</span>
-                            <span class="line">> Parsing XML data... [WAITING]</span>
-                            <span class="line">> Filtering keywords... [PENDING]</span>
+                        <div class="console-output" style="max-width: 600px;">
+                            <span class="line">> System ready.</span>
+                            <span class="line">> Scanning sector "IT Security"... [NO TARGET]</span>
+                            <span class="line">> Scanning sector "AI & Cloud"... [ANALYZING]</span>
+                            <span class="line" style="color: #ffaa00;">> Waiting for user selection... <span class="blink-dot" style="display:inline-block; width: 6px; height:6px; background:#ffaa00;"></span></span>
                         </div>
                     </div>
                 </div>
