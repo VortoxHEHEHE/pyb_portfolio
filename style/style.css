@@ -39,7 +39,7 @@ body {
 }
 
 /* =========================================
-   3. NAVIGATION (Style Curseur Unique)
+   3. NAVIGATION (Ligne Unique Clignotante)
    ========================================= */
 nav {
     position: fixed;
@@ -98,7 +98,7 @@ nav a.active-link {
     font-weight: 700;
 }
 
-/* --- LE CURSEUR CLIGNOTANT (Ligne unique) --- */
+/* --- LE CURSEUR CLIGNOTANT (Ligne unique sous le lien actif) --- */
 nav a.active-link::before {
     content: '';
     position: absolute;
@@ -112,7 +112,7 @@ nav a.active-link::before {
     box-shadow: 0 0 8px var(--accent-glow);
     
     /* Animation de clignotement "Robotique" (Marche/Arrêt) */
-    animation: cursorBlink 1.2s infinite step-end;
+    animation: navCursorBlink 1.2s infinite step-end;
 }
 
 /* Style Ligne au Survol (Animation d'expansion) */
@@ -134,7 +134,7 @@ nav a:hover::before {
     to { width: 100%; left: 0; opacity: 1; }
 }
 
-@keyframes cursorBlink {
+@keyframes navCursorBlink {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
 }
@@ -1239,17 +1239,22 @@ footer .secret-link:active {
     font-weight: 700;
 }
 
+/* --- Curseur Terminal Vertical (|) --- */
 .terminal-title .cursor {
     display: inline-block;
-    width: 10px;
-    height: 3px;
-    background-color: var(--text-light);
-    animation: blinkCursor 1s infinite;
+    width: 3px;             /* Largeur du trait vertical */
+    height: 1.2em;          /* Hauteur adaptée au texte */
+    background-color: var(--accent-color); /* Couleur Cyan */
+    
+    /* Animation "step-end" pour un clignotement net (pas de fondu) */
+    animation: blinkCursor 1s infinite step-end;
+    
     margin-left: 5px;
-    vertical-align: middle;
-    color: transparent; /* CORRECTION : Cache le caractère "_" pour éviter le doublon */
+    vertical-align: text-bottom; /* Aligné sur la ligne de texte */
+    color: transparent;     /* On cache le caractère "_" d'origine */
 }
 
+/* Animation Clignotement (Net) */
 @keyframes blinkCursor {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
@@ -1641,7 +1646,7 @@ body.contact-page .scan-line {
     border: 1px solid rgba(56, 189, 248, 0.2);
 }
 
-/* --- Barre de remplissage VIVANTE (CORRIGÉE) --- */
+/* --- Barre de remplissage VIVANTE --- */
 .loading-fill {
     height: 100%;
     width: 0%; /* Point de départ */
