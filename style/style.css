@@ -1323,3 +1323,76 @@ footer .secret-link:active {
         transform: translateY(0);
     }
 }
+
+/* --- CONTENEUR DES BOUTONS --- */
+.about-actions {
+    display: flex;
+    flex-wrap: wrap; /* Permet de passer à la ligne sur petit écran */
+    gap: 1.5rem;     /* Espace entre les boutons */
+    margin-top: 2rem;
+    /* Optionnel : si tu veux centrer le groupe de boutons */
+    /* justify-content: center; */ 
+}
+
+/* --- STYLE UNIFIÉ DES BOUTONS --- */
+.btn-action {
+    /* 1. FORCE LA MÊME TAILLE */
+    width: 260px;      /* Largeur fixe pour tous */
+    height: 55px;      /* Hauteur fixe pour tous */
+    
+    /* 2. ALIGNEMENT INTERNE */
+    display: inline-flex;
+    justify-content: center; /* Centre horizontalement */
+    align-items: center;     /* Centre verticalement */
+    gap: 12px;               /* Espace entre l'icône et le texte */
+    
+    /* 3. DESIGN TECH/GLASS */
+    background: rgba(30, 41, 59, 0.6); /* Fond sombre semi-transparent */
+    border: 1px solid var(--accent-color); /* Bordure bleue */
+    border-radius: 50px;     /* Bords arrondis */
+    color: var(--text-white);
+    text-decoration: none;
+    
+    font-family: 'Space Mono', monospace;
+    font-size: 1rem;
+    font-weight: 600;
+    
+    /* Transition douce */
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* --- EFFET AU SURVOL (HOVER) --- */
+.btn-action:hover {
+    transform: translateY(-3px); /* Le bouton monte un peu */
+    background: var(--accent-color); /* Le fond devient bleu */
+    color: var(--background-dark);   /* Le texte devient foncé */
+    box-shadow: 0 0 20px var(--accent-glow); /* Lueur */
+    border-color: var(--accent-color);
+}
+
+/* --- GESTION DES ICÔNES (si tu utilises <img> ou <i>) --- */
+.btn-action i, 
+.btn-action img {
+    font-size: 1.2rem; /* Taille de l'icône FontAwesome */
+    width: auto;       /* Si c'est une image */
+    height: 20px;      /* Si c'est une image */
+    transition: transform 0.3s;
+}
+
+.btn-action:hover i,
+.btn-action:hover img {
+    transform: scale(1.2); /* L'icône grossit un peu au survol */
+}
+
+/* --- ADAPTATION MOBILE --- */
+@media (max-width: 600px) {
+    .about-actions {
+        justify-content: center; /* Centre les boutons sur mobile */
+    }
+    
+    .btn-action {
+        width: 100%;       /* Prend toute la largeur sur très petit écran */
+        max-width: 300px;  /* Mais pas plus large que 300px */
+    }
+}
