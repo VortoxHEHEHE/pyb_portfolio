@@ -1059,6 +1059,51 @@ footer .secret-link:active {
 .glow-left { top: 20%; left: -150px; }
 .glow-right { bottom: 10%; right: -150px; background: radial-gradient(circle, rgba(16, 185, 129, 0.08) 0%, transparent 70%); }
 
+/* --- 3. SIDE DATA FLOWS (NOUVEAU) --- */
+.side-data-flow {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 70vh;
+    z-index: -1;
+    opacity: 0.3;
+    
+    background-image: repeating-linear-gradient(
+        to bottom,
+        var(--accent-color) 0px,
+        var(--accent-color) 3px,
+        transparent 3px,
+        transparent 15px
+    );
+    
+    filter: blur(1px) drop-shadow(0 0 5px var(--accent-color));
+    animation: pulseDataFlow 4s ease-in-out infinite alternate;
+}
+
+.side-data-flow.left-flow {
+    left: 60px;
+    border-left: 1px solid rgba(56, 189, 248, 0.1);
+}
+
+.side-data-flow.right-flow {
+    right: 60px;
+    border-right: 1px solid rgba(56, 189, 248, 0.1);
+    animation-delay: 2s;
+}
+
+@keyframes pulseDataFlow {
+    0% { opacity: 0.2; filter: blur(1px) drop-shadow(0 0 2px var(--accent-color)); }
+    100% { opacity: 0.5; filter: blur(1.5px) drop-shadow(0 0 8px var(--accent-color)); }
+}
+
+/* Masquer les décos sur mobile */
+@media (max-width: 1024px) {
+    .side-data-flow {
+        display: none !important;
+    }
+}
+
 /* =========================================
    11. BARRE TECH & FOOTER SOCIAL
    ========================================= */
@@ -1428,4 +1473,144 @@ body.contact-page .scan-line {
         width: 100%;
         max-width: 280px;
     }
+}
+
+/* =========================================
+   13. PAGE MISSIONS (CARTES HOLOGRAPHIQUES)
+   ========================================= */
+
+.holographic-card {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    border-radius: 12px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    transform-style: preserve-3d;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+/* Image de fond (Filigrane) */
+.card-bg-icon {
+    position: absolute;
+    top: -10px;
+    right: -20px;
+    width: 150px;
+    height: 150px;
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: 0;
+    transform: rotate(15deg);
+    transition: opacity 0.3s;
+}
+
+.card-bg-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: grayscale(100%);
+}
+
+.holographic-card:hover .card-bg-icon {
+    opacity: 0.15;
+}
+
+/* En-tête de la carte */
+.card-header-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.8rem;
+    z-index: 1;
+}
+
+.mission-id {
+    color: var(--gray-subtle);
+}
+
+.mission-status {
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+}
+
+.mission-status.success {
+    background: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    box-shadow: 0 0 5px rgba(16, 185, 129, 0.2);
+}
+
+/* Contenu */
+.holographic-card h3 {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+    z-index: 1;
+}
+
+.mission-context {
+    color: var(--text-white);
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    z-index: 1;
+}
+
+.mission-desc {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    z-index: 1;
+    flex-grow: 1;
+}
+
+/* Tags de compétences */
+.mission-specs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    z-index: 1;
+}
+
+.spec-tag {
+    background: rgba(56, 189, 248, 0.08);
+    color: var(--accent-color);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    border: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+/* Bouton spécifique "Holo" */
+.btn-holo {
+    display: block;
+    text-align: center;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-white);
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+    z-index: 1;
+}
+
+.btn-holo:hover {
+    background: var(--accent-color);
+    color: #0f172a;
+    box-shadow: 0 0 15px var(--accent-glow);
+    border-color: var(--accent-color);
 }
