@@ -1,0 +1,225 @@
+/* =========================================
+   STYLE SPÉCIFIQUE : PAGE CONTACT
+   ========================================= */
+
+/* --- Layout Principal (Grid 2 Colonnes) --- */
+.contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr; /* Infos plus petit, Form plus grand */
+    gap: 3rem;
+    align-items: start;
+    margin-top: 2rem;
+}
+
+/* --- Colonne Gauche : Infos (Holo Card) --- */
+.contact-info-panel {
+    /* Hérite de .holographic-card du style principal */
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.contact-info-panel h4 {
+    color: var(--accent-color);
+    font-family: 'Space Mono', monospace;
+    font-size: 1.4rem;
+    border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+    padding-bottom: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.info-desc {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.info-item .icon {
+    font-size: 1.8rem;
+    background: rgba(56, 189, 248, 0.1);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.info-item .details {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-item .label {
+    font-size: 0.75rem;
+    color: var(--gray-subtle);
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.info-item .value {
+    color: var(--text-white);
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1.05rem;
+    transition: color 0.3s;
+}
+
+.info-item .value:hover {
+    color: var(--accent-color);
+}
+
+.social-connect {
+    margin-top: 1rem;
+    padding-top: 2rem;
+    border-top: 1px dashed rgba(255,255,255,0.1);
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: #0077b5;
+    color: white;
+    padding: 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.social-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 119, 181, 0.4);
+}
+
+.social-btn img {
+    height: 20px;
+    filter: brightness(100); /* Blanc */
+}
+
+/* --- Colonne Droite : Formulaire (Terminal Style) --- */
+.contact-form-wrapper {
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+}
+
+/* En-tête style fenêtre Mac/Linux */
+.form-header {
+    background: rgba(30, 41, 59, 0.9);
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+.form-header .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+.dot.red { background: #ff5f56; }
+.dot.yellow { background: #ffbd2e; }
+.dot.green { background: #27c93f; }
+
+.form-header .title {
+    margin-left: 15px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--gray-subtle);
+}
+
+/* Corps du formulaire */
+.contact-form {
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-row {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.form-group.full-width {
+    width: 100%;
+}
+
+.form-group label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.req { color: #ff5f56; }
+
+/* Champs Input & Textarea */
+.form-group input,
+.form-group textarea {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    border-radius: 6px;
+    padding: 12px 15px;
+    color: var(--text-white);
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+/* Focus Effect (Glow) */
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    background: rgba(15, 23, 42, 0.9);
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(255, 255, 255, 0.2);
+    font-style: italic;
+}
+
+/* Bouton Submit spécifique */
+.submit-btn {
+    margin-top: 1rem;
+    width: 100%;
+    padding: 1.2rem;
+    font-size: 1.1rem;
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+    .contact-layout {
+        grid-template-columns: 1fr; /* Pile verticale sur mobile */
+        gap: 3rem;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+}
