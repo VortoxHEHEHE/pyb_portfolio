@@ -39,7 +39,7 @@ body {
 }
 
 /* =========================================
-   3. NAVIGATION (CORRIGÉE - FINES LIGNES)
+   3. NAVIGATION (CORRIGÉE - DOUBLE LIGNE FINE)
    ========================================= */
 nav {
     position: fixed;
@@ -95,16 +95,16 @@ nav a.active-link {
     text-shadow: 0 0 8px var(--accent-glow);
 }
 
-/* --- CORRECTIF DOUBLE LIGNE (STYLE FIN) --- */
+/* --- STYLE DOUBLE LIGNE (ACTIVE & HOVER) --- */
 
-/* 1. On désactive ::after pour éviter les doublons */
+/* 1. Sécurité : On cache ::after pour éviter les doublons */
 nav a.active-link::after,
 nav a:hover::after {
     content: none !important;
     display: none;
 }
 
-/* 2. Style Double Ligne ACTIVE (Version 1px) */
+/* 2. Style Double Ligne ACTIVE (Fines & Espacées) */
 nav a.active-link::before {
     content: '';
     position: absolute;
@@ -127,7 +127,7 @@ nav a.active-link::before {
     z-index: -1; 
 }
 
-/* 3. Style Double Ligne HOVER (Version 1px) */
+/* 3. Style Double Ligne HOVER */
 nav a:hover::before {
     content: '';
     position: absolute;
@@ -135,7 +135,7 @@ nav a:hover::before {
     height: 6px;
     background: transparent;
     
-    /* Lignes FINES */
+    /* Lignes FINES (1px) */
     border-top: 1px solid var(--accent-color);
     border-bottom: 1px solid var(--accent-color);
     
@@ -968,11 +968,12 @@ footer {
     .timeline-item { padding: 1.5rem; }
 }
 
-/* Lien actif (Menu Mobile) */
+/* Lien actif (Menu Mobile) - CORRIGÉ : SUPPRESSION DE LA BORDURE PARASITE */
 nav ul li a.active {
     color: var(--accent-color);
     font-weight: bold;
-    border-bottom: 2px solid var(--accent-color);
+    /* border-bottom: 2px solid var(--accent-color);  <-- C'était ça la ligne du milieu ! Je l'ai enlevée. */
+    border-bottom: none; 
 }
 
 /* --- CORRECTIONS PARTICULES & BODY --- */
