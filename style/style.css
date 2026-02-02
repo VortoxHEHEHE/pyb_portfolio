@@ -1022,10 +1022,13 @@ footer .secret-link:active {
     padding: 8px 16px;
     border-radius: 20px;
     font-size: 0.9rem;
-    color: #10b981; /* Vert Tech */
-    margin-top: 2rem;
+    color: #10b981;
     font-family: 'Space Mono', monospace;
     font-weight: 600;
+    
+    /* C'est ici que ça se joue pour l'option BAS */
+    margin-top: 2rem;    /* Espace au-dessus */
+    margin-bottom: 0;    /* Pas d'espace en dessous */
 }
 
 .status-dot {
