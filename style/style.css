@@ -1155,3 +1155,15 @@ footer .secret-link:active {
     transform: translateY(-3px);
     filter: drop-shadow(0 0 8px rgba(0, 119, 181, 0.6));
 }
+
+/* --- L'animation qui fait apparaître les éléments --- */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
