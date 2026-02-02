@@ -1644,11 +1644,14 @@ body.contact-page .scan-line {
 
 .loading-fill {
     height: 100%;
-    width: 72%; /* Pourcentage fixe pour l'exemple */
+    /* On enlève le width fixe ici, c'est l'animation qui va le gérer */
+    width: 0%; 
+    
     background: linear-gradient(90deg, var(--accent-darker), var(--accent-color));
     border-radius: 4px;
     position: relative;
-    /* Petite animation de rayures */
+    
+    /* Motif hachuré */
     background-size: 20px 20px;
     background-image: linear-gradient(
         45deg,
@@ -1660,10 +1663,18 @@ body.contact-page .scan-line {
         transparent 75%,
         transparent
     );
-    animation: stripe-move 1s linear infinite;
+    
+    /* DOUBLE ANIMATION : 
+       1. stripe-move : fait bouger les rayures
+       2. growBar : fait grandir la barre de 0% à 72%
+    */
+    animation: 
+        stripe-move 1s linear infinite, 
+        growBar 2s ease-out forwards; /* 2s pour se remplir */
 }
 
-@keyframes stripe-move {
-    0% { background-position: 0 0; }
-    100% { background-position: 20px 20px; }
+/* Ajoute cette nouvelle animation juste en dessous */
+@keyframes growBar {
+    0% { width: 0%; }
+    100% { width: 72%; } /* La taille finale */
 }
