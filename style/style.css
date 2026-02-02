@@ -1304,3 +1304,76 @@ footer .secret-link:active {
         gap: 1rem;
     }
 }
+
+/* =========================================
+   DECORATION LATERALE (CYBER LINES)
+   ========================================= */
+
+/* On utilise les pseudo-éléments du body pour ne pas polluer le HTML */
+body::before,
+body::after {
+    content: '';
+    position: fixed; /* Reste fixe quand on scrolle */
+    top: 0;
+    bottom: 0;
+    width: 1px; /* Ligne très fine */
+    background: rgba(56, 189, 248, 0.1); /* Bleu très discret */
+    z-index: 0; /* Derrière le contenu */
+}
+
+/* Ligne de Gauche */
+body::before {
+    left: 40px; /* Ecart par rapport au bord gauche */
+}
+
+/* Ligne de Droite */
+body::after {
+    right: 40px; /* Ecart par rapport au bord droit */
+}
+
+/* --- LE SCANNER LUMINEUX (ANIMATION) --- */
+/* On crée un conteneur pour l'animation qui se superpose */
+.scan-line {
+    position: fixed;
+    top: 0;
+    width: 2px;
+    height: 100px; /* Longueur de la traînée lumineuse */
+    background: linear-gradient(to bottom, transparent, var(--accent-color));
+    z-index: 0;
+    opacity: 0;
+    animation: dropLine 8s ease-in-out infinite;
+}
+
+.scan-line.left {
+    left: 40px; /* Même position que la ligne fixe */
+    animation-delay: 0s;
+}
+
+.scan-line.right {
+    right: 40px; /* Même position que la ligne fixe */
+    animation-delay: 4s; /* Décalé pour ne pas être synchro */
+}
+
+@keyframes dropLine {
+    0% {
+        top: -100px;
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        top: 100%; /* Va jusqu'en bas */
+        opacity: 0;
+    }
+}
+
+/* Masquer sur mobile pour gagner de la place */
+@media (max-width: 1024px) {
+    body::before, body::after, .scan-line {
+        display: none;
+    }
+}
