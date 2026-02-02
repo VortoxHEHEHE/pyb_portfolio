@@ -987,9 +987,28 @@ footer .secret-link:active {
    ========================================= */
 
 /* --- 1. Badge "Open to Work" (VERSION BAS) --- */
+/* --- Correctif Badge : Force le passage à la ligne --- */
 .status-badge {
-    display: inline-flex;
+    /* 1. On utilise flex (et pas inline-flex) pour qu'il prenne sa propre ligne */
+    display: flex;
+    
+    /* 2. On aligne le contenu interne (le point et le texte) */
     align-items: center;
+    justify-content: center;
+
+    /* 3. On force la boîte à s'adapter à la taille du texte */
+    /* Sans ça, le badge prendrait toute la largeur de l'écran */
+    width: fit-content;
+    
+    /* 4. On centre le badge lui-même horizontalement */
+    margin-left: auto;
+    margin-right: auto;
+
+    /* 5. On ajoute l'espace au-dessus (entre le bouton et le badge) */
+    margin-top: 2rem;
+    margin-bottom: 0;
+
+    /* --- Le reste du style (Couleurs & Bordures) --- */
     background: rgba(16, 185, 129, 0.1);
     border: 1px solid rgba(16, 185, 129, 0.4);
     padding: 8px 16px;
@@ -998,10 +1017,6 @@ footer .secret-link:active {
     color: #10b981;
     font-family: 'Space Mono', monospace;
     font-weight: 600;
-    
-    /* MARGES POUR LE BAS */
-    margin-top: 2rem;    
-    margin-bottom: 0; 
 }
 
 .status-dot {
