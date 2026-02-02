@@ -237,25 +237,31 @@ nav a:hover::before {
     margin-right: auto;
 }
 
-/* --- BOUTON PRINCIPAL (HERO) --- */
+/* --- BOUTON PRINCIPAL (HERO) - NOUVEAU STYLE --- */
 .btn-primary {
     display: inline-block;
     margin-top: 2rem;
     padding: 15px 35px;
-    background-color: var(--accent-color);
-    color: #0f172a;
+    
+    /* NOUVEAU STYLE : Fond foncé et coins adoucis */
+    background-color: var(--accent-darker);
+    color: #ffffff;
+    border-radius: 10px; /* Remplacé 50px par 10px */
+    font-family: 'Space Mono', monospace; /* Ajout de la police tech */
+    
     font-weight: 700;
     text-decoration: none;
-    border-radius: 50px;
     font-size: 1.1rem;
     transition: all 0.3s ease;
-    box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .btn-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 0 25px rgba(56, 189, 248, 0.7);
-    background-color: #7dd3fc;
+    /* Au survol : devient bleu clair vif avec texte foncé */
+    background-color: var(--accent-color);
+    color: #0f172a;
+    box-shadow: 0 0 25px var(--accent-glow);
 }
 
 /* =========================================
@@ -1020,33 +1026,25 @@ footer .secret-link:active {
    10. AJOUTS DECORATION
    ========================================= */
 
-/* --- 1. Badge "Open to Work" (VERSION BAS) --- */
-/* --- Correctif Badge : Force le passage à la ligne --- */
+/* --- Correctif Badge : Force le passage à la ligne et style rectangulaire --- */
 .status-badge {
-    /* 1. On utilise flex (et pas inline-flex) pour qu'il prenne sa propre ligne */
     display: flex;
-    
-    /* 2. On aligne le contenu interne (le point et le texte) */
     align-items: center;
     justify-content: center;
-
-    /* 3. On force la boîte à s'adapter à la taille du texte */
-    /* Sans ça, le badge prendrait toute la largeur de l'écran */
     width: fit-content;
-    
-    /* 4. On centre le badge lui-même horizontalement */
     margin-left: auto;
     margin-right: auto;
-
-    /* 5. On ajoute l'espace au-dessus (entre le bouton et le badge) */
     margin-top: 2rem;
     margin-bottom: 0;
 
-    /* --- Le reste du style (Couleurs & Bordures) --- */
+    /* --- Le style (Couleurs Vertes & Forme Rectangulaire) --- */
     background: rgba(16, 185, 129, 0.1);
     border: 1px solid rgba(16, 185, 129, 0.4);
     padding: 8px 16px;
-    border-radius: 20px;
+    
+    /* MODIFICATION ICI : 10px au lieu de 20px */
+    border-radius: 10px; 
+    
     font-size: 0.9rem;
     color: #10b981;
     font-family: 'Space Mono', monospace;
@@ -1088,23 +1086,22 @@ footer .secret-link:active {
    11. BARRE TECH & FOOTER SOCIAL (NOUVEAU)
    ========================================= */
 
-/* --- Barre Tech (Hero) --- */
+/* --- Barre Tech (Hero) - NOUVEAU STYLE --- */
 .hero-tech-bar {
-    margin-top: 3rem; /* Espace avec le badge */
+    margin-top: 3rem;
     
-    /* Effet Verre (Glassmorphism) */
-    background: rgba(30, 41, 59, 0.6);
-    border: 1px solid rgba(56, 189, 248, 0.2);
-    backdrop-filter: blur(8px);
+    /* NOUVEAU STYLE : Fond bleu foncé uni et coins adoucis */
+    background: var(--accent-darker); /* Remplace l'effet verre */
+    border-radius: 10px; /* Remplace 50px par 10px */
+    /* On enlève le border et le backdrop-filter qui ne servent plus */
     
     padding: 0.8rem 1.5rem;
-    border-radius: 50px;
     
     display: inline-flex;
     align-items: center;
     gap: 1.5rem;
     
-    /* Animation d'apparition */
+    /* Animation d'apparition (inchangée) */
     opacity: 0;
     animation: fadeInUp 0.8s ease-out 0.5s forwards;
     
