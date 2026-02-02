@@ -1,1 +1,168 @@
+/* =========================================
+   STYLE SPÉCIFIQUE : VEILLE (MODE SCAN)
+   ========================================= */
 
+/* --- SECTION PRINCIPALE (Centrée) --- */
+.live-feed-section {
+    text-align: center;
+    position: relative;
+    /* On utilise tout l'espace disponible pour centrer verticalement */
+    min-height: 60vh; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0;
+}
+
+/* --- LE RADAR (Plus grand et centré) --- */
+.radar-container {
+    width: 220px;  /* Agranri pour être le focus principal */
+    height: 220px;
+    margin: 0 auto 3rem auto; /* Marge en bas */
+    position: relative;
+    border-radius: 50%;
+    
+    /* Fond style sonar sombre */
+    background: radial-gradient(circle, rgba(56, 189, 248, 0.1) 0%, transparent 70%);
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    
+    /* Lueur externe */
+    box-shadow: 0 0 40px rgba(56, 189, 248, 0.15);
+    overflow: hidden;
+}
+
+/* Grille du radar */
+.radar-container::after {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%; height: 100%;
+    
+    /* Quadrillage vert tactique */
+    background-image: 
+        linear-gradient(rgba(56, 189, 248, 0.2) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(56, 189, 248, 0.2) 1px, transparent 1px);
+    background-size: 40px 40px; /* Cases plus grandes */
+    border-radius: 50%;
+    z-index: 0;
+}
+
+/* Le Cercle central (viseur) */
+.radar-circle {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px; height: 10px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--accent-color);
+    z-index: 2;
+}
+
+/* Le balayage rotatif (Scanner) */
+.radar-scan {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border-radius: 50%;
+    /* Dégradé tournant */
+    background: conic-gradient(from 0deg, transparent 0deg, rgba(56, 189, 248, 0.5) 40deg, transparent 40deg);
+    animation: radarSpin 3s linear infinite;
+    z-index: 1;
+    border-right: 2px solid rgba(56, 189, 248, 0.8); /* Ligne laser plus visible */
+}
+
+@keyframes radarSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* --- INFOS TEXTE --- */
+.feed-info h3 {
+    font-family: 'Space Mono', monospace;
+    font-size: 2rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    text-shadow: 0 0 10px var(--accent-glow);
+}
+
+.feed-info p {
+    color: var(--text-light);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+}
+
+/* --- CONSOLE OUTPUT (Terminal Look) --- */
+.console-output {
+    background: rgba(15, 23, 42, 0.8); /* Fond plus sombre */
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    padding: 1.5rem;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    color: #10b981; /* Vert Matrix */
+    text-align: left;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    backdrop-filter: blur(5px);
+}
+
+.console-output .line {
+    display: block;
+    margin-bottom: 0.5rem;
+    opacity: 0;
+    animation: fadeInLine 0.5s forwards;
+    border-left: 3px solid transparent;
+    padding-left: 12px;
+}
+
+/* Animation séquentielle des lignes */
+.console-output .line:nth-child(1) { 
+    animation-delay: 0.2s; 
+    border-left-color: #10b981; /* Ligne 1 verte */
+}
+.console-output .line:nth-child(2) { 
+    animation-delay: 1.2s; 
+    color: var(--text-light); 
+}
+.console-output .line:nth-child(3) { 
+    animation-delay: 2.5s; 
+    color: var(--text-light); 
+}
+.console-output .line:nth-child(4) { 
+    animation-delay: 4s; 
+    color: #ffaa00; /* Ligne 4 Orange (Waiting) */
+    border-left-color: #ffaa00;
+}
+
+/* Point clignotant */
+.blink-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: #ffaa00;
+    border-radius: 50%;
+    margin-left: 5px;
+    animation: blink 1s infinite;
+}
+
+@keyframes fadeInLine {
+    from { opacity: 0; transform: translateX(-10px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Adaptation Mobile */
+@media (max-width: 768px) {
+    .radar-container { width: 180px; height: 180px; }
+    .feed-info h3 { font-size: 1.5rem; }
+    .console-output { font-size: 0.8rem; padding: 1rem; }
+}
