@@ -98,29 +98,25 @@ nav a.active-link {
     font-weight: 700;
 }
 
-/* --- LE CURSEUR CLIGNOTANT (Ligne unique sous le lien actif) --- */
+/* --- LE CURSEUR CLIGNOTANT --- */
 nav a.active-link::before {
     content: '';
     position: absolute;
     width: 100%;
-    height: 3px; /* Épaisseur du curseur */
+    height: 3px; 
     background: var(--accent-color);
-    bottom: -4px; /* Position sous le texte */
+    bottom: -4px; 
     left: 0;
-    
-    /* Lueur néon */
     box-shadow: 0 0 8px var(--accent-glow);
-    
-    /* Animation de clignotement "Robotique" (Marche/Arrêt) */
     animation: navCursorBlink 1.2s infinite step-end;
 }
 
-/* Style Ligne au Survol (Animation d'expansion) */
+/* Style Ligne au Survol */
 nav a:hover::before {
     content: '';
     position: absolute;
     width: 100%;
-    height: 2px; /* Plus fin au survol */
+    height: 2px; 
     background: var(--accent-color);
     bottom: -4px; 
     left: 0;
@@ -159,8 +155,44 @@ nav a:hover::before {
 }
 
 /* =========================================
-   4. HERO SECTION
+   4. HERO SECTION & ANIMATIONS DE CASCADE (AJOUTÉ)
    ========================================= */
+
+/* --- Définition de l'animation d'apparition --- */
+@keyframes revealHero {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+        filter: blur(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+/* On prépare les éléments du Hero en les cachant par défaut */
+.hero-content h1, 
+.hero-content h2, 
+.hero-content .divider, 
+.hero-content p, 
+.hero-content .btn-primary, 
+.hero-content .status-badge, 
+.hero-content .hero-tech-bar {
+    opacity: 0;
+    animation: revealHero 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* --- Délais pour l'effet de cascade --- */
+.hero-content h1 { animation-delay: 0.2s; }
+.hero-content h2 { animation-delay: 0.4s; }
+.hero-content .divider { animation-delay: 0.5s; }
+.hero-content p { animation-delay: 0.7s; }
+.hero-content .btn-primary { animation-delay: 0.9s; }
+.hero-content .status-badge { animation-delay: 1.1s; }
+.hero-content .hero-tech-bar { animation-delay: 1.3s; }
+
 .hero {
     min-height: 90vh; 
     display: flex;
@@ -196,7 +228,6 @@ nav a:hover::before {
 
 .hero-content {
     max-width: 800px;
-    animation: fadeInUp 1s ease-out;
     position: relative;
     z-index: 1;
     padding: 0 1rem;
@@ -221,7 +252,9 @@ nav a:hover::before {
     white-space: nowrap; 
     margin: 0 auto 1rem auto; 
     letter-spacing: .05em;
-    animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+    animation: revealHero 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.4s forwards,
+               typing 3.5s steps(40, end) 0.4s forwards, 
+               blink-caret .75s step-end infinite;
     color: var(--accent-color);
     text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
 }
@@ -238,46 +271,37 @@ nav a:hover::before {
 
 /* --- BOUTON PRINCIPAL (HERO) --- */
 .btn-primary {
-    margin-top: 2rem; /* Juste la marge, le reste vient du style maître */
+    margin-top: 2rem; 
 }
 
 /* =========================================
    5. COMPOSANTS GENERAUX (STYLE MAÎTRE UNIFIÉ)
    ========================================= */
-/* CIBLE TOUS LES BOUTONS DU SITE ICI */
 .btn, 
 .btn-primary, 
 .btn-action, 
 .submit-btn, 
 .btn-doc {
-    /* --- STRUCTURE --- */
     display: inline-flex;
     justify-content: center;
     align-items: center;
     padding: 1rem 2rem;
     gap: 12px;
-    
-    /* --- STYLE VISUEL (RECTANGLE ADOUCI) --- */
     background: var(--accent-darker);
     color: #ffffff;
     border: 2px solid transparent;
-    border-radius: 10px; /* Radius 10px pour tout le monde */
-    
-    /* --- TYPOGRAPHIE --- */
+    border-radius: 10px; 
     font-family: 'Space Mono', monospace;
     font-size: 1.1rem;
     font-weight: 700;
     text-decoration: none;
     text-shadow: none;
     cursor: pointer;
-    white-space: nowrap; /* Empêche le texte de passer à la ligne */
-    
-    /* --- EFFETS --- */
+    white-space: nowrap; 
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* --- SURVOL UNIFIÉ --- */
 .btn:hover, 
 .btn-primary:hover, 
 .btn-action:hover, 
@@ -290,7 +314,6 @@ nav a:hover::before {
     box-shadow: 0 0 20px var(--accent-glow);
 }
 
-/* --- Gestion des icônes dans les boutons --- */
 .btn i, .btn img, 
 .btn-action i, .btn-action img, 
 .btn-icon {
@@ -304,17 +327,12 @@ nav a:hover::before {
     transform: scale(1.2);
 }
 
-/* --- AUTRES COMPOSANTS --- */
 section { padding: 5rem 0; }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
-}
-
-.section-secondary-dark {
-    background: transparent; 
 }
 
 section h2 {
@@ -344,11 +362,8 @@ section h3.section-subtitle {
     font-family: 'Space Mono', monospace;
     font-size: 2.2rem;
     font-weight: 600;
-    
-    /* MODIF ESPACEMENT : Réduit de 4rem à 1rem pour rapprocher le titre */
     margin-top: 1rem; 
     margin-bottom: 2rem;
-    
     text-align: left;
     color: var(--text-white);
     border-bottom: 2px solid var(--accent-color);
@@ -523,10 +538,7 @@ section h3.section-subtitle {
 .bts-intro {
     text-align: center;
     max-width: 900px;
-    
-    /* MODIF ESPACEMENT : Réduit de 4rem à 2rem pour réduire le trou */
     margin: 0 auto 2rem auto; 
-    
     font-size: 1.1rem;
     line-height: 1.8;
 }
@@ -534,7 +546,6 @@ section h3.section-subtitle {
 .specs-container {
     display: flex;
     align-items: stretch;
-    /* MODIF ESPACEMENT : Réduit de 2rem à 1rem pour rapprocher les cases */
     gap: 1rem;
     justify-content: space-between;
 }
@@ -1005,7 +1016,7 @@ footer .secret-link:active {
    10. AJOUTS DECORATION
    ========================================= */
 
-/* --- 1. Badge "Open to Work" (Rectangulaire 10px) --- */
+/* --- 1. Badge "Open to Work" --- */
 .status-badge {
     display: flex;
     align-items: center;
@@ -1019,7 +1030,7 @@ footer .secret-link:active {
     background: rgba(16, 185, 129, 0.1);
     border: 1px solid rgba(16, 185, 129, 0.4);
     padding: 8px 16px;
-    border-radius: 10px; /* RECTANGLE */
+    border-radius: 10px; 
     
     font-size: 0.9rem;
     color: #10b981;
@@ -1058,7 +1069,7 @@ footer .secret-link:active {
 .glow-left { top: 20%; left: -150px; }
 .glow-right { bottom: 10%; right: -150px; background: radial-gradient(circle, rgba(16, 185, 129, 0.08) 0%, transparent 70%); }
 
-/* --- 3. SIDE DATA FLOWS (NOUVEAU) --- */
+/* --- 3. SIDE DATA FLOWS --- */
 .side-data-flow {
     position: fixed;
     top: 50%;
@@ -1096,7 +1107,6 @@ footer .secret-link:active {
     100% { opacity: 0.5; filter: blur(1.5px) drop-shadow(0 0 8px var(--accent-color)); }
 }
 
-/* Masquer les décos sur mobile */
 @media (max-width: 1024px) {
     .side-data-flow {
         display: none !important;
@@ -1107,24 +1117,17 @@ footer .secret-link:active {
    11. BARRE TECH & FOOTER SOCIAL
    ========================================= */
 
-/* --- Barre Tech (Hero) - STYLE VERRE PILULE (50px) --- */
+/* --- Barre Tech --- */
 .hero-tech-bar {
     margin-top: 3rem; 
-    
     background: rgba(30, 41, 59, 0.6);   
     border: 1px solid rgba(56, 189, 248, 0.2); 
     backdrop-filter: blur(8px);          
-    border-radius: 50px; /* PILULE */
-    
+    border-radius: 50px; 
     padding: 0.8rem 1.5rem;
-    
     display: inline-flex;
     align-items: center;
     gap: 1.5rem;
-    
-    opacity: 0;
-    animation: fadeInUp 0.8s ease-out 0.5s forwards;
-    
     box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
 }
 
@@ -1160,7 +1163,7 @@ footer .secret-link:active {
     transform: scale(1.15) translateY(-2px);
 }
 
-/* --- Adaptation Mobile --- */
+/* Adaptation Mobile Tech Bar */
 @media (max-width: 600px) {
     .hero-tech-bar {
         flex-direction: column;
@@ -1184,7 +1187,7 @@ footer .secret-link:active {
     }
 }
 
-/* --- Icône LinkedIn (Footer) --- */
+/* --- Social Links (LinkedIn) --- */
 .social-links {
     display: flex;
     justify-content: center;
@@ -1198,23 +1201,19 @@ footer .secret-link:active {
 }
 
 .social-links a:hover {
-    color: #0077b5; /* Bleu LinkedIn */
+    color: #0077b5; 
     transform: translateY(-3px);
     filter: drop-shadow(0 0 8px rgba(0, 119, 181, 0.6));
 }
 
 /* =========================================
-   12. PAGE A PROPOS (NOUVEAU STYLE)
+   12. PAGE A PROPOS (TERMINAL STYLE)
    ========================================= */
 
-/* --- Titre style Terminal (Correction Double Curseur) --- */
 .terminal-title {
     font-family: 'Space Mono', monospace;
     font-size: 1.8rem;
-    
-    /* MODIF ESPACEMENT : Réduit de 3rem à 1.5rem */
     margin-bottom: 1.5rem;
-    
     background: rgba(15, 23, 42, 0.9);
     border: 1px solid rgba(56, 189, 248, 0.3);
     padding: 1rem 1.5rem;
@@ -1223,44 +1222,38 @@ footer .secret-link:active {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
     position: relative;
     z-index: 2;
-    white-space: nowrap; /* Ajout pour empêcher le retour à la ligne */
+    white-space: nowrap; 
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
 .terminal-title .prompt {
-    color: #10b981; /* Vert "root" */
+    color: #10b981; 
     margin-right: 10px;
     font-weight: 600;
 }
 
 .terminal-title .command {
-    color: var(--accent-color); /* Bleu Cyan */
+    color: var(--accent-color); 
     font-weight: 700;
 }
 
-/* --- Curseur Terminal Vertical (|) --- */
 .terminal-title .cursor {
     display: inline-block;
-    width: 3px;             /* Largeur du trait vertical */
-    height: 1.2em;          /* Hauteur adaptée au texte */
-    background-color: var(--accent-color); /* Couleur Cyan */
-    
-    /* Animation "step-end" pour un clignotement net (pas de fondu) */
+    width: 3px; 
+    height: 1.2em; 
+    background-color: var(--accent-color); 
     animation: blinkCursor 1s infinite step-end;
-    
     margin-left: 5px;
-    vertical-align: text-bottom; /* Aligné sur la ligne de texte */
-    color: transparent;     /* On cache le caractère "_" d'origine */
+    vertical-align: text-bottom; 
+    color: transparent; 
 }
 
-/* Animation Clignotement (Net) */
 @keyframes blinkCursor {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
 }
 
-/* --- Panneau Specs Style "Dashboard" --- */
 .system-specs-panel {
     background: rgba(30, 41, 59, 0.4);
     border: 1px solid rgba(56, 189, 248, 0.2);
@@ -1312,10 +1305,9 @@ footer .secret-link:active {
 }
 
 .spec-value.status-ok {
-    color: #10b981; /* Vert validation */
+    color: #10b981; 
 }
 
-/* Adaptation mobile pour le terminal */
 @media (max-width: 600px) {
     .terminal-title {
         font-size: 1.2rem;
@@ -1335,27 +1327,21 @@ footer .secret-link:active {
     }
 }
 
-/* =========================================
-   BOUTONS À PROPOS (LAYOUT SEULEMENT)
-   ========================================= */
-/* Le style visuel est hérité de .btn en section 5 */
-
 .about-actions {
     display: flex;
-    flex-wrap: wrap;       
+    flex-wrap: wrap; 
     justify-content: center; 
-    gap: 2rem;             
-    margin-top: 4rem;      
+    gap: 2rem; 
+    margin-top: 4rem; 
     margin-bottom: 2rem;
-    width: 100%;           
+    width: 100%; 
 }
 
 .btn-action {
-    width: 250px; /* Seule spécificité : la largeur fixe */
+    width: 250px; 
     height: 55px;
 }
 
-/* --- MOBILE --- */
 @media (max-width: 768px) {
     .about-actions {
         flex-direction: column; 
@@ -1368,7 +1354,6 @@ footer .secret-link:active {
    DECORATION LATERALE (CYBER LINES)
    ========================================= */
 
-/* Lignes fixes sur les côtés */
 body::before,
 body::after {
     content: '';
@@ -1383,7 +1368,6 @@ body::after {
 body::before { left: 40px; }
 body::after { right: 40px; }
 
-/* Animation du Scanner */
 .scan-line {
     position: fixed;
     top: 0;
@@ -1405,17 +1389,12 @@ body::after { right: 40px; }
     100% { top: 100%; opacity: 0; }
 }
 
-/* --- EXCEPTIONS ET MOBILE --- */
-
-/* 1. Masquer sur Mobile */
 @media (max-width: 1024px) {
     body::before, body::after, .scan-line {
         display: none !important;
     }
 }
 
-/* 2. Masquer sur l'ACCUEIL et le CONTACT */
-/* On cible body.home-page ET body.contact-page */
 body.home-page::before,
 body.home-page::after,
 body.home-page .scan-line,
@@ -1466,7 +1445,6 @@ body.contact-page .scan-line {
     flex-wrap: wrap;
 }
 
-/* Adaptation Mobile */
 @media (max-width: 600px) {
     .next-actions {
         flex-direction: column;
@@ -1495,10 +1473,9 @@ body.contact-page .scan-line {
     transition: all 0.3s ease;
     backdrop-filter: blur(5px);
     transform-style: preserve-3d;
-    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 30px -10 rgba(0, 0, 0, 0.5);
 }
 
-/* Image de fond (Filigrane) */
 .card-bg-icon {
     position: absolute;
     top: -10px;
@@ -1523,7 +1500,6 @@ body.contact-page .scan-line {
     opacity: 0.15;
 }
 
-/* En-tête de la carte */
 .card-header-line {
     display: flex;
     justify-content: space-between;
@@ -1553,7 +1529,6 @@ body.contact-page .scan-line {
     box-shadow: 0 0 5px rgba(16, 185, 129, 0.2);
 }
 
-/* Contenu */
 .holographic-card h3 {
     font-size: 1.5rem;
     color: var(--accent-color);
@@ -1578,7 +1553,6 @@ body.contact-page .scan-line {
     flex-grow: 1;
 }
 
-/* Tags de compétences */
 .mission-specs {
     display: flex;
     flex-wrap: wrap;
@@ -1596,7 +1570,6 @@ body.contact-page .scan-line {
     border: 1px solid rgba(56, 189, 248, 0.2);
 }
 
-/* Bouton spécifique "Holo" */
 .btn-holo {
     display: block;
     text-align: center;
@@ -1633,32 +1606,26 @@ body.contact-page .scan-line {
     justify-content: space-between;
     font-family: 'Space Mono', monospace;
     font-size: 0.8rem;
-    color: #10b981; /* Texte Vert */
+    color: #10b981; 
     margin-bottom: 0.5rem;
     text-shadow: 0 0 5px rgba(16, 185, 129, 0.4);
 }
 
 .loading-track {
     width: 100%;
-    height: 10px; /* Un peu plus épais pour le style rétro */
+    height: 10px; 
     background: rgba(0, 0, 0, 0.3);
     border-radius: 4px;
-    border: 1px solid rgba(16, 185, 129, 0.3); /* Bordure verte subtile */
+    border: 1px solid rgba(16, 185, 129, 0.3); 
 }
 
-/* --- Barre de remplissage VIVANTE (VERSION VERTE WINDOWS) --- */
 .loading-fill {
     height: 100%;
-    width: 0%; /* Point de départ */
+    width: 0%; 
     border-radius: 4px;
     position: relative;
-    
-    /* GLOW VERT INTENSE */
     box-shadow: 0 0 15px rgba(16, 185, 129, 0.6);
-
-    /* COMBINAISON DES IMAGES (Rayures + Dégradé Vert) */
     background-image: 
-        /* 1. Les rayures blanches semi-transparentes */
         linear-gradient(
             45deg,
             rgba(255, 255, 255, 0.4) 25%, 
@@ -1669,40 +1636,31 @@ body.contact-page .scan-line {
             transparent 75%,
             transparent
         ),
-        /* 2. Le fond Vert (Windows Style) */
         linear-gradient(90deg, #059669, #34d399);
-    
-    /* Taille des rayures */
     background-size: 30px 30px, 100% 100%;
     background-repeat: repeat, no-repeat;
-    
-    /* ANIMATIONS : On utilise une nouvelle animation de pulsation verte */
     animation: 
         growBar 2.5s ease-out forwards,
         stripe-move 0.8s linear infinite, 
         greenBarPulse 1.5s ease-in-out infinite alternate; 
 }
 
-/* Animation de remplissage */
 @keyframes growBar {
     0% { width: 0%; filter: brightness(0.5); }
     100% { width: 72%; filter: brightness(1); }
 }
 
-/* Animation des rayures */
 @keyframes stripe-move {
     0% { background-position: 0 0, 0 0; }
     100% { background-position: 30px 0, 0 0; }
 }
 
-/* NOUVELLE ANIMATION : Pulsation Verte */
 @keyframes greenBarPulse {
     0% {
         box-shadow: 0 0 8px rgba(16, 185, 129, 0.4);
         filter: brightness(1);
     }
     100% {
-        /* Glow vert radioactif */
         box-shadow: 0 0 20px #10b981, 0 0 4px #ffffff;
         filter: brightness(1.3);
     }
