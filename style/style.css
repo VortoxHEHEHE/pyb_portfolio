@@ -1633,55 +1633,58 @@ body.contact-page .scan-line {
     justify-content: space-between;
     font-family: 'Space Mono', monospace;
     font-size: 0.8rem;
-    color: var(--accent-color);
+    color: #10b981; /* Texte Vert */
     margin-bottom: 0.5rem;
+    text-shadow: 0 0 5px rgba(16, 185, 129, 0.4);
 }
 
 .loading-track {
     width: 100%;
-    height: 8px;
-    background: rgba(255, 255, 255, 0.1);
+    height: 10px; /* Un peu plus épais pour le style rétro */
+    background: rgba(0, 0, 0, 0.3);
     border-radius: 4px;
     overflow: hidden;
-    border: 1px solid rgba(56, 189, 248, 0.2);
+    border: 1px solid rgba(16, 185, 129, 0.3); /* Bordure verte subtile */
 }
 
-/* --- Barre de remplissage VIVANTE --- */
+/* --- Barre de remplissage VIVANTE (VERSION VERTE WINDOWS) --- */
 .loading-fill {
     height: 100%;
     width: 0%; /* Point de départ */
     border-radius: 4px;
     position: relative;
     
-    /* COULEUR VIBRANTE & GLOW INTENSE */
-    box-shadow: 0 0 15px var(--accent-glow);
+    /* GLOW VERT INTENSE */
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.6);
 
-    /* COMBINAISON DES IMAGES (Rayures + Dégradé Cyan) */
+    /* COMBINAISON DES IMAGES (Rayures + Dégradé Vert) */
     background-image: 
+        /* 1. Les rayures blanches semi-transparentes */
         linear-gradient(
             45deg,
-            rgba(255, 255, 255, 0.6) 25%, 
+            rgba(255, 255, 255, 0.4) 25%, 
             transparent 25%,
             transparent 50%,
-            rgba(255, 255, 255, 0.6) 50%,
-            rgba(255, 255, 255, 0.6) 75%,
+            rgba(255, 255, 255, 0.4) 50%,
+            rgba(255, 255, 255, 0.4) 75%,
             transparent 75%,
             transparent
         ),
-        linear-gradient(90deg, var(--accent-color), #a0e7ff);
+        /* 2. Le fond Vert (Windows Style) */
+        linear-gradient(90deg, #059669, #34d399);
     
-    /* Les tailles correspondantes (grosses rayures, dégradé) */
-    background-size: 40px 40px, 100% 100%;
+    /* Taille des rayures */
+    background-size: 30px 30px, 100% 100%;
     background-repeat: repeat, no-repeat;
     
-    /* TRIPLE ANIMATION */
+    /* ANIMATIONS : On utilise une nouvelle animation de pulsation verte */
     animation: 
         growBar 2.5s ease-out forwards,
-        stripe-move 1s linear infinite, 
-        barPulse 1.5s ease-in-out infinite alternate; 
+        stripe-move 0.8s linear infinite, 
+        greenBarPulse 1.5s ease-in-out infinite alternate; 
 }
 
-/* Animation de remplissage (0% -> 72%) */
+/* Animation de remplissage */
 @keyframes growBar {
     0% { width: 0%; filter: brightness(0.5); }
     100% { width: 72%; filter: brightness(1); }
@@ -1690,17 +1693,18 @@ body.contact-page .scan-line {
 /* Animation des rayures */
 @keyframes stripe-move {
     0% { background-position: 0 0, 0 0; }
-    100% { background-position: 40px 0, 0 0; }
+    100% { background-position: 30px 0, 0 0; }
 }
 
-/* Animation Pulsation lumineuse */
-@keyframes barPulse {
+/* NOUVELLE ANIMATION : Pulsation Verte */
+@keyframes greenBarPulse {
     0% {
-        box-shadow: 0 0 8px var(--accent-glow);
+        box-shadow: 0 0 8px rgba(16, 185, 129, 0.4);
         filter: brightness(1);
     }
     100% {
-        box-shadow: 0 0 25px var(--accent-color), 0 0 5px #ffffff;
-        filter: brightness(1.2);
+        /* Glow vert radioactif */
+        box-shadow: 0 0 20px #10b981, 0 0 4px #ffffff;
+        filter: brightness(1.3);
     }
 }

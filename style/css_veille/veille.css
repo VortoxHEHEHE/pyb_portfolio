@@ -17,9 +17,9 @@
 
 /* --- LE RADAR (Plus grand et centré) --- */
 .radar-container {
-    width: 220px;  /* Agranri pour être le focus principal */
+    width: 220px;
     height: 220px;
-    margin: 0 auto 3rem auto; /* Marge en bas */
+    margin: 0 auto 3rem auto;
     position: relative;
     border-radius: 50%;
     
@@ -44,7 +44,7 @@
     background-image: 
         linear-gradient(rgba(56, 189, 248, 0.2) 1px, transparent 1px),
         linear-gradient(90deg, rgba(56, 189, 248, 0.2) 1px, transparent 1px);
-    background-size: 40px 40px; /* Cases plus grandes */
+    background-size: 40px 40px;
     border-radius: 50%;
     z-index: 0;
 }
@@ -70,12 +70,52 @@
     background: conic-gradient(from 0deg, transparent 0deg, rgba(56, 189, 248, 0.5) 40deg, transparent 40deg);
     animation: radarSpin 3s linear infinite;
     z-index: 1;
-    border-right: 2px solid rgba(56, 189, 248, 0.8); /* Ligne laser plus visible */
+    border-right: 2px solid rgba(56, 189, 248, 0.8);
 }
 
 @keyframes radarSpin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+/* --- LES POINTS (BLIPS) DU SONAR --- */
+.radar-blip {
+    position: absolute;
+    width: 8px; height: 8px;
+    background: #fff; /* Point blanc brillant */
+    border-radius: 50%;
+    box-shadow: 0 0 10px #fff, 0 0 20px var(--accent-color); /* Gros éclat */
+    opacity: 0; /* Invisible au départ */
+    z-index: 2;
+    /* Animation de "Ping" infini calée sur la rotation du radar */
+    animation: blipFade 3s infinite; 
+}
+
+/* Position et Timing des points pour simuler le passage du scanner */
+/* Le délai (animation-delay) est calculé pour correspondre à l'angle du radar */
+
+/* Point 1 : En haut à droite (environ 45°) */
+.blip-1 { 
+    top: 25%; left: 70%; 
+    animation-delay: 0.4s; 
+}
+
+/* Point 2 : En bas à droite (environ 135°) */
+.blip-2 { 
+    top: 70%; left: 65%; 
+    animation-delay: 1.2s; 
+}
+
+/* Point 3 : En bas à gauche (environ 225°) */
+.blip-3 { 
+    top: 60%; left: 20%; 
+    animation-delay: 2.0s; 
+}
+
+@keyframes blipFade {
+    0% { opacity: 0; transform: scale(0.5); }
+    1% { opacity: 1; transform: scale(1.5); } /* Flash immédiat */
+    100% { opacity: 0; transform: scale(0.5); } /* Disparition lente */
 }
 
 /* --- INFOS TEXTE --- */
@@ -96,7 +136,7 @@
 
 /* --- CONSOLE OUTPUT (Terminal Look) --- */
 .console-output {
-    background: rgba(15, 23, 42, 0.8); /* Fond plus sombre */
+    background: rgba(15, 23, 42, 0.8);
     border: 1px solid rgba(56, 189, 248, 0.3);
     padding: 1.5rem;
     font-family: 'Courier New', monospace;
@@ -123,7 +163,7 @@
 /* Animation séquentielle des lignes */
 .console-output .line:nth-child(1) { 
     animation-delay: 0.2s; 
-    border-left-color: #10b981; /* Ligne 1 verte */
+    border-left-color: #10b981; 
 }
 .console-output .line:nth-child(2) { 
     animation-delay: 1.2s; 
@@ -135,7 +175,7 @@
 }
 .console-output .line:nth-child(4) { 
     animation-delay: 4s; 
-    color: #ffaa00; /* Ligne 4 Orange (Waiting) */
+    color: #ffaa00; 
     border-left-color: #ffaa00;
 }
 
