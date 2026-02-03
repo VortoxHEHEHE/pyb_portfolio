@@ -155,7 +155,7 @@ nav a:hover::before {
 }
 
 /* =========================================
-   4. HERO SECTION & ANIMATIONS DE CASCADE (AJOUTÉ)
+   4. HERO SECTION & ANIMATIONS DE CASCADE
    ========================================= */
 
 /* --- Définition de l'animation d'apparition --- */
@@ -188,7 +188,7 @@ nav a:hover::before {
 .hero-content h1 { animation-delay: 0.2s; }
 .hero-content h2 { animation-delay: 0.4s; }
 .hero-content .divider { animation-delay: 0.5s; }
-.hero-content p { animation-delay: 0.7s; }
+.hero-content p { animation-delay: 0.7s; } /* AJOUTÉ : Ton texte de présentation */
 .hero-content .btn-primary { animation-delay: 0.9s; }
 .hero-content .status-badge { animation-delay: 1.1s; }
 .hero-content .hero-tech-bar { animation-delay: 1.3s; }
@@ -262,9 +262,8 @@ nav a:hover::before {
 .hero p {
     font-size: 1.2rem;
     margin-bottom: 2rem;
-    opacity: 0.9;
     color: var(--text-light);
-    max-width: 600px;
+    max-width: 750px; /* AJUSTÉ : Plus large pour ton texte Passionné... */
     margin-left: auto;
     margin-right: auto;
 }
