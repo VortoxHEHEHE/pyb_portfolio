@@ -978,3 +978,61 @@ body.home-page::before, body.home-page::after, body.home-page .scan-line, body.c
     0% { box-shadow: 0 0 8px rgba(16, 185, 129, 0.4); filter: brightness(1); }
     100% { box-shadow: 0 0 20px #10b981, 0 0 4px #ffffff; filter: brightness(1.3); }
 }
+
+/* =========================================
+   13. CORRECTIF: ACCUEIL PLEIN ÉCRAN (NO-SCROLL)
+   ========================================= */
+
+/* 1. On bloque la hauteur du corps de page à la taille de l'écran */
+body.home-page {
+    height: 100vh;      /* Hauteur exacte de la fenêtre */
+    overflow: hidden;   /* Interdit de scroller */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centre le contenu verticalement */
+}
+
+/* 2. On annule les marges/paddings qui poussent le contenu vers le bas */
+body.home-page .page-content {
+    padding-top: 0 !important; /* Annule le décalage du menu */
+    flex: 1; /* Prend tout l'espace disponible */
+    display: flex;
+    align-items: center; /* Centre verticalement */
+    justify-content: center; /* Centre horizontalement */
+}
+
+/* 3. On ajuste la section Hero pour qu'elle ne force pas le scroll */
+body.home-page .hero {
+    min-height: auto !important; /* Annule le 90vh par défaut */
+    padding-top: 0 !important;   /* Annule le gros padding du haut */
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* 4. On colle le footer tout en bas par dessus le fond */
+body.home-page footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: transparent; /* Fond transparent */
+    border-top: none;
+    padding-bottom: 1rem;
+    z-index: 10;
+}
+
+/* --- EXCEPTION MOBILE (Pour permettre le scroll si l'écran est trop petit) --- */
+@media (max-height: 700px), (max-width: 768px) {
+    body.home-page {
+        height: auto;
+        overflow-y: auto; /* Réactive le scroll sur petit écran */
+    }
+    body.home-page .page-content {
+        padding-top: 5rem !important; /* Remet de l'espace pour le menu mobile */
+    }
+    body.home-page footer {
+        position: relative; /* Le footer redevient normal sur mobile */
+    }
+}
