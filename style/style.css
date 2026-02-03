@@ -1643,7 +1643,6 @@ body.contact-page .scan-line {
     height: 10px; /* Un peu plus épais pour le style rétro */
     background: rgba(0, 0, 0, 0.3);
     border-radius: 4px;
-    overflow: hidden;
     border: 1px solid rgba(16, 185, 129, 0.3); /* Bordure verte subtile */
 }
 
