@@ -40,7 +40,6 @@
     <main class="page-content">
         <section class="section-secondary-dark">
             <div class="container">
-                
                 <div class="terminal-title">
                     <span class="prompt">root@paulyann:~/contact#</span> <span class="command">./send_message.sh</span><span class="cursor">_</span>
                 </div>
@@ -48,16 +47,15 @@
                 <h3 class="section-subtitle">Établir la Connexion</h3>
 
                 <div class="contact-layout">
-                    
                     <div class="contact-info-panel holographic-card" data-tilt data-tilt-glare data-tilt-max-glare="0.1">
                         <h4>COORDONNÉES</h4>
-                        <p class="info-desc">N'hésitez pas à me contacter pour toute opportunité d'alternance ou de collaboration.</p>
+                        <p class="info-desc">N'hésitez pas à me contacter pour toute opportunité.</p>
                         
                         <div class="info-item">
-                            <span class="icon">📞</span>
+                            <span class="icon">💼</span>
                             <div class="details">
-                                <span class="label">MOBILE</span>
-                                <a href="tel:+33664596904" class="value">06.64.59.69.04</a>
+                                <span class="label">RÉSEAU PRO</span>
+                                <a href="https://www.linkedin.com/in/paul-yann-bouvier-9a439b253/" target="_blank" class="value">LinkedIn Profile</a>
                             </div>
                         </div>
 
@@ -77,68 +75,49 @@
                             </div>
                         </div>
                         
-                        <div class="social-connect">
-                            <a href="https://www.linkedin.com/in/paul-yann-bouvier-9a439b253/" target="_blank" class="social-btn">
-                                <img src="/assets/images/linkedin.svg" alt="LinkedIn">
-                                LinkedIn Profile
-                            </a>
+                        <div class="map-container">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d20993.407908361878!2d2.1620730870902123!3d48.87392152282018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e6635a53dd6fd7%3A0x4f24ef8aa75a6d3f!2sRueil-Malmaison%2C%2092500%20Rueil-Malmaison!5e0!3m2!1sfr!2sfr!4v1772143114935!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
+                        <a href="https://www.google.com/maps/place/Rueil-Malmaison/" target="_blank" class="map-link">Agrandir la carte sur Google Maps</a>
                     </div>
 
                     <div class="contact-form-wrapper">
                         <div class="form-header">
-                            <span class="dot red"></span>
-                            <span class="dot yellow"></span>
-                            <span class="dot green"></span>
+                            <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
                             <span class="title">Secure Message Protocol</span>
                         </div>
-                        
                         <form id="my-form" action="https://formspree.io/f/manlrrlg" method="POST" class="contact-form">
-                            
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="prenom">PRÉNOM <span class="req">*</span></label>
                                     <input type="text" id="prenom" name="prenom" required placeholder="John">
                                 </div>
-                                
                                 <div class="form-group">
                                     <label for="nom">NOM <span class="req">*</span></label>
                                     <input type="text" id="nom" name="nom" required placeholder="Doe">
                                 </div>
                             </div>
-
                             <div class="form-group full-width">
                                 <label for="email">EMAIL <span class="req">*</span></label>
-                                <input type="email" id="email" name="email" required placeholder="john.doe@example.com">
+                                <input type="email" id="email" name="email" required placeholder="john@example.com">
                             </div>
-
                             <div class="form-group full-width">
-                                <label for="message">MESSAGE ENCRYPTED DATA <span class="req">*</span></label>
-                                <textarea id="message" name="message" rows="5" required placeholder="Initialisation du message..."></textarea>
+                                <label for="message">MESSAGE <span class="req">*</span></label>
+                                <textarea id="message" name="message" rows="5" required placeholder="Tapez votre message ici..."></textarea>
                             </div>
-
+                            <button type="submit" id="my-form-button" class="btn submit-btn">🚀 TRANSMETTRE</button>
                             <p id="my-form-status"></p>
-
-                            <button type="submit" id="my-form-button" class="btn submit-btn">
-                                <span class="btn-icon">🚀</span> TRANSMETTRE
-                            </button>
                         </form>
                     </div>
-
                 </div>
-
             </div>
         </section>
     </main>
 
-    <footer>
-        <p>
-            &copy; 2025 Paul-Yann Bouvier - Portfolio BTS SIO SISR
-        </p>
-    </footer>
+    <footer><p>&copy; 2025 Paul-Yann Bouvier - Portfolio BTS SIO SISR</p></footer>
     <script src="/script/script.js"></script>
 
-    <script>
+<script>
         var form = document.getElementById("my-form");
         
         async function handleSubmit(event) {
