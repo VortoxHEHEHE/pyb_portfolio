@@ -86,3 +86,16 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+
+/* =========================================
+   SYNCHRONISATION DU PROMPTEUR
+   ========================================= */
+// Récupère le chemin de la page actuelle (ex: "/pages/apropos.html" ou "/")
+const pagePath = window.location.pathname;
+
+// Sauvegarde l'info dans la mémoire du navigateur (localStorage)
+localStorage.setItem('portfolioPage', pagePath);
+
+// On ajoute un timestamp (l'heure exacte) pour forcer le navigateur 
+// à envoyer un signal même si on recharge la même page
+localStorage.setItem('portfolioTrigger', Date.now());
