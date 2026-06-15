@@ -2,7 +2,7 @@
    STYLE SPECIFIQUE PAGE ECOLE & ENTREPRISE
    ========================================= */
 
-/* --- Carte YNOV (Glassmorphism) --- */
+/* --- Carte YNOV & PARITEL (Glassmorphism) --- */
 .ynov-card {
     display: flex;
     flex-direction: column;
@@ -111,154 +111,7 @@
     padding: 0.4rem 0.8rem;
 }
 
-/* --- Section Centrée (Alternance) --- */
-.split-search-container {
-    display: flex;
-    justify-content: center; /* Centre la carte unique */
-    margin-top: 2rem;
-}
-
-/* --- Carte Recherche (Style Alerte Orange) --- */
-.search-alert-card {
-    background: rgba(255, 165, 0, 0.05); 
-    border: 1px dashed rgba(255, 165, 0, 0.4); 
-    border-radius: 15px;
-    padding: 2.5rem 2rem;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.split-card {
-    width: 100%;
-    max-width: 600px; /* Limite la largeur pour un affichage optimal */
-}
-
-.search-alert-card:hover {
-    background: rgba(255, 165, 0, 0.1);
-    border-color: rgba(255, 165, 0, 0.8);
-    transform: translateY(-5px);
-    box-shadow: 0 0 30px rgba(255, 165, 0, 0.15);
-}
-
-/* --- Animation Radar Jaune/Orange --- */
-.radar-wrapper {
-    position: relative;
-    width: 80px;
-    height: 80px;
-    margin-bottom: 1.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.alert-icon {
-    font-size: 2.5rem;
-    position: relative;
-    z-index: 2;
-    animation: pulseIcon 2s infinite;
-}
-
-.radar-ring {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    border: 2px solid #ffaa00; 
-    opacity: 0;
-    animation: radarRipple 2s linear infinite;
-    z-index: 1;
-}
-
-.radar-ring.delay {
-    animation-delay: 1s;
-}
-
-.alert-content h4 {
-    color: #ffaa00; 
-    font-family: 'Space Mono', monospace;
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-    text-shadow: 0 0 10px rgba(255, 165, 0, 0.3);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.alert-content p {
-    color: var(--text-light);
-    max-width: 600px;
-    margin-bottom: 0.5rem;
-    font-size: 0.95rem;
-}
-
-.alert-content strong {
-    color: #ffaa00;
-}
-
-.sub-text {
-    font-size: 0.85rem;
-    opacity: 0.7;
-    margin-bottom: 1.5rem;
-    font-style: italic;
-}
-
-/* --- BOUTON CONTACT UNIQUE --- */
-.single-contact-container {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    margin-top: 2rem;
-}
-
-.single-contact-btn {
-    width: 100%;
-    max-width: 600px; /* Aligné sur la largeur de la carte */
-    padding: 1.2rem 2rem;
-    font-family: 'Space Mono', monospace;
-    font-size: 1.1rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    border-radius: 10px;
-    transition: all 0.3s ease;
-    
-    /* Couleurs adaptées au thème de l'alternance */
-    color: #ffffff; 
-    background: rgba(255, 165, 0, 0.15);
-    border: 1px solid rgba(255, 165, 0, 0.4);
-    box-shadow: 0 0 15px rgba(255, 165, 0, 0.05);
-}
-
-.single-contact-btn:hover {
-    background: rgba(255, 165, 0, 0.3);
-    border-color: rgba(255, 165, 0, 0.8);
-    box-shadow: 0 0 30px rgba(255, 165, 0, 0.2);
-    transform: translateY(-3px);
-    color: #ffffff;
-}
-
 /* Animations Keyframes */
-@keyframes pulseIcon {
-    0% { transform: scale(1); opacity: 0.8; }
-    50% { transform: scale(1.1); opacity: 1; text-shadow: 0 0 20px #ffaa00; }
-    100% { transform: scale(1); opacity: 0.8; }
-}
-
-@keyframes radarRipple {
-    0% { width: 40px; height: 40px; opacity: 1; }
-    100% { width: 120px; height: 120px; opacity: 0; }
-}
-
 @keyframes pulseStatus {
     0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
     70% { box-shadow: 0 0 0 5px rgba(16, 185, 129, 0); }
@@ -270,11 +123,4 @@
     .specs-grid { grid-template-columns: 1fr; }
     .ynov-header { flex-direction: column; gap: 1rem; align-items: flex-start; }
     .ynov-logo-main { align-self: center; }
-    
-    .search-alert-card { padding: 1.5rem; }
-    
-    .single-contact-btn {
-        font-size: 1rem;
-        padding: 1rem;
-    }
 }

@@ -1015,7 +1015,7 @@ footer .secret-link:active {
    10. AJOUTS DECORATION
    ========================================= */
 
-/* --- 1. Badge "Open to Work" --- */
+/* --- 1. Badge Alternance --- */
 .status-badge {
     display: flex;
     align-items: center;
@@ -1026,13 +1026,13 @@ footer .secret-link:active {
     margin-top: 2rem;
     margin-bottom: 0;
 
-    background: rgba(16, 185, 129, 0.1);
-    border: 1px solid rgba(16, 185, 129, 0.4);
+    background: rgba(56, 189, 248, 0.1);
+    border: 1px solid rgba(56, 189, 248, 0.4);
     padding: 8px 16px;
     border-radius: 10px; 
     
     font-size: 0.9rem;
-    color: #10b981;
+    color: var(--accent-color); /* Couleur Bleue */
     font-family: 'Space Mono', monospace;
     font-weight: 600;
 }
@@ -1040,17 +1040,17 @@ footer .secret-link:active {
 .status-dot {
     width: 10px;
     height: 10px;
-    background-color: #10b981;
+    background-color: var(--accent-color);
     border-radius: 50%;
     margin-right: 10px;
-    box-shadow: 0 0 8px #10b981;
-    animation: pulseStatus 2s infinite;
+    box-shadow: 0 0 8px var(--accent-color);
+    animation: pulseStatusParitel 2s infinite;
 }
 
-@keyframes pulseStatus {
-    0% { opacity: 1; box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
-    70% { opacity: 1; box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
-    100% { opacity: 1; box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+@keyframes pulseStatusParitel {
+    0% { opacity: 1; box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.7); }
+    70% { opacity: 1; box-shadow: 0 0 0 10px rgba(56, 189, 248, 0); }
+    100% { opacity: 1; box-shadow: 0 0 0 0 rgba(56, 189, 248, 0); }
 }
 
 /* --- 2. Lueurs d'ambiance (Glow) --- */
