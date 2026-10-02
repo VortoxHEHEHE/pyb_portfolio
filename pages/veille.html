@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Veille Technologique - Paul-Yann Bouvier</title>
-    <link rel="icon" href="/assets/images/logo.webp" type="image/webp">
-    <link href="/style/css_google/css2.css" rel="stylesheet">
-    
-    <link rel="stylesheet" href="/style/style.css">
-    <link rel="stylesheet" href="/style/css_veille/veille.css">
-    
+    <meta name="description" content="Veille technologique 2026 : cybersécurité des systèmes d'exploitation et automatisation de l'administration système - BTS SIO SISR.">
+    <link rel="icon" href="../assets/images/logo.webp" type="image/webp">
+    <link href="../style/css_google/css2.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="../style/css_veille/veille.css">
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
 </head>
 <body>
@@ -25,14 +26,14 @@
         <div class="nav-container">
             <div class="menu-toggle" id="mobile-menu"><span></span><span></span><span></span></div>
             <ul id="nav-list">
-                <li><a href="/">Accueil</a></li>
-                <li><a href="/pages/apropos.html">À propos</a></li>
-                <li><a href="/pages/bts-sio.html">BTS SIO</a></li>
-                <li><a href="/pages/ecole-entreprise.html">École & Entreprise</a></li>
-                <li><a href="/pages/missions.html">Missions (E5)</a></li>
-                <li><a href="/pages/projets.html">Projets (E6)</a></li>
-                <li><a href="/pages/veille.html" class="active-link">Veille</a></li>
-                <li><a href="/pages/contact.html">Contact</a></li>
+                <li><a href="../index.html">Accueil</a></li>
+                <li><a href="apropos.html">À propos</a></li>
+                <li><a href="bts-sio.html">BTS SIO</a></li>
+                <li><a href="ecole-entreprise.html">École & Entreprise</a></li>
+                <li><a href="missions.html">Réalisations (E5)</a></li>
+                <li><a href="projets.html">Projets (E6)</a></li>
+                <li><a href="veille.html" class="active-link">Veille</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -40,37 +41,301 @@
     <main class="page-content">
         <section class="section-secondary-dark">
             <div class="container">
-                
+
                 <div class="terminal-title">
-                    <span class="prompt">root@paulyann:~/veille#</span> <span class="command">./scan_targets.sh</span><span class="cursor">|</span>
+                    <span class="prompt">root@paulyann:~/veille#</span> <span class="command">./scan_targets.sh</span><span class="cursor">_</span>
                 </div>
-                
-                <div class="live-feed-section">
-                    
+
+                <!-- ===== INTRODUCTION ===== -->
+                <div class="veille-hero">
                     <div class="radar-container">
                         <div class="radar-circle"></div>
                         <div class="radar-scan"></div>
-                        
                         <div class="radar-blip blip-1"></div>
                         <div class="radar-blip blip-2"></div>
                         <div class="radar-blip blip-3"></div>
                     </div>
-                    
-                    <div class="feed-info">
-                        <h3>INITIALISATION DE LA VEILLE</h3>
-                        
+
+                    <div class="veille-intro">
+                        <h3>Qu'est-ce que la veille technologique ?</h3>
                         <p>
-                            Le sujet de l'épreuve U4 est en cours de définition.
-                            <br><span style="color: var(--gray-subtle); font-size: 0.9rem;">(Analyse des tendances technologiques en cours...)</span>
+                            La veille technologique regroupe l'ensemble des moyens mis en œuvre pour <strong>collecter, trier et analyser</strong>
+                            l'information technique, afin de rester en alerte face aux évolutions et aux menaces de son domaine.
                         </p>
-                        
+                        <p>
+                            Pour un technicien systèmes et réseaux, c'est un réflexe professionnel : une faille publiée aujourd'hui
+                            peut concerner le parc que l'on administre demain. Ma veille répond ainsi à la compétence
+                            <a href="missions.html#synthese" class="comp-link">C6 — Organiser son développement professionnel</a> du bloc 1.
+                        </p>
                         <div class="console-output">
-                            <span class="line">> System ready.</span>
-                            <span class="line">> Scanning sector "IT Security"... [NO TARGET]</span>
-                            <span class="line">> Scanning sector "AI & Cloud"... [ANALYZING]</span>
-                            <span class="line" style="color: #ffaa00;">> Waiting for user selection... <span class="blink-dot"></span></span>
+                            <span class="line">&gt; Sources actives : 4</span>
+                            <span class="line">&gt; Thématiques suivies : 2</span>
+                            <span class="line">&gt; Période couverte : sept. 2025 → oct. 2026</span>
+                            <span class="line" style="color: #10b981;">&gt; Statut : veille en cours <span class="blink-dot"></span></span>
                         </div>
                     </div>
+                </div>
+
+                <!-- ===== MÉTHODOLOGIE ===== -->
+                <h3 class="section-subtitle">Ma méthode</h3>
+
+                <div class="method-steps">
+                    <div class="method-step">
+                        <span class="step-num">01</span>
+                        <h4>Collecter</h4>
+                        <p>Alertes Google Actualités sur mes mots-clés, bulletins du CERT-FR, articles IT-Connect et experts suivis sur LinkedIn.</p>
+                    </div>
+                    <div class="method-step">
+                        <span class="step-num">02</span>
+                        <h4>Trier</h4>
+                        <p>Je ne garde que ce qui concerne mes thématiques et les environnements que je manipule : Windows, Linux, réseau.</p>
+                    </div>
+                    <div class="method-step">
+                        <span class="step-num">03</span>
+                        <h4>Vérifier</h4>
+                        <p>Je recoupe avec une source officielle : avis CERT-FR, référence CVE ou documentation de l'éditeur.</p>
+                    </div>
+                    <div class="method-step">
+                        <span class="step-num">04</span>
+                        <h4>Synthétiser</h4>
+                        <p>Je résume l'information et ce qu'elle change concrètement pour un administrateur, puis je la publie ici.</p>
+                    </div>
+                </div>
+
+                <!-- ===== THÉMATIQUES (ONGLETS) ===== -->
+                <div class="theme-tabs" role="tablist">
+                    <button type="button" class="theme-tab active" role="tab" aria-selected="true" data-panel="theme-1">01 · Cybersécurité des OS</button>
+                    <button type="button" class="theme-tab" role="tab" aria-selected="false" data-panel="theme-2">02 · Automatisation</button>
+                </div>
+
+                <!-- ===== THÉMATIQUE 1 ===== -->
+                <div class="theme-panel" id="theme-1" role="tabpanel">
+                <div class="theme-header">
+                    <span class="theme-label">THÉMATIQUE 01</span>
+                    <h3 class="section-subtitle">Cybersécurité des systèmes d'exploitation</h3>
+                    <p class="theme-desc">Comment les vulnérabilités affectent Windows et Linux, et comment les administrateurs systèmes s'en protègent au quotidien.</p>
+                </div>
+
+                <div class="diploma-grid grid-3">
+                    <article class="holographic-card" data-tilt data-tilt-glare data-tilt-max-glare="0.15">
+                        <div class="card-bg-icon"><img src="../assets/images/windows.svg" alt=""></div>
+                        <div class="card-header-line">
+                            <span class="mission-id">13 OCTOBRE 2026</span>
+                            <span class="mission-status urgent">ÉCHÉANCE</span>
+                        </div>
+                        <h3>Windows 10 : fin de la 1ʳᵉ année d'ESU</h3>
+                        <p class="mission-desc">
+                            Le support de Windows 10 s'est terminé le 14 octobre 2025. Le programme de mises à jour de sécurité
+                            étendues (ESU) prolonge les correctifs, mais sa première année s'arrête le 13 octobre 2026. Pour les
+                            entreprises, l'ESU est payant par poste (61 $ la 1ʳᵉ année) et son prix double chaque année, trois ans maximum.
+                        </p>
+                        <p class="takeaway"><strong>Pour l'admin :</strong> recenser les postes encore sous Windows 10 (d'où l'intérêt d'un inventaire comme <a href="missions.html#rp-05">OCS Inventory</a>) et planifier leur migration vers Windows 11.</p>
+                        <a href="https://learn.microsoft.com/fr-fr/windows/whats-new/extended-security-updates" class="btn-holo" target="_blank" rel="noopener">Source : learn.microsoft.com</a>
+                    </article>
+
+                    <article class="holographic-card" data-tilt data-tilt-glare data-tilt-max-glare="0.15">
+                        <div class="card-bg-icon"><img src="../assets/images/windows.svg" alt=""></div>
+                        <div class="card-header-line">
+                            <span class="mission-id">SEPTEMBRE 2026</span>
+                            <span class="mission-status">WINDOWS</span>
+                        </div>
+                        <h3>Patch Tuesday record : 966 failles corrigées</h3>
+                        <p class="mission-desc">
+                            Le 8 septembre 2026, Microsoft a corrigé 966 vulnérabilités, un record historique, dont 105 critiques
+                            et 2 « zero-day » déjà exploitées : une dans le composant ALPC et une dans la pile Windows Update,
+                            toutes deux permettant d'obtenir les droits SYSTEM. Microsoft explique ce volume par un nouvel
+                            outil de détection de failles basé sur l'IA.
+                        </p>
+                        <p class="takeaway"><strong>Pour l'admin :</strong> face à un tel volume, il faut prioriser, en commençant par les failles activement exploitées.</p>
+                        <a href="https://www.bleepingcomputer.com/news/microsoft/microsoft-september-2026-patch-tuesday-fixes-966-flaws-2-zero-days/" class="btn-holo" target="_blank" rel="noopener">Source : bleepingcomputer.com</a>
+                    </article>
+
+                    <article class="holographic-card" data-tilt data-tilt-glare data-tilt-max-glare="0.15">
+                        <div class="card-bg-icon"><img src="../assets/images/linux.svg" alt=""></div>
+                        <div class="card-header-line">
+                            <span class="mission-id">SEPTEMBRE 2026</span>
+                            <span class="mission-status">RANSOMWARE</span>
+                        </div>
+                        <h3>Un été 2026 record pour les rançongiciels</h3>
+                        <p class="mission-desc">
+                            En juillet et août 2026, plus de 920 attaques par rançongiciel ont été recensées chaque mois dans le
+                            monde, du jamais vu. La France résiste mieux mais reste très exposée. Qilin est le groupe le plus actif,
+                            et plusieurs groupes intègrent désormais l'IA, notamment pour analyser les données volées.
+                        </p>
+                        <p class="takeaway"><strong>Pour l'admin :</strong> corriger les équipements exposés (VPN, pare-feu) et garder des sauvegardes hors ligne testées.</p>
+                        <a href="https://www.lemagit.fr/actualites/366650223/Ransomware-un-ete-2026-dune-violence-inedite" class="btn-holo" target="_blank" rel="noopener">Source : lemagit.fr</a>
+                    </article>
+
+                    <article class="holographic-card" data-tilt data-tilt-glare data-tilt-max-glare="0.15">
+                        <div class="card-bg-icon"><img src="../assets/images/linux.svg" alt=""></div>
+                        <div class="card-header-line">
+                            <span class="mission-id">MAI 2026</span>
+                            <span class="mission-status">LINUX</span>
+                        </div>
+                        <h3>« Dirty Frag » : élévation de privilèges sous Linux</h3>
+                        <p class="mission-desc">
+                            Deux vulnérabilités du noyau Linux (CVE-2026-43284 et CVE-2026-43500), surnommées « Dirty Frag »,
+                            peuvent être combinées pour permettre à un simple utilisateur local d'obtenir les droits administrateur.
+                            Le CERT-FR a signalé qu'un code d'exploitation était publiquement disponible.
+                        </p>
+                        <p class="takeaway"><strong>Pour l'admin :</strong> appliquer les mises à jour du noyau (<code>apt upgrade</code> puis redémarrage) sur les serveurs, comme ceux installés dans <a href="missions.html#rp-07">ma réalisation Debian 12</a>.</p>
+                        <a href="https://www.cert.ssi.gouv.fr/actualite/CERTFR-2026-ACT-021/" class="btn-holo" target="_blank" rel="noopener">Source : cert.ssi.gouv.fr</a>
+                    </article>
+
+                    <article class="holographic-card" data-tilt data-tilt-glare data-tilt-max-glare="0.15">
+                        <div class="card-bg-icon"><img src="../assets/images/windows.svg" alt=""></div>
+                        <div class="card-header-line">
+                            <span class="mission-id">OCTOBRE 2025</span>
+                            <span class="mission-status">WINDOWS SERVER</span>
+                        </div>
+                        <h3>WSUS : faille critique exploitée</h3>
+                        <p class="mission-desc">
+                            La faille CVE-2025-59287 (score CVSS 9,8) touchait WSUS, le rôle Windows Server qui distribue les mises à
+                            jour dans l'entreprise. Elle permettait d'exécuter du code à distance avec les droits SYSTEM, sans
+                            authentification. Le correctif d'octobre étant insuffisant, Microsoft a publié un correctif d'urgence le
+                            23 octobre 2025, alors que la faille était déjà exploitée.
+                        </p>
+                        <p class="takeaway"><strong>Pour l'admin :</strong> ne jamais exposer un serveur WSUS sur Internet (ports 8530/8531) : même l'outil qui sert à patcher doit être patché.</p>
+                        <a href="https://www.it-connect.fr/patchez-wsus-cve-2025-59287-cette-nouvelle-faille-critique-est-deja-exploitee/" class="btn-holo" target="_blank" rel="noopener">Source : it-connect.fr</a>
+                    </article>
+
+                    <article class="holographic-card" data-tilt data-tilt-glare data-tilt-max-glare="0.15">
+                        <div class="card-bg-icon"><img src="../assets/images/cisco.png" alt=""></div>
+                        <div class="card-header-line">
+                            <span class="mission-id">SEPTEMBRE 2025</span>
+                            <span class="mission-status">RÉSEAU · CISCO</span>
+                        </div>
+                        <h3>Pare-feu Cisco ASA : deux zero-day</h3>
+                        <p class="mission-desc">
+                            Le 25 septembre 2025, Cisco a alerté sur deux failles de ses pare-feu ASA, déjà exploitées
+                            (CVE-2025-20333 et CVE-2025-20362). Combinées, elles permettent de contourner l'authentification du
+                            serveur VPN web puis d'exécuter du code, avec une persistance même après mise à jour. La campagne,
+                            nommée ArcaneDoor, est attribuée à un acteur étatique.
+                        </p>
+                        <p class="takeaway"><strong>Pour l'admin :</strong> les équipements de bordure (pare-feu, VPN) sont la première cible. Il faut suivre les alertes de leurs constructeurs de près.</p>
+                        <a href="https://www.bleepingcomputer.com/news/security/cisco-warns-of-asa-firewall-zero-days-exploited-in-attacks/" class="btn-holo" target="_blank" rel="noopener">Source : bleepingcomputer.com</a>
+                    </article>
+                </div>
+
+                </div>
+
+                <!-- ===== THÉMATIQUE 2 ===== -->
+                <div class="theme-panel" id="theme-2" role="tabpanel">
+                <div class="theme-header">
+                    <span class="theme-label">THÉMATIQUE 02</span>
+                    <h3 class="section-subtitle">Automatisation de l'administration système</h3>
+                    <p class="theme-desc">Les outils et méthodes modernes pour gérer, déployer et superviser des systèmes Linux et Windows plus efficacement.</p>
+                </div>
+
+                <div class="diploma-grid grid-4">
+                    <article class="holographic-card" data-tilt data-tilt-glare data-tilt-max-glare="0.15">
+                        <div class="card-bg-icon"><img src="../assets/images/linux.svg" alt=""></div>
+                        <div class="card-header-line">
+                            <span class="mission-id">MAI 2026</span>
+                            <span class="mission-status">ANSIBLE · IA</span>
+                        </div>
+                        <h3>Ansible s'ouvre aux agents IA</h3>
+                        <p class="mission-desc">
+                            Red Hat a lancé un serveur MCP (Model Context Protocol) pour Ansible : des agents d'intelligence
+                            artificielle peuvent désormais déclencher des automatisations. Garde-fou principal : l'IA ne peut
+                            exécuter que des playbooks déjà écrits, testés et validés par des humains.
+                        </p>
+                        <p class="takeaway"><strong>Pour l'admin :</strong> l'IA ne remplace pas l'admin, elle s'appuie sur ses procédures. Contrôle des droits et tests en environnement de développement restent indispensables.</p>
+                        <a href="https://www.lemondeinformatique.fr/actualites/lire-red-hat-ouvre-ansible-aux-agents-ia-avec-certaines-limites-100173.html" class="btn-holo" target="_blank" rel="noopener">Source : lemondeinformatique.fr</a>
+                    </article>
+
+                    <article class="holographic-card" data-tilt data-tilt-glare data-tilt-max-glare="0.15">
+                        <div class="card-bg-icon"><img src="../assets/images/linux.svg" alt=""></div>
+                        <div class="card-header-line">
+                            <span class="mission-id">AVRIL 2026</span>
+                            <span class="mission-status">SUPERVISION</span>
+                        </div>
+                        <h3>Grafana 13 et l'observabilité ouverte</h3>
+                        <p class="mission-desc">
+                            Présenté à la GrafanaCON 2026, Grafana 13 propose des tableaux de bord suggérés et dynamiques,
+                            leur versionnement dans Git, et une nouvelle architecture de Loki (gestion des journaux) jusqu'à
+                            10 fois plus rapide. Il s'appuie sur les standards ouverts Prometheus et OpenTelemetry.
+                        </p>
+                        <p class="takeaway"><strong>Pour l'admin :</strong> superviser métriques et journaux au même endroit pour détecter un problème avant l'utilisateur.</p>
+                        <a href="https://www.businesswire.com/news/home/20260421839174/en/" class="btn-holo" target="_blank" rel="noopener">Source : businesswire.com</a>
+                    </article>
+
+                    <article class="holographic-card" data-tilt data-tilt-glare data-tilt-max-glare="0.15">
+                        <div class="card-bg-icon"><img src="../assets/images/windows.svg" alt=""></div>
+                        <div class="card-header-line">
+                            <span class="mission-id">MARS 2026</span>
+                            <span class="mission-status">POWERSHELL</span>
+                        </div>
+                        <h3>PowerShell 7.6 LTS</h3>
+                        <p class="mission-desc">
+                            Sortie le 18 mars 2026, la version 7.6 est la nouvelle version à support long (LTS), basée sur .NET 10.
+                            Elle améliore l'autocomplétion et la fiabilité, et fournit PSResourceGet, le successeur recommandé
+                            d'<code>Install-Module</code> pour installer des modules.
+                        </p>
+                        <p class="takeaway"><strong>Pour l'admin :</strong> une version LTS est la bonne cible pour les scripts de production, car elle est maintenue plusieurs années.</p>
+                        <a href="https://devblogs.microsoft.com/powershell/announcing-powershell-7-6/" class="btn-holo" target="_blank" rel="noopener">Source : devblogs.microsoft.com</a>
+                    </article>
+
+                    <article class="holographic-card" data-tilt data-tilt-glare data-tilt-max-glare="0.15">
+                        <div class="card-bg-icon"><img src="../assets/images/windows.svg" alt=""></div>
+                        <div class="card-header-line">
+                            <span class="mission-id">NOVEMBRE 2025</span>
+                            <span class="mission-status">MICROSOFT IGNITE</span>
+                        </div>
+                        <h3>Sysmon intégré à Windows</h3>
+                        <p class="mission-desc">
+                            Lors de sa conférence Ignite (18-21 novembre 2025), Microsoft a annoncé l'intégration de Sysmon,
+                            l'outil de journalisation avancée des événements système, comme fonctionnalité optionnelle de
+                            Windows 11 et Windows Server 2025, mise à jour via Windows Update. Intune devient aussi le point central
+                            de la récupération à distance des postes.
+                        </p>
+                        <p class="takeaway"><strong>Pour l'admin :</strong> plus besoin de déployer Sysmon à part, ce qui facilite la collecte de journaux pour détecter une intrusion.</p>
+                        <a href="https://www.it-connect.fr/ignite-2025-retour-sur-les-principales-annonces-de-microsoft/" class="btn-holo" target="_blank" rel="noopener">Source : it-connect.fr</a>
+                    </article>
+                </div>
+
+                </div>
+
+                <!-- ===== SYNTHÈSE ===== -->
+                <h3 class="section-subtitle">Ce que je retiens en 2026</h3>
+
+                <div class="glass-card synthesis-card">
+                    <p>
+                        <strong>L'intelligence artificielle est partout, des deux côtés.</strong> Microsoft l'utilise pour découvrir
+                        plus de failles (d'où un Patch Tuesday record), les groupes de rançongiciels l'utilisent pour leurs attaques,
+                        et les outils d'automatisation comme Ansible s'ouvrent aux agents IA.
+                    </p>
+                    <p>
+                        Pour un technicien systèmes et réseaux, les fondamentaux restent pourtant les mêmes :
+                        <strong>connaître son parc, appliquer les correctifs en priorisant, sauvegarder, superviser</strong>,
+                        et n'automatiser qu'avec des procédures maîtrisées.
+                    </p>
+                </div>
+
+                <!-- ===== OUTILS ===== -->
+                <h3 class="section-subtitle">Mes outils de veille</h3>
+
+                <div class="tools-grid">
+                    <a href="https://news.google.com/" target="_blank" rel="noopener" class="tool-card">
+                        <span class="tool-badge">GA</span>
+                        <h4>Google Actualités</h4>
+                        <p>Agrégateur personnalisé pour suivre en temps réel mes mots-clés : cybersécurité, Linux, Windows Server.</p>
+                    </a>
+                    <a href="https://www.cert.ssi.gouv.fr/" target="_blank" rel="noopener" class="tool-card">
+                        <span class="tool-badge">FR</span>
+                        <h4>CERT-FR</h4>
+                        <p>Centre gouvernemental de cybersécurité (ANSSI) : bulletins d'alerte et avis de sécurité officiels.</p>
+                    </a>
+                    <a href="https://www.it-connect.fr/" target="_blank" rel="noopener" class="tool-card">
+                        <span class="tool-badge">IT</span>
+                        <h4>IT-Connect</h4>
+                        <p>Site francophone d'administration système : tutoriels PowerShell, Active Directory, Linux et sécurité.</p>
+                    </a>
+                    <a href="https://www.linkedin.com/" target="_blank" rel="noopener" class="tool-card">
+                        <span class="tool-badge">in</span>
+                        <h4>LinkedIn</h4>
+                        <p>Suivi d'experts en cybersécurité et administration système pour les tendances et bonnes pratiques.</p>
+                    </a>
                 </div>
 
             </div>
@@ -79,9 +344,26 @@
 
     <footer>
         <p>
-            &copy; 2025 Paul-Yann Bouvier - Portfolio BTS SIO SISR
+            &copy; 2026 Paul-Yann Bouvier - Portfolio BTS SIO SISR
         </p>
     </footer>
-    <script src="/script/script.js"></script>
+    <script src="../script/script.js"></script>
+    <script>
+        /* Onglets des thématiques : une seule thématique affichée à la fois */
+        const tabs = document.querySelectorAll('.theme-tab');
+        const panels = document.querySelectorAll('.theme-panel');
+
+        function showPanel(id) {
+            tabs.forEach(tab => {
+                const active = tab.dataset.panel === id;
+                tab.classList.toggle('active', active);
+                tab.setAttribute('aria-selected', active);
+            });
+            panels.forEach(panel => { panel.hidden = panel.id !== id; });
+        }
+
+        tabs.forEach(tab => tab.addEventListener('click', () => showPanel(tab.dataset.panel)));
+        showPanel('theme-1');
+    </script>
 </body>
 </html>

@@ -996,21 +996,6 @@ body.home-page footer {
     border-top: none;
 }
 
-/* EASTER EGG */
-footer .secret-link,
-footer .secret-link:hover,
-footer .secret-link:focus,
-footer .secret-link:active {
-    color: inherit !important;
-    text-decoration: none !important;
-    border-bottom: none !important;
-    text-shadow: none !important;
-    background: none !important;
-    cursor: default !important;
-    transition: none !important;
-    transform: none !important;
-}
-
 /* =========================================
    10. AJOUTS DECORATION
    ========================================= */
@@ -1211,7 +1196,8 @@ footer .secret-link:active {
 
 .terminal-title {
     font-family: 'Space Mono', monospace;
-    font-size: 1.8rem;
+    font-size: clamp(1rem, 2.6vw, 1.8rem);
+    max-width: 100%;
     margin-bottom: 1.5rem;
     background: rgba(15, 23, 42, 0.9);
     border: 1px solid rgba(56, 189, 248, 0.3);
@@ -1663,4 +1649,231 @@ body.contact-page .scan-line {
         box-shadow: 0 0 20px #10b981, 0 0 4px #ffffff;
         filter: brightness(1.3);
     }
+}
+
+
+/* =========================================
+   MISE EN PAGE COMPACTE (moins de défilement)
+   Regroupe les réductions d'espacement de tout le site.
+   ========================================= */
+
+section { padding: 2.5rem 0; }
+
+section h3.section-subtitle {
+    font-size: 1.6rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.35rem;
+}
+
+.terminal-title {
+    display: block;
+    width: fit-content;
+    font-size: clamp(1rem, 2.2vw, 1.4rem);
+    padding: 0.7rem 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.glass-card { padding: 1.5rem; }
+
+/* --- À propos --- */
+.about-content {
+    gap: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.about-text h3 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+}
+
+.about-text p {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.skills-grid { gap: 1rem; }
+
+.skill-category h4 {
+    font-size: 1.15rem;
+    margin-bottom: 0.6rem;
+}
+
+.skill-tags { gap: 0.5rem; }
+
+.skill-tag {
+    padding: 0.4rem 0.9rem;
+    font-size: 0.85rem;
+}
+
+/* Parcours : cartes sur deux colonnes au lieu d'une frise verticale */
+.timeline {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    padding-left: 0;
+    margin-bottom: 2rem;
+}
+
+.timeline::before,
+.timeline-item::before {
+    display: none;
+}
+
+.timeline-item {
+    margin-bottom: 0;
+    padding: 1.25rem 1.4rem;
+}
+
+.timeline-item.is-visible { transition-delay: 0s; }
+
+.school-header {
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.school-logo {
+    width: 48px;
+    height: 48px;
+}
+
+.school-info h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0.1rem;
+}
+
+.timeline-date { font-size: 0.85rem; }
+
+.timeline-item p {
+    font-size: 0.92rem;
+    margin-bottom: 0.4rem;
+}
+
+.timeline-item li {
+    font-size: 0.9rem;
+    margin-bottom: 0.15rem;
+}
+
+/* Logos : une seule ligne */
+.tech-logos { margin-top: 2.5rem; }
+
+.tech-logos h3 {
+    font-size: 1.6rem;
+    margin-bottom: 1.25rem;
+}
+
+.logos-grid {
+    grid-template-columns: repeat(8, 1fr);
+    gap: 0.75rem;
+    margin-top: 0;
+}
+
+.logo-item {
+    min-height: 0;
+    padding: 0.9rem 0.5rem;
+}
+
+.logo-item img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 0.5rem;
+}
+
+.logo-item span { font-size: 0.75rem; }
+
+/* --- BTS SIO --- */
+.bts-intro {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.spec-block { padding: 1.5rem 1.75rem; }
+
+.spec-block h3 {
+    font-size: 1.6rem;
+    margin-bottom: 0.6rem;
+}
+
+.spec-desc { margin-bottom: 1rem; }
+
+.deb-title { margin-bottom: 0.6rem; }
+
+.job-list li { margin-bottom: 0.35rem; }
+
+.next-steps {
+    margin-top: 2rem;
+    padding-top: 0.5rem;
+}
+
+.terminal-line { margin-bottom: 1rem; }
+
+.next-steps h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.next-steps p { margin-bottom: 1rem; }
+
+/* --- Cartes holographiques (Réalisations, Projets, Veille) --- */
+.diploma-grid { gap: 1.25rem; }
+
+@media (max-width: 1100px) {
+    .logos-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media (max-width: 768px) {
+    .timeline { grid-template-columns: 1fr; }
+}
+
+.about-actions {
+    margin-top: 0;
+    margin-bottom: 2rem;
+    gap: 1rem;
+}
+
+/* --- Accueil : deux boutons d'accès rapide --- */
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.hero-actions .btn-primary { margin-top: 0; }
+
+.btn-outline {
+    background: transparent;
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+.btn-outline:hover {
+    background: var(--accent-darker);
+    color: #ffffff;
+}
+
+/* --- Page 404 --- */
+.not-found {
+    text-align: center;
+    padding-top: 4rem;
+}
+
+.not-found .terminal-title { margin: 0 auto 2rem; }
+
+.not-found-code {
+    font-family: 'Space Mono', monospace;
+    font-size: clamp(4rem, 15vw, 8rem);
+    font-weight: 700;
+    line-height: 1;
+    color: var(--accent-color);
+    text-shadow: 0 0 25px var(--accent-glow);
+}
+
+.not-found-text {
+    font-family: 'Space Mono', monospace;
+    color: var(--gray-subtle);
+    margin: 1rem 0 0.5rem;
 }

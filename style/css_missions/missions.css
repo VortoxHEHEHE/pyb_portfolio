@@ -138,3 +138,406 @@
     box-shadow: 0 0 15px var(--accent-glow);
     border-color: var(--accent-color);
 }
+
+/* =========================================
+   ÉPREUVE E5 : INTRO, COMPÉTENCES, SYNTHÈSE
+   ========================================= */
+
+.e5-intro {
+    margin-bottom: 4rem;
+}
+
+.e5-intro h3 {
+    font-family: 'Space Mono', monospace;
+    color: var(--accent-color);
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.e5-intro p {
+    color: var(--text-light);
+    line-height: 1.7;
+}
+
+.e5-quicklinks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+/* Légende des compétences */
+.comp-legend {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-bottom: 4rem;
+}
+
+.comp-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    border-radius: 8px;
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+.comp-code {
+    flex-shrink: 0;
+    font-family: 'Space Mono', monospace;
+    font-weight: bold;
+    color: #0f172a;
+    background: var(--accent-color);
+    border-radius: 6px;
+    padding: 4px 10px;
+}
+
+/* Tableau de synthèse */
+.table-hint {
+    color: var(--gray-subtle);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.synthese-wrapper {
+    overflow-x: auto;
+    margin-bottom: 4rem;
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    border-radius: 12px;
+    background: rgba(15, 23, 42, 0.6);
+}
+
+.synthese-table {
+    width: 100%;
+    min-width: 760px;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.synthese-table th,
+.synthese-table td {
+    padding: 0.75rem 0.6rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    text-align: center;
+    color: var(--text-light);
+}
+
+.synthese-table th {
+    font-family: 'Space Mono', monospace;
+    color: var(--text-white);
+    background: rgba(56, 189, 248, 0.08);
+}
+
+.synthese-table td:nth-child(2),
+.synthese-table th:nth-child(2) {
+    text-align: left;
+}
+
+.synthese-table td:first-child {
+    white-space: nowrap;
+    font-family: 'Space Mono', monospace;
+    color: var(--gray-subtle);
+}
+
+.synthese-table tbody tr:hover {
+    background: rgba(56, 189, 248, 0.05);
+}
+
+.synthese-table a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.synthese-table a:hover {
+    text-decoration: underline;
+}
+
+.synthese-table td.ok {
+    color: #10b981;
+    font-weight: bold;
+}
+
+.synthese-table td.pending {
+    color: #ffaa00;
+    font-size: 0.8rem;
+}
+
+.comp-filter {
+    font: inherit;
+    color: var(--accent-color);
+    background: transparent;
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    border-radius: 4px;
+    padding: 2px 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.comp-filter:hover,
+.comp-filter.active {
+    background: var(--accent-color);
+    color: #0f172a;
+}
+
+/* Bandeau de filtre actif */
+.filter-status {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    border-radius: 8px;
+    color: var(--accent-color);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.85rem;
+}
+
+.filter-status[hidden],
+.holographic-card[hidden] {
+    display: none;
+}
+
+#filter-reset {
+    font: inherit;
+    color: var(--text-white);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+    padding: 4px 10px;
+    cursor: pointer;
+}
+
+/* Badges de contexte et de compétences sur les cartes */
+.mission-status {
+    background: rgba(56, 189, 248, 0.1);
+    color: var(--accent-color);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.mission-status.company {
+    background: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+    border-color: rgba(16, 185, 129, 0.3);
+}
+
+.mission-status.personal {
+    background: rgba(255, 170, 0, 0.1);
+    color: #ffaa00;
+    border-color: rgba(255, 170, 0, 0.3);
+}
+
+.comp-badges {
+    display: flex;
+    gap: 0.4rem;
+    margin: -1rem 0 1.5rem;
+    z-index: 1;
+}
+
+.comp-badges span {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: #0f172a;
+    background: var(--accent-color);
+    border-radius: 4px;
+    padding: 2px 8px;
+}
+
+.holographic-card code {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.85em;
+    color: var(--accent-color);
+}
+
+.holographic-card:target {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 25px var(--accent-glow);
+}
+
+.btn-holo.disabled {
+    cursor: default;
+    color: var(--gray-subtle);
+    border-style: dashed;
+}
+
+.btn-holo.disabled:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--gray-subtle);
+    box-shadow: none;
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Les ancres ne doivent pas passer sous la barre de navigation fixe */
+#synthese, #realisations, .holographic-card {
+    scroll-margin-top: 100px;
+}
+
+
+/* =========================================
+   MISE EN PAGE COMPACTE (moins de défilement)
+   ========================================= */
+
+/* Intro et compétences côte à côte */
+.e5-intro {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+    margin-bottom: 2.5rem;
+}
+
+.e5-intro h3 {
+    font-size: 1.15rem;
+}
+
+.e5-intro p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.e5-quicklinks {
+    gap: 0.6rem;
+    margin-top: 1.25rem;
+}
+
+.e5-quicklinks .btn-action {
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+}
+
+.comp-legend {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-bottom: 0;
+}
+
+.comp-legend-title {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    color: var(--gray-subtle);
+    text-transform: uppercase;
+    margin-bottom: 0.2rem;
+}
+
+.comp-item {
+    padding: 0.45rem 0.7rem;
+    gap: 0.7rem;
+    font-size: 0.85rem;
+    line-height: 1.35;
+}
+
+.comp-code {
+    font-size: 0.8rem;
+    padding: 2px 8px;
+}
+
+/* Tableau plus serré */
+.table-hint {
+    margin-bottom: 0.75rem;
+    font-size: 0.85rem;
+}
+
+.synthese-wrapper {
+    margin-bottom: 2.5rem;
+}
+
+.synthese-table {
+    font-size: 0.85rem;
+}
+
+.synthese-table th,
+.synthese-table td {
+    padding: 0.45rem 0.6rem;
+}
+
+/* Fiches : 4 colonnes, cartes denses */
+#realisations + .filter-status + .diploma-grid {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.diploma-grid .holographic-card[data-comps] {
+    padding: 1.25rem;
+}
+
+.holographic-card[data-comps] .card-header-line {
+    margin-bottom: 0.75rem;
+    font-size: 0.72rem;
+}
+
+.holographic-card[data-comps] h3 {
+    font-size: 1.15rem;
+    line-height: 1.3;
+    margin-bottom: 0.3rem;
+}
+
+.holographic-card[data-comps] .mission-context {
+    font-size: 0.8rem;
+    margin-bottom: 0.6rem;
+}
+
+.holographic-card[data-comps] .mission-desc {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-bottom: 0.8rem;
+}
+
+.holographic-card[data-comps] .mission-specs {
+    margin-bottom: 1.4rem;
+    gap: 0.35rem;
+}
+
+.holographic-card[data-comps] .spec-tag {
+    font-size: 0.72rem;
+    padding: 2px 7px;
+}
+
+.holographic-card[data-comps] .comp-badges {
+    margin: -0.8rem 0 0.9rem;
+}
+
+.holographic-card[data-comps] .btn-holo {
+    padding: 8px;
+    font-size: 0.8rem;
+}
+
+@media (max-width: 1100px) {
+    #realisations + .filter-status + .diploma-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 900px) {
+    .e5-intro { grid-template-columns: 1fr; }
+    #realisations + .filter-status + .diploma-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+    #realisations + .filter-status + .diploma-grid { grid-template-columns: 1fr; }
+}
+
+/* Barre au-dessus du tableau : consigne + téléchargement du tableau officiel */
+.table-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.table-toolbar .table-hint {
+    margin-bottom: 0;
+}
+
+.table-download {
+    display: inline-block;
+    padding: 6px 14px;
+    font-size: 0.8rem;
+}

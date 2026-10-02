@@ -124,3 +124,50 @@
     .ynov-header { flex-direction: column; gap: 1rem; align-items: flex-start; }
     .ynov-logo-main { align-self: center; }
 }
+
+/* =========================================
+   MISE EN PAGE COMPACTE (moins de défilement)
+   ========================================= */
+
+/* Formation et entreprise côte à côte */
+.ee-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    align-items: stretch;
+}
+
+.ee-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.ee-col .ynov-card {
+    flex: 1;
+    margin-top: 0;
+    gap: 1rem;
+}
+
+.ynov-header { padding-bottom: 1rem; }
+
+.ynov-logo-main { height: 48px; }
+
+.ynov-body h3 {
+    font-size: 1.35rem;
+    margin-bottom: 0.6rem;
+}
+
+.school-desc {
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+}
+
+.specs-grid {
+    gap: 1rem;
+    margin-top: 0.75rem;
+    padding: 1rem;
+}
+
+@media (max-width: 900px) {
+    .ee-grid { grid-template-columns: 1fr; }
+}

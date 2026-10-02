@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Missions E5 - Paul-Yann Bouvier</title>
-    <link rel="icon" href="/assets/images/logo.webp" type="image/webp">
-    <link href="/style/css_google/css2.css" rel="stylesheet">
-    
-    <link rel="stylesheet" href="/style/style.css">
-    
-    <link rel="stylesheet" href="/style/css_missions/missions.css">
-    
+    <title>Réalisations professionnelles E5 - Paul-Yann Bouvier</title>
+    <meta name="description" content="Réalisations professionnelles et tableau de synthèse des compétences du bloc 1 (épreuve E5) - BTS SIO option SISR.">
+    <link rel="icon" href="../assets/images/logo.webp" type="image/webp">
+    <link href="../style/css_google/css2.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../style/style.css">
+
+    <link rel="stylesheet" href="../style/css_missions/missions.css">
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
 </head>
 <body>
@@ -28,14 +29,14 @@
         <div class="nav-container">
             <div class="menu-toggle" id="mobile-menu"><span></span><span></span><span></span></div>
             <ul id="nav-list">
-                <li><a href="/">Accueil</a></li>
-                <li><a href="/pages/apropos.html">À propos</a></li>
-                <li><a href="/pages/bts-sio.html">BTS SIO</a></li>
-                <li><a href="/pages/ecole-entreprise.html">École & Entreprise</a></li>
-                <li><a href="/pages/missions.html" class="active-link">Missions (E5)</a></li>
-                <li><a href="/pages/projets.html">Projets (E6)</a></li>
-                <li><a href="/pages/veille.html">Veille</a></li>
-                <li><a href="/pages/contact.html">Contact</a></li>
+                <li><a href="../index.html">Accueil</a></li>
+                <li><a href="apropos.html">À propos</a></li>
+                <li><a href="bts-sio.html">BTS SIO</a></li>
+                <li><a href="ecole-entreprise.html">École & Entreprise</a></li>
+                <li><a href="missions.html" class="active-link">Réalisations (E5)</a></li>
+                <li><a href="projets.html">Projets (E6)</a></li>
+                <li><a href="veille.html">Veille</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -43,244 +44,297 @@
     <main class="page-content">
         <section class="section-secondary-dark">
             <div class="container">
-                
+
                 <div class="terminal-title">
-                    <span class="prompt">root@paulyann:~/missions#</span> <span class="command">ls -la ./e5-reports/</span><span class="cursor">_</span>
+                    <span class="prompt">root@paulyann:~/e5#</span> <span class="command">ls -la ./realisations/</span><span class="cursor">_</span>
                 </div>
-                
-                <h3 class="section-subtitle">Dossiers Techniques</h3>
-                
+
+                <!-- ===== PRÉSENTATION DE L'ÉPREUVE + COMPÉTENCES ===== -->
+                <div class="e5-intro glass-card">
+                    <div class="e5-intro-text">
+                        <h3>Épreuve E5 — Support et mise à disposition de services informatiques</h3>
+                        <p>
+                            Cette page regroupe les <strong>réalisations professionnelles</strong> menées au cours de ma formation
+                            et de mon alternance. Chaque réalisation est rattachée aux compétences du <strong>bloc 1</strong>
+                            et dispose de sa documentation technique complète (PDF).
+                        </p>
+                        <div class="e5-quicklinks">
+                            <a href="#synthese" class="btn-action"><span class="btn-icon">📊</span><span>Tableau de synthèse</span></a>
+                            <a href="#realisations" class="btn-action"><span class="btn-icon">🗂️</span><span>Réalisations</span></a>
+                            <a href="veille.html" class="btn-action"><span class="btn-icon">📡</span><span>Veille</span></a>
+                        </div>
+                    </div>
+
+                    <div class="comp-legend">
+                        <span class="comp-legend-title">Compétences du bloc 1</span>
+                        <div class="comp-item"><span class="comp-code">C1</span><span>Gérer le patrimoine informatique</span></div>
+                        <div class="comp-item"><span class="comp-code">C2</span><span>Répondre aux incidents et aux demandes d'assistance et d'évolution</span></div>
+                        <div class="comp-item"><span class="comp-code">C3</span><span>Développer la présence en ligne de l'organisation</span></div>
+                        <div class="comp-item"><span class="comp-code">C4</span><span>Travailler en mode projet</span></div>
+                        <div class="comp-item"><span class="comp-code">C5</span><span>Mettre à disposition des utilisateurs un service informatique</span></div>
+                        <div class="comp-item"><span class="comp-code">C6</span><span>Organiser son développement professionnel</span></div>
+                    </div>
+                </div>
+
+                <!-- ===== TABLEAU DE SYNTHÈSE ===== -->
+                <h3 class="section-subtitle" id="synthese">Tableau de synthèse</h3>
+                <div class="table-toolbar">
+                    <p class="table-hint">Cliquez sur une réalisation pour accéder à sa fiche, ou sur une compétence pour filtrer les réalisations.</p>
+                    <a href="../assets/docs/Tableau_de_synthese_Paul-Yann_Bouvier.pdf" class="btn-holo table-download" target="_blank" rel="noopener">📄 Tableau officiel (PDF)</a>
+                </div>
+
+                <div class="synthese-wrapper">
+                    <table class="synthese-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Réf.</th>
+                                <th scope="col">Réalisation</th>
+                                <th scope="col">Contexte</th>
+                                <th scope="col"><button class="comp-filter" data-comp="C1" title="Gérer le patrimoine informatique">C1</button></th>
+                                <th scope="col"><button class="comp-filter" data-comp="C2" title="Répondre aux incidents et aux demandes d'assistance et d'évolution">C2</button></th>
+                                <th scope="col"><button class="comp-filter" data-comp="C3" title="Développer la présence en ligne de l'organisation">C3</button></th>
+                                <th scope="col"><button class="comp-filter" data-comp="C4" title="Travailler en mode projet">C4</button></th>
+                                <th scope="col"><button class="comp-filter" data-comp="C5" title="Mettre à disposition des utilisateurs un service informatique">C5</button></th>
+                                <th scope="col"><button class="comp-filter" data-comp="C6" title="Organiser son développement professionnel">C6</button></th>
+                                <th scope="col">Doc</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>RP-01</td><td><a href="#rp-01">Projet DHCP &amp; relais DHCP</a></td><td>Formation</td><td></td><td></td><td></td><td class="ok">✔</td><td class="ok">✔</td><td></td><td><a href="../assets/docs/Projet_DHCP_Server.pdf" target="_blank" rel="noopener">PDF</a></td></tr>
+                            <tr><td>RP-02</td><td><a href="#rp-02">Routage statique</a></td><td>Formation</td><td></td><td class="ok">✔</td><td></td><td></td><td class="ok">✔</td><td></td><td><a href="../assets/docs/Routage_Statique.pdf" target="_blank" rel="noopener">PDF</a></td></tr>
+                            <tr><td>RP-03</td><td><a href="#rp-03">Serveur web Apache sécurisé</a></td><td>Formation</td><td></td><td></td><td class="ok">✔</td><td></td><td class="ok">✔</td><td></td><td><a href="../assets/docs/Serveur_Apache.pdf" target="_blank" rel="noopener">PDF</a></td></tr>
+                            <tr><td>RP-04</td><td><a href="#rp-04">Déploiement de GLPI</a></td><td>Formation</td><td class="ok">✔</td><td class="ok">✔</td><td></td><td></td><td class="ok">✔</td><td></td><td><a href="../assets/docs/GLPI.pdf" target="_blank" rel="noopener">PDF</a></td></tr>
+                            <tr><td>RP-05</td><td><a href="#rp-05">OCS Inventory NG</a></td><td>Formation</td><td class="ok">✔</td><td></td><td></td><td></td><td class="ok">✔</td><td></td><td><a href="../assets/docs/OCS_Inventory.pdf" target="_blank" rel="noopener">PDF</a></td></tr>
+                            <tr><td>RP-06</td><td><a href="#rp-06">Configuration des VLAN</a></td><td>Formation</td><td></td><td></td><td></td><td></td><td class="ok">✔</td><td></td><td><a href="../assets/docs/Configuration_des_VLAN.pdf" target="_blank" rel="noopener">PDF</a></td></tr>
+                            <tr><td>RP-07</td><td><a href="#rp-07">Installation de Debian 12</a></td><td>Formation</td><td></td><td></td><td></td><td></td><td class="ok">✔</td><td></td><td><a href="../assets/docs/Debian12.pdf" target="_blank" rel="noopener">PDF</a></td></tr>
+                            <tr><td>RP-08</td><td><a href="#rp-08">Redondance LAN — STP</a></td><td>Formation</td><td></td><td></td><td></td><td></td><td class="ok">✔</td><td></td><td><a href="../assets/docs/Redondance_LAN__STP.pdf" target="_blank" rel="noopener">PDF</a></td></tr>
+                            <tr><td>RP-09</td><td><a href="#rp-09">Portfolio web &amp; nom de domaine</a></td><td>Personnel</td><td></td><td></td><td class="ok">✔</td><td class="ok">✔</td><td></td><td class="ok">✔</td><td><a href="https://www.paulyannbouvier.fr" target="_blank" rel="noopener">Site</a></td></tr>
+                            <tr><td>RP-10</td><td><a href="#rp-10">Support technique client</a></td><td>Paritel</td><td></td><td class="ok">✔</td><td></td><td></td><td class="ok">✔</td><td></td><td class="pending">À venir</td></tr>
+                            <tr><td>—</td><td><a href="veille.html">Veille technologique</a></td><td>Personnel</td><td></td><td></td><td></td><td></td><td></td><td class="ok">✔</td><td><a href="veille.html">Page</a></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- ===== FICHES RÉALISATIONS ===== -->
+                <h3 class="section-subtitle" id="realisations">Réalisations professionnelles</h3>
+
+                <div class="filter-status" id="filter-status" hidden>
+                    <span id="filter-label"></span>
+                    <button type="button" id="filter-reset">✕ Tout afficher</button>
+                </div>
+
                 <div class="diploma-grid">
 
-                    <div class="holographic-card" data-tilt data-tilt-glare data-tilt-max-glare="0.2">
-                        <div class="card-bg-icon">
-                            <img src="/assets/images/cisco.png" alt="Cisco">
-                        </div>
-
+                    <article class="holographic-card" id="rp-01" data-comps="C4 C5" data-tilt data-tilt-glare data-tilt-max-glare="0.2">
+                        <div class="card-bg-icon"><img src="../assets/images/cisco.png" alt=""></div>
                         <div class="card-header-line">
-                            <span class="mission-id">ID: MSN-001</span>
-                            <span class="mission-status success">VALIDATED</span>
+                            <span class="mission-id">RP-01</span>
+                            <span class="mission-status">FORMATION</span>
                         </div>
-
-                        <h3>Projet DHCP & Routage</h3>
-                        <p class="mission-context">Atelier Réseau Cisco</p>
-                        
+                        <h3>Projet DHCP &amp; Relais</h3>
+                        <p class="mission-context">Réseau · Cisco Packet Tracer</p>
                         <p class="mission-desc">
-                            Mise en œuvre d'une infrastructure avec distribution IP dynamique sur routeur et serveur autonome.
+                            Mise en place d'une infrastructure multi-sites avec plan d'adressage VLSM (/27), routage statique,
+                            serveur DHCP sur routeur puis sur serveur dédié, et relais DHCP (<code>ip helper-address</code>) vers un réseau distant.
                         </p>
-                        
                         <div class="mission-specs">
-                            <span class="spec-tag">Config DHCP</span>
+                            <span class="spec-tag">DHCP</span>
                             <span class="spec-tag">Relais IP</span>
                             <span class="spec-tag">VLSM /27</span>
                         </div>
+                        <div class="comp-badges"><span>C4</span><span>C5</span></div>
+                        <a href="../assets/docs/Projet_DHCP_Server.pdf" class="btn-holo" target="_blank" rel="noopener">📄 Voir la documentation</a>
+                    </article>
 
-                        <!-- <a href="/assets/docs/Projet_DHCP_Server.pdf" class="btn-holo" target="_blank">
-                            📄 Voir le rapport
-                        </a> -->
-                    </div>
-
-                    <div class="holographic-card" data-tilt data-tilt-glare data-tilt-max-glare="0.2">
-                        <div class="card-bg-icon">
-                            <img src="/assets/images/cisco.png" alt="Cisco">
-                        </div>
-
+                    <article class="holographic-card" id="rp-02" data-comps="C2 C5" data-tilt data-tilt-glare data-tilt-max-glare="0.2">
+                        <div class="card-bg-icon"><img src="../assets/images/cisco.png" alt=""></div>
                         <div class="card-header-line">
-                            <span class="mission-id">ID: MSN-002</span>
-                            <span class="mission-status success">VALIDATED</span>
+                            <span class="mission-id">RP-02</span>
+                            <span class="mission-status">FORMATION</span>
                         </div>
-
                         <h3>Routage Statique</h3>
-                        <p class="mission-context">Lab Cisco Packet Tracer</p>
-                        
+                        <p class="mission-context">Réseau · Cisco Packet Tracer</p>
                         <p class="mission-desc">
-                            Configuration manuelle de l'interconnexion entre deux réseaux LAN distants via une liaison WAN.
+                            Interconnexion de deux LAN distants via une liaison série WAN : configuration des interfaces,
+                            routes IPv4 statiques, puis diagnostic de connectivité (<code>ping</code>, <code>show ip route</code>).
                         </p>
-                        
                         <div class="mission-specs">
-                            <span class="spec-tag">Interfaces Série</span>
+                            <span class="spec-tag">Interfaces série</span>
                             <span class="spec-tag">Routes IPv4</span>
                             <span class="spec-tag">Diagnostic</span>
                         </div>
+                        <div class="comp-badges"><span>C2</span><span>C5</span></div>
+                        <a href="../assets/docs/Routage_Statique.pdf" class="btn-holo" target="_blank" rel="noopener">📄 Voir la documentation</a>
+                    </article>
 
-                        <!-- <a href="/assets/docs/Routage_Statique.pdf" class="btn-holo" target="_blank">
-                            📄 Voir la doc
-                        </a> -->
-                    </div>
-
-                    <div class="holographic-card" data-tilt data-tilt-glare data-tilt-max-glare="0.2">
-                        <div class="card-bg-icon">
-                            <img src="/assets/images/linux.svg" alt="Linux">
-                        </div>
-
+                    <article class="holographic-card" id="rp-03" data-comps="C3 C5" data-tilt data-tilt-glare data-tilt-max-glare="0.2">
+                        <div class="card-bg-icon"><img src="../assets/images/linux.svg" alt=""></div>
                         <div class="card-header-line">
-                            <span class="mission-id">ID: MSN-003</span>
-                            <span class="mission-status success">VALIDATED</span>
+                            <span class="mission-id">RP-03</span>
+                            <span class="mission-status">FORMATION</span>
                         </div>
-
                         <h3>Serveur Web Apache</h3>
-                        <p class="mission-context">Système Linux (Debian)</p>
-                        
+                        <p class="mission-context">Système · VM Debian (VMware)</p>
                         <p class="mission-desc">
-                            Installation et sécurisation d'un serveur web Apache pour l'hébergement de sites multiples.
+                            Installation et sécurisation d'Apache 2.4 pour héberger plusieurs sites : hôtes virtuels (nom et IP),
+                            PHP, chiffrement SSL/TLS, masquage de version et protection de répertoires (<code>.htaccess</code>).
                         </p>
-                        
                         <div class="mission-specs">
-                            <span class="spec-tag">Virtual Hosts</span>
-                            <span class="spec-tag">Permissions</span>
-                            <span class="spec-tag">Sécurité</span>
+                            <span class="spec-tag">VirtualHost</span>
+                            <span class="spec-tag">SSL / TLS</span>
+                            <span class="spec-tag">Durcissement</span>
                         </div>
+                        <div class="comp-badges"><span>C3</span><span>C5</span></div>
+                        <a href="../assets/docs/Serveur_Apache.pdf" class="btn-holo" target="_blank" rel="noopener">📄 Voir la documentation</a>
+                    </article>
 
-                        <!-- <a href="/assets/docs/Serveur_Apache.pdf" class="btn-holo" target="_blank">
-                            📄 Voir la doc
-                        </a> -->
-                    </div>
-
-                    <div class="holographic-card" data-tilt data-tilt-glare data-tilt-max-glare="0.2">
-                        <div class="card-bg-icon">
-                            <img src="/assets/images/glpi.webp" alt="GLPI">
-                        </div>
-
+                    <article class="holographic-card" id="rp-04" data-comps="C1 C2 C5" data-tilt data-tilt-glare data-tilt-max-glare="0.2">
+                        <div class="card-bg-icon"><img src="../assets/images/glpi.webp" alt=""></div>
                         <div class="card-header-line">
-                            <span class="mission-id">ID: MSN-004</span>
-                            <span class="mission-status success">VALIDATED</span>
+                            <span class="mission-id">RP-04</span>
+                            <span class="mission-status">FORMATION</span>
                         </div>
-
                         <h3>Solution GLPI</h3>
-                        <p class="mission-context">Gestion de Parc (ITSM)</p>
-                        
+                        <p class="mission-context">Gestion de parc &amp; Helpdesk (ITSM)</p>
                         <p class="mission-desc">
-                            Déploiement d'une solution de Helpdesk sur Debian. Configuration LAMP et gestion des droits base de données.
+                            Déploiement de GLPI 10 sur un serveur Debian LAMP : base MariaDB dédiée, dépendances PHP,
+                            droits Linux, résolution d'erreurs d'installation et première configuration.
                         </p>
-                        
                         <div class="mission-specs">
-                            <span class="spec-tag">LAMP Stack</span>
+                            <span class="spec-tag">LAMP</span>
                             <span class="spec-tag">MariaDB</span>
                             <span class="spec-tag">Service Desk</span>
                         </div>
+                        <div class="comp-badges"><span>C1</span><span>C2</span><span>C5</span></div>
+                        <a href="../assets/docs/GLPI.pdf" class="btn-holo" target="_blank" rel="noopener">📄 Voir la documentation</a>
+                    </article>
 
-                        <!-- <a href="/assets/docs/GLPI.pdf" class="btn-holo" target="_blank">
-                            📄 Voir la doc
-                        </a> -->
-                    </div>
-
-                    <div class="holographic-card" data-tilt data-tilt-glare data-tilt-max-glare="0.2">
-                        <div class="card-bg-icon">
-                            <img src="/assets/images/ocs.png" alt="OCS Inventory">
-                        </div>
-
+                    <article class="holographic-card" id="rp-05" data-comps="C1 C5" data-tilt data-tilt-glare data-tilt-max-glare="0.2">
+                        <div class="card-bg-icon"><img src="../assets/images/ocs.png" alt=""></div>
                         <div class="card-header-line">
-                            <span class="mission-id">ID: MSN-005</span>
-                            <span class="mission-status success">VALIDATED</span>
+                            <span class="mission-id">RP-05</span>
+                            <span class="mission-status">FORMATION</span>
                         </div>
-
                         <h3>OCS Inventory NG</h3>
-                        <p class="mission-context">Inventaire Automatisé</p>
-                        
+                        <p class="mission-context">Inventaire automatisé du parc</p>
                         <p class="mission-desc">
-                            Installation du serveur de collecte et de l'agent. Gestion des dépendances Perl/CPAN et configuration Apache.
+                            Installation du serveur OCS Inventory NG 2.10 sur Debian via SSH : pile web, dépendances Perl/CPAN,
+                            base MariaDB, configuration Apache et finalisation de l'installation.
                         </p>
-                        
                         <div class="mission-specs">
                             <span class="spec-tag">Perl / CPAN</span>
-                            <span class="spec-tag">Déploiement</span>
+                            <span class="spec-tag">SSH</span>
                             <span class="spec-tag">Inventaire</span>
                         </div>
+                        <div class="comp-badges"><span>C1</span><span>C5</span></div>
+                        <a href="../assets/docs/OCS_Inventory.pdf" class="btn-holo" target="_blank" rel="noopener">📄 Voir la documentation</a>
+                    </article>
 
-                        <!-- <a href="/assets/docs/OCS_Inventory.pdf" class="btn-holo" target="_blank">
-                            📄 Voir la doc
-                        </a> -->
-                    </div>
-
-                    <div class="holographic-card" data-tilt data-tilt-glare data-tilt-max-glare="0.2">
-                        <div class="card-bg-icon">
-                            <img src="/assets/images/cisco.png" alt="Switching">
-                        </div>
-
+                    <article class="holographic-card" id="rp-06" data-comps="C5" data-tilt data-tilt-glare data-tilt-max-glare="0.2">
+                        <div class="card-bg-icon"><img src="../assets/images/cisco.png" alt=""></div>
                         <div class="card-header-line">
-                            <span class="mission-id">ID: MSN-006</span>
-                            <span class="mission-status success">VALIDATED</span>
+                            <span class="mission-id">RP-06</span>
+                            <span class="mission-status">FORMATION</span>
                         </div>
-
                         <h3>Configuration des VLAN</h3>
-                        <p class="mission-context">Commutation & Routage</p>
-                        
+                        <p class="mission-context">Commutation &amp; Routage · Packet Tracer</p>
                         <p class="mission-desc">
-                            Segmentation du réseau local (VLANs), configuration du Trunking 802.1Q et routage inter-VLAN (Router-on-a-stick).
+                            Segmentation du LAN en VLAN, trunks 802.1Q entre commutateurs, routage inter-VLAN
+                            (router-on-a-stick) et VLAN de management.
                         </p>
-                        
                         <div class="mission-specs">
-                            <span class="spec-tag">VLANs / Trunks</span>
+                            <span class="spec-tag">VLAN / Trunk</span>
                             <span class="spec-tag">802.1Q</span>
-                            <span class="spec-tag">Routage Inter-VLAN</span>
+                            <span class="spec-tag">Inter-VLAN</span>
                         </div>
+                        <div class="comp-badges"><span>C5</span></div>
+                        <a href="../assets/docs/Configuration_des_VLAN.pdf" class="btn-holo" target="_blank" rel="noopener">📄 Voir la documentation</a>
+                    </article>
 
-                        <!-- <a href="/assets/docs/Configuration_des_VLAN.pdf" class="btn-holo" target="_blank">
-                            📄 Voir la doc
-                        </a> -->
-                    </div>
-
-                    <div class="holographic-card" data-tilt data-tilt-glare data-tilt-max-glare="0.2">
-                        <div class="card-bg-icon">
-                            <img src="/assets/images/debian.png" alt="Debian">
-                        </div>
-
+                    <article class="holographic-card" id="rp-07" data-comps="C5" data-tilt data-tilt-glare data-tilt-max-glare="0.2">
+                        <div class="card-bg-icon"><img src="../assets/images/debian.png" alt=""></div>
                         <div class="card-header-line">
-                            <span class="mission-id">ID: MSN-007</span>
-                            <span class="mission-status success">VALIDATED</span>
+                            <span class="mission-id">RP-07</span>
+                            <span class="mission-status">FORMATION</span>
                         </div>
-
                         <h3>Installation Debian 12</h3>
-                        <p class="mission-context">Système & Administration</p>
-                        
+                        <p class="mission-context">Système &amp; Administration</p>
                         <p class="mission-desc">
-                            Déploiement complet de l'OS : partitionnement disque, configuration des utilisateurs (Root/Sudo) et post-installation.
+                            Déploiement complet de l'OS : média d'installation, partitionnement, comptes root/sudo,
+                            GRUB, post-installation et pilotes.
                         </p>
-                        
                         <div class="mission-specs">
                             <span class="spec-tag">Partitionnement</span>
                             <span class="spec-tag">APT / GRUB</span>
-                            <span class="spec-tag">Shell Bash</span>
+                            <span class="spec-tag">sudo</span>
                         </div>
+                        <div class="comp-badges"><span>C5</span></div>
+                        <a href="../assets/docs/Debian12.pdf" class="btn-holo" target="_blank" rel="noopener">📄 Voir la documentation</a>
+                    </article>
 
-                        <!-- <a href="/assets/docs/Debian12.pdf" class="btn-holo" target="_blank">
-                            📄 Voir la doc
-                        </a> -->
-                    </div>
-
-                    <div class="holographic-card" data-tilt data-tilt-glare data-tilt-max-glare="0.2">
-                        <div class="card-bg-icon">
-                            <img src="/assets/images/cisco.png" alt="STP">
-                        </div>
-
+                    <article class="holographic-card" id="rp-08" data-comps="C5" data-tilt data-tilt-glare data-tilt-max-glare="0.2">
+                        <div class="card-bg-icon"><img src="../assets/images/cisco.png" alt=""></div>
                         <div class="card-header-line">
-                            <span class="mission-id">ID: MSN-008</span>
-                            <span class="mission-status success">VALIDATED</span>
+                            <span class="mission-id">RP-08</span>
+                            <span class="mission-status">FORMATION</span>
                         </div>
-
                         <h3>Redondance LAN - STP</h3>
-                        <p class="mission-context">Haute Disponibilité Réseau</p>
-                        
+                        <p class="mission-context">Haute disponibilité réseau</p>
                         <p class="mission-desc">
-                            Mise en place de la redondance et analyse du protocole Spanning Tree (STP) pour prévenir les boucles de niveau 2.
+                            Liens redondants entre quatre commutateurs Cisco 2960 et analyse du Spanning Tree (802.1D) :
+                            élection du Root Bridge, rôles et états des ports, prévention des boucles de niveau 2.
                         </p>
-                        
                         <div class="mission-specs">
                             <span class="spec-tag">Spanning Tree</span>
-                            <span class="spec-tag">Redondance</span>
-                            <span class="spec-tag">Haute Dispo</span>
+                            <span class="spec-tag">Root Bridge</span>
+                            <span class="spec-tag">Haute dispo</span>
                         </div>
+                        <div class="comp-badges"><span>C5</span></div>
+                        <a href="../assets/docs/Redondance_LAN__STP.pdf" class="btn-holo" target="_blank" rel="noopener">📄 Voir la documentation</a>
+                    </article>
 
-                        <!-- <a href="/assets/docs/Redondance_LAN__STP.pdf" class="btn-holo" target="_blank">
-                            📄 Voir la doc
-                        </a> -->
-                    </div>
+                    <article class="holographic-card" id="rp-09" data-comps="C3 C4 C6" data-tilt data-tilt-glare data-tilt-max-glare="0.2">
+                        <div class="card-bg-icon"><img src="../assets/images/html5.svg" alt=""></div>
+                        <div class="card-header-line">
+                            <span class="mission-id">RP-09</span>
+                            <span class="mission-status personal">PERSONNEL</span>
+                        </div>
+                        <h3>Portfolio Web</h3>
+                        <p class="mission-context">Présence en ligne · ce site</p>
+                        <p class="mission-desc">
+                            Conception « from scratch » de ce portfolio (HTML, CSS, JavaScript), hébergement sur GitHub Pages,
+                            nom de domaine configuré chez OVH avec HTTPS, polices auto-hébergées (RGPD) et formulaire de contact.
+                        </p>
+                        <div class="mission-specs">
+                            <span class="spec-tag">DNS / OVH</span>
+                            <span class="spec-tag">HTTPS</span>
+                            <span class="spec-tag">GitHub Pages</span>
+                        </div>
+                        <div class="comp-badges"><span>C3</span><span>C4</span><span>C6</span></div>
+                        <a href="https://www.paulyannbouvier.fr" class="btn-holo" target="_blank" rel="noopener">🌐 paulyannbouvier.fr</a>
+                    </article>
 
-                </div>
+                    <article class="holographic-card" id="rp-10" data-comps="C2 C5" data-tilt data-tilt-glare data-tilt-max-glare="0.2">
+                        <div class="card-bg-icon"><img src="../assets/images/paritel.jpg" alt=""></div>
+                        <div class="card-header-line">
+                            <span class="mission-id">RP-10</span>
+                            <span class="mission-status company">ALTERNANCE</span>
+                        </div>
+                        <h3>Support Technique Client</h3>
+                        <p class="mission-context">Paritel · Bois-Colombes</p>
+                        <p class="mission-desc">
+                            Assistance et résolution des incidents réseaux et télécoms des clients : diagnostic,
+                            suivi des demandes et accompagnement des utilisateurs.
+                        </p>
+                        <div class="mission-specs">
+                            <span class="spec-tag">Support N1</span>
+                            <span class="spec-tag">Diagnostic</span>
+                            <span class="spec-tag">Télécoms</span>
+                        </div>
+                        <div class="comp-badges"><span>C2</span><span>C5</span></div>
+                        <span class="btn-holo disabled">📝 Documentation en cours de rédaction</span>
+                    </article>
 
-                <div class="placeholder-text" style="margin-top: 5rem;">
-                    <span class="construction-title">[ DATA STREAM LOADING... ]</span>
-                    <p>Cette section sera enrichie avec les missions réalisées en entreprise pour l'épreuve E5 (Gestion de projet).</p>
                 </div>
             </div>
         </section>
@@ -288,9 +342,34 @@
 
 <footer>
         <p>
-            &copy; 2025 Paul-Yann Bouvier - Portfolio BTS SIO SISR
+            &copy; 2026 Paul-Yann Bouvier - Portfolio BTS SIO SISR
         </p>
     </footer>
-    <script src="/script/script.js"></script>
+    <script src="../script/script.js"></script>
+    <script>
+        /* Filtre des réalisations par compétence (depuis l'en-tête du tableau de synthèse) */
+        const cards = document.querySelectorAll('.holographic-card[data-comps]');
+        const filterButtons = document.querySelectorAll('.comp-filter');
+        const filterStatus = document.getElementById('filter-status');
+        const filterLabel = document.getElementById('filter-label');
+
+        function applyFilter(comp) {
+            filterButtons.forEach(btn => btn.classList.toggle('active', btn.dataset.comp === comp));
+            cards.forEach(card => {
+                card.hidden = comp !== null && !card.dataset.comps.split(' ').includes(comp);
+            });
+            filterStatus.hidden = comp === null;
+            if (comp !== null) {
+                const title = document.querySelector(`.comp-filter[data-comp="${comp}"]`).title;
+                filterLabel.textContent = `Filtre : ${comp} — ${title}`;
+                document.getElementById('realisations').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => applyFilter(btn.classList.contains('active') ? null : btn.dataset.comp));
+        });
+        document.getElementById('filter-reset').addEventListener('click', () => applyFilter(null));
+    </script>
 </body>
 </html>

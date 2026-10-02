@@ -206,3 +206,467 @@
     .feed-info h3 { font-size: 1.5rem; }
     .console-output { font-size: 0.8rem; padding: 1rem; }
 }
+
+/* =========================================
+   VEILLE : INTRO, MÉTHODE, THÉMATIQUES, OUTILS
+   ========================================= */
+
+.veille-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 4rem;
+}
+
+.veille-hero .radar-container {
+    flex-shrink: 0;
+    margin: 0 auto 2.5rem;
+}
+
+.veille-intro h3 {
+    font-family: 'Space Mono', monospace;
+    font-size: 1.6rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    text-shadow: 0 0 10px var(--accent-glow);
+}
+
+.veille-intro p {
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.veille-intro .console-output {
+    margin: 2rem auto 0;
+}
+
+/* Lignes de console plus rapides et dernière ligne en vert */
+.veille-intro .console-output .line:nth-child(2) { animation-delay: 0.6s; }
+.veille-intro .console-output .line:nth-child(3) { animation-delay: 1s; }
+.veille-intro .console-output .line:nth-child(4) { animation-delay: 1.4s; border-left-color: #10b981; }
+.veille-intro .blink-dot { background-color: #10b981; }
+
+.comp-link {
+    color: var(--accent-color);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px dashed var(--accent-color);
+}
+
+/* Méthode en 4 étapes */
+.method-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 5rem;
+}
+
+.method-step {
+    padding: 1.5rem;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    border-top: 3px solid var(--accent-color);
+    border-radius: 8px;
+}
+
+.step-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--gray-subtle);
+}
+
+.method-step h4 {
+    color: var(--text-white);
+    font-size: 1.2rem;
+    margin: 0.4rem 0 0.6rem;
+}
+
+.method-step p {
+    color: var(--text-light);
+    font-size: 0.92rem;
+    line-height: 1.6;
+}
+
+/* En-têtes de thématique */
+.theme-header {
+    margin: 2rem 0 2rem;
+}
+
+.theme-label {
+    display: block;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    color: #10b981;
+}
+
+.theme-header .section-subtitle {
+    margin-bottom: 1rem;
+}
+
+.theme-desc {
+    color: var(--text-light);
+    max-width: 800px;
+    line-height: 1.6;
+}
+
+.theme-header + .diploma-grid {
+    margin-bottom: 5rem;
+}
+
+/* Contenu des cartes d'articles */
+.holographic-card .mission-status {
+    background: rgba(56, 189, 248, 0.1);
+    color: var(--accent-color);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.takeaway {
+    font-size: 0.88rem;
+    line-height: 1.5;
+    color: var(--text-light);
+    padding: 0.75rem 1rem;
+    margin-bottom: 1.5rem;
+    background: rgba(16, 185, 129, 0.06);
+    border-left: 3px solid #10b981;
+    border-radius: 4px;
+    z-index: 1;
+}
+
+.takeaway strong {
+    color: #10b981;
+}
+
+.takeaway a {
+    color: var(--accent-color);
+}
+
+/* Outils de veille */
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1.5rem;
+}
+
+.tool-card {
+    display: block;
+    padding: 1.5rem;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.tool-card:hover {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 20px var(--accent-glow);
+    transform: translateY(-4px);
+}
+
+.tool-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    font-family: 'Space Mono', monospace;
+    font-weight: bold;
+    color: #0f172a;
+    background: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.tool-card h4 {
+    color: var(--text-white);
+    font-size: 1.15rem;
+    margin-bottom: 0.5rem;
+}
+
+.tool-card p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+@media (max-width: 1000px) {
+    .method-steps { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+    .method-steps { grid-template-columns: 1fr; }
+
+    .veille-intro h3 { font-size: 1.3rem; }
+}
+
+
+/* =========================================
+   VEILLE 2026 : ÉCHÉANCE, SYNTHÈSE, ARCHIVE
+   ========================================= */
+
+.grid-2x2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.holographic-card .mission-status.urgent {
+    background: rgba(255, 95, 86, 0.1);
+    color: #ff5f56;
+    border-color: rgba(255, 95, 86, 0.4);
+}
+
+.synthesis-card {
+    margin-bottom: 5rem;
+    border-left: 3px solid #10b981;
+}
+
+.synthesis-card p {
+    color: var(--text-light);
+    line-height: 1.7;
+}
+
+.synthesis-card p + p {
+    margin-top: 1rem;
+}
+
+.synthesis-card strong {
+    color: var(--text-white);
+}
+
+.archive-banner {
+    margin-bottom: 2rem;
+    padding: 0.9rem 1.2rem;
+    border: 1px dashed rgba(255, 170, 0, 0.5);
+    border-radius: 8px;
+    color: #ffaa00;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.9rem;
+}
+
+.archive-banner a {
+    color: var(--accent-color);
+    margin-left: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .grid-2x2 { grid-template-columns: 1fr; }
+}
+
+
+/* =========================================
+   MISE EN PAGE COMPACTE (moins de défilement)
+   ========================================= */
+
+/* En-tête : radar plus petit, console en une ligne */
+.veille-hero {
+    margin-bottom: 2.5rem;
+}
+
+.veille-hero .radar-container {
+    width: 130px;
+    height: 130px;
+    margin-bottom: 1.25rem;
+}
+
+.veille-hero .radar-container::after {
+    background-size: 26px 26px;
+}
+
+.veille-intro h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.75rem;
+}
+
+.veille-intro p {
+    font-size: 0.98rem;
+    line-height: 1.6;
+    margin-bottom: 0.6rem;
+}
+
+.veille-intro .console-output {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.4rem 1.5rem;
+    max-width: none;
+    margin-top: 1.25rem;
+    padding: 0.75rem 1rem;
+}
+
+.veille-intro .console-output .line {
+    margin-bottom: 0;
+    padding-left: 8px;
+}
+
+/* Méthode : cartes plus basses */
+.method-steps {
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.method-step {
+    padding: 1rem 1.1rem;
+}
+
+.method-step h4 {
+    font-size: 1.05rem;
+    margin: 0.2rem 0 0.4rem;
+}
+
+.method-step p {
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+/* Onglets des thématiques */
+.theme-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.theme-tab {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-light);
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    border-radius: 8px;
+    padding: 0.7rem 1.4rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.theme-tab:hover {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.theme-tab.active {
+    color: #0f172a;
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 15px var(--accent-glow);
+}
+
+.theme-panel[hidden] {
+    display: none;
+}
+
+/* Le titre de thématique est déjà porté par l'onglet : on garde seulement la description */
+.theme-header {
+    margin: 0 0 1.25rem;
+}
+
+.theme-header .theme-label,
+.theme-header .section-subtitle {
+    display: none;
+}
+
+.theme-header + .diploma-grid {
+    margin-bottom: 2.5rem;
+}
+
+/* Grilles d'articles */
+.grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+}
+
+.grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+}
+
+/* Cartes d'articles plus denses */
+.theme-panel .holographic-card {
+    padding: 1.25rem;
+}
+
+.theme-panel .card-header-line {
+    margin-bottom: 0.75rem;
+    font-size: 0.72rem;
+}
+
+.theme-panel .holographic-card h3 {
+    font-size: 1.12rem;
+    line-height: 1.3;
+}
+
+.theme-panel .mission-desc {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-bottom: 0.9rem;
+}
+
+.theme-panel .takeaway {
+    font-size: 0.8rem;
+    padding: 0.6rem 0.8rem;
+    margin-bottom: 0.9rem;
+}
+
+.theme-panel .btn-holo {
+    padding: 8px;
+    font-size: 0.8rem;
+}
+
+/* Synthèse et outils */
+.synthesis-card {
+    margin-bottom: 2.5rem;
+    padding: 1.25rem 1.5rem;
+}
+
+.synthesis-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.synthesis-card p + p {
+    margin-top: 0.6rem;
+}
+
+.tools-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.tool-card {
+    padding: 1rem;
+}
+
+.tool-badge {
+    width: 36px;
+    height: 36px;
+    font-size: 0.85rem;
+    margin-bottom: 0.6rem;
+}
+
+.tool-card h4 {
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+}
+
+.tool-card p {
+    font-size: 0.82rem;
+    line-height: 1.5;
+}
+
+@media (max-width: 1100px) {
+    .grid-4 { grid-template-columns: repeat(2, 1fr); }
+    .tools-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 900px) {
+    .grid-3 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+    .grid-3,
+    .grid-4,
+    .tools-grid { grid-template-columns: 1fr; }
+}
