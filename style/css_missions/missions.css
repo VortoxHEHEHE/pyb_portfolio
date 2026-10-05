@@ -675,3 +675,109 @@
 @media (max-width: 600px) {
     #realisations + .filter-status + .diploma-grid { grid-template-columns: 1fr; }
 }
+
+/* =========================================
+   SCHÉMAS DES FICHES + AGRANDISSEMENT
+   ========================================= */
+.card-figure {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    height: 150px;
+    margin: 0 0 0.9rem;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.04);
+    cursor: zoom-in;
+}
+
+.card-figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.4s ease;
+}
+
+.card-figure:hover img,
+.card-figure:focus-visible img {
+    transform: scale(1.04);
+}
+
+.zoom-hint {
+    position: absolute;
+    right: 6px;
+    bottom: 6px;
+    padding: 2px 8px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--text-white);
+    background: rgba(11, 18, 34, 0.85);
+    border: 1px solid rgba(56, 189, 248, 0.35);
+    border-radius: 4px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.card-figure:hover .zoom-hint,
+.card-figure:focus-visible .zoom-hint {
+    opacity: 1;
+}
+
+/* Sur écran tactile, pas de survol : l'indication reste visible */
+@media (hover: none) {
+    .zoom-hint { opacity: 1; }
+}
+
+.lightbox {
+    /* La remise à zéro globale des marges annule le centrage natif de <dialog> */
+    margin: auto;
+    max-width: min(1200px, 94vw);
+    max-height: 92vh;
+    padding: 0;
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    border-radius: 12px;
+    background: #0b1222;
+    box-shadow: 0 0 40px rgba(56, 189, 248, 0.2);
+    overflow: hidden;
+    cursor: zoom-out;
+}
+
+.lightbox::backdrop {
+    background: rgba(2, 6, 23, 0.85);
+    backdrop-filter: blur(4px);
+}
+
+.lightbox figure { margin: 0; }
+
+.lightbox img {
+    display: block;
+    max-width: 100%;
+    max-height: calc(92vh - 3rem);
+    margin: 0 auto;
+    background: #ffffff;
+}
+
+.lightbox figcaption {
+    padding: 0.7rem 1rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--text-light);
+    text-align: center;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 34px;
+    height: 34px;
+    font-size: 1rem;
+    color: var(--text-white);
+    background: rgba(11, 18, 34, 0.85);
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    border-radius: 8px;
+    cursor: pointer;
+}

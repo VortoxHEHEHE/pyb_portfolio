@@ -192,3 +192,33 @@ if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
         });
     });
 }
+
+/* --- Agrandissement des schémas des fiches (page Réalisations) --- */
+const figures = document.querySelectorAll('.card-figure');
+if (figures.length) {
+    const lightbox = document.createElement('dialog');
+    lightbox.className = 'lightbox';
+    lightbox.innerHTML = `
+        <figure>
+            <img alt="">
+            <figcaption></figcaption>
+        </figure>
+        <button type="button" class="lightbox-close" aria-label="Fermer">✕</button>`;
+    document.body.appendChild(lightbox);
+
+    const lightboxImg = lightbox.querySelector('img');
+    const lightboxCaption = lightbox.querySelector('figcaption');
+
+    figures.forEach(fig => {
+        fig.setAttribute('aria-label', `Agrandir : ${fig.dataset.caption}`);
+        fig.addEventListener('click', () => {
+            lightboxImg.src = fig.dataset.full;
+            lightboxImg.alt = fig.dataset.caption;
+            lightboxCaption.textContent = fig.dataset.caption;
+            lightbox.showModal();
+        });
+    });
+
+    // Un clic n'importe où (image, fond ou croix) referme ; Échap est géré par <dialog>
+    lightbox.addEventListener('click', () => lightbox.close());
+}

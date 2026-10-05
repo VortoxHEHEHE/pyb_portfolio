@@ -2252,3 +2252,61 @@ textarea:focus-visible {
     .back-to-top,
     .back-to-top.visible { transition: none; }
 }
+
+/* --- Page Mentions légales --- */
+.legal-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+}
+
+.legal-card h4 {
+    font-family: 'Space Mono', monospace;
+    color: var(--accent-color);
+    font-size: 1.05rem;
+    margin-bottom: 0.6rem;
+}
+
+.legal-card p,
+.legal-card li {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.65;
+}
+
+.legal-card ul { margin: 0.5rem 0 0 1.2rem; }
+
+.legal-card a,
+.form-privacy a,
+footer a.footer-legal {
+    color: var(--accent-color);
+}
+
+.legal-update {
+    color: var(--gray-subtle);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.85rem;
+}
+
+/* Pied de page et formulaire */
+.footer-sep { margin: 0 0.4rem; opacity: 0.6; }
+
+footer a.footer-legal {
+    text-decoration: none;
+    border-bottom: 1px dashed rgba(56, 189, 248, 0.5);
+}
+
+footer a.footer-legal:hover { color: var(--text-white); }
+
+.form-privacy {
+    grid-column: 1 / -1;
+    margin-top: 0.75rem;
+    font-size: 0.82rem;
+    color: var(--gray-subtle);
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .legal-grid { grid-template-columns: 1fr; }
+}
