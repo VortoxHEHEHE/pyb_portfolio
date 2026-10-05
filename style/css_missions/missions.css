@@ -541,3 +541,104 @@
     padding: 6px 14px;
     font-size: 0.8rem;
 }
+
+/* =========================================
+   TABLEAU DE SYNTHÈSE SUR MOBILE
+   Chaque ligne devient une carte : plus besoin de glisser à droite pour voir C1 à C6.
+   ========================================= */
+@media (max-width: 600px) {
+    .synthese-wrapper { overflow-x: visible; }
+
+    .synthese-table,
+    .synthese-table thead,
+    .synthese-table tbody,
+    .synthese-table tr,
+    .synthese-table th,
+    .synthese-table td {
+        display: block;
+    }
+
+    .synthese-table { min-width: 0; }
+
+    /* En-tête : on ne garde que les boutons de filtre C1 à C6, sur une ligne */
+    .synthese-table thead tr {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.7rem 0.8rem;
+    }
+
+    .synthese-table thead tr::before {
+        content: "Filtrer :";
+        font-size: 0.75rem;
+        color: var(--gray-subtle);
+        margin-right: 0.2rem;
+    }
+
+    .synthese-table th {
+        padding: 0;
+        border: none;
+        background: none;
+    }
+
+    .synthese-table th:nth-child(-n+3),
+    .synthese-table th:last-child {
+        display: none;
+    }
+
+    /* Lignes : référence + intitulé, puis les compétences et le document */
+    .synthese-table tbody tr {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.35rem 0.5rem;
+        padding: 0.65rem 0.8rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .synthese-table td {
+        padding: 0;
+        border: none;
+        text-align: left;
+    }
+
+    .synthese-table td:nth-child(2) {
+        flex: 1 1 calc(100% - 4rem);
+        text-align: left;
+    }
+
+    .synthese-table td:nth-child(3),
+    .synthese-table td:empty {
+        display: none;
+    }
+
+    /* La coche devient une pastille avec le code de la compétence */
+    .synthese-table td.ok {
+        font-size: 0;
+        line-height: 1;
+    }
+
+    .synthese-table td.ok::before {
+        display: inline-block;
+        font-family: 'Space Mono', monospace;
+        font-size: 0.72rem;
+        font-weight: bold;
+        color: #0f172a;
+        background: var(--accent-color);
+        border-radius: 4px;
+        padding: 3px 7px;
+    }
+
+    .synthese-table td:nth-child(4).ok::before { content: "C1"; }
+    .synthese-table td:nth-child(5).ok::before { content: "C2"; }
+    .synthese-table td:nth-child(6).ok::before { content: "C3"; }
+    .synthese-table td:nth-child(7).ok::before { content: "C4"; }
+    .synthese-table td:nth-child(8).ok::before { content: "C5"; }
+    .synthese-table td:nth-child(9).ok::before { content: "C6"; }
+
+    .synthese-table td:last-child {
+        margin-left: auto;
+        font-size: 0.8rem;
+    }
+}
