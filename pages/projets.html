@@ -61,37 +61,48 @@
                 </div>
                 
                 <h3 class="section-subtitle">Projets de Professionnalisation</h3>
-                
-                <div class="wip-container" style="max-width: 700px; margin: 0 auto;">
-                    
-                    <div class="holographic-card">
-                        <div class="card-bg-icon">
-                            <img src="../assets/images/git.svg" alt="Git" style="opacity: 0.2;">
-                        </div>
 
-                        <div class="wip-content" style="text-align: center; padding: 2rem 0;">
-                            <div class="wip-icon" style="font-size: 3rem; margin-bottom: 1rem;">🚧</div>
-                            
-                            <h3 style="color: var(--accent-color); margin-bottom: 1rem;">DÉPLOIEMENT EN COURS</h3>
-                            
-                            <p style="color: var(--text-light); margin-bottom: 2rem;">
-                                Les projets de l'épreuve E6 sont en cours de documentation et de mise en ligne.
-                                <br>Revenez bientôt pour découvrir mes réalisations.
-                            </p>
+                <p class="e6-intro">
+                    Cette page accueillera les projets de l'épreuve <strong>E6 — Administration des systèmes et des réseaux</strong>
+                    (option SISR). Leur documentation est en cours de rédaction.
+                </p>
 
-                            <div class="loading-bar-container">
-                                <div class="loading-label">
-                                    <span>UPLOADING DATA...</span>
-                                    <span>72%</span>
-                                </div>
-                                <div class="loading-track">
-                                    <div class="loading-fill"></div>
-                                </div>
-                            </div>
-                            
-                            </div>
+                <div class="git-terminal" role="img" aria-label="Terminal : la branche epreuve-e6 est en préparation, rien n'est encore publié">
+                    <div class="git-terminal-bar">
+                        <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                        <span class="git-terminal-title">bash — ~/projets</span>
                     </div>
+                    <div class="git-terminal-body">
+                        <p class="git-line"><span class="git-prompt">paulyann@portfolio:~/projets$</span> git status</p>
+                        <p class="git-line">Sur la branche <span class="git-branch">epreuve-e6</span></p>
+                        <p class="git-line">Votre branche est à jour avec <span class="git-branch">'origin/epreuve-e6'</span>.</p>
+                        <p class="git-line git-gap">Projets en préparation :</p>
+                        <p class="git-line git-muted">  (documentation en cours de rédaction, publication à venir)</p>
+                        <p class="git-line git-pending">        en cours :   projets-e6/</p>
+                        <p class="git-line git-gap">Rien à publier pour le moment.</p>
+                        <p class="git-line"><span class="git-prompt">paulyann@portfolio:~/projets$</span> <span class="git-cursor"></span></p>
+                    </div>
+                </div>
 
+                <h3 class="section-subtitle">En attendant</h3>
+
+                <div class="e6-next">
+                    <a href="missions.html" class="e6-link">
+                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+                        <span class="e6-link-text">
+                            <strong>Réalisations (E5)</strong>
+                            <span>10 réalisations, tableau de synthèse et documentations PDF</span>
+                        </span>
+                        <span class="e6-link-arrow">→</span>
+                    </a>
+                    <a href="veille.html" class="e6-link">
+                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1.5"/></svg>
+                        <span class="e6-link-text">
+                            <strong>Veille technologique</strong>
+                            <span>Cybersécurité des OS et automatisation, de septembre 2025 à aujourd'hui</span>
+                        </span>
+                        <span class="e6-link-arrow">→</span>
+                    </a>
                 </div>
 
             </div>

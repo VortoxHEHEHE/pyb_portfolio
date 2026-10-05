@@ -2310,3 +2310,218 @@ footer a.footer-legal:hover { color: var(--text-white); }
 @media (max-width: 768px) {
     .legal-grid { grid-template-columns: 1fr; }
 }
+
+/* =========================================
+   ICÔNES AU TRAIT (remplacent les émojis)
+   ========================================= */
+.icon {
+    width: 1.15em;
+    height: 1.15em;
+    flex-shrink: 0;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    vertical-align: -0.2em;
+}
+
+/* Icônes de marque pleines (LinkedIn) */
+.icon.icon-fill {
+    fill: currentColor;
+    stroke: none;
+}
+
+.btn-icon {
+    display: inline-flex;
+    align-items: center;
+}
+
+.btn-icon .icon {
+    width: 1.25em;
+    height: 1.25em;
+}
+
+/* Bouton « envoi en cours » du formulaire */
+.icon-spin { animation: iconSpin 0.9s linear infinite; }
+
+@keyframes iconSpin {
+    to { transform: rotate(360deg); }
+}
+
+/* Petit espace entre l'icône et le texte qui la suit */
+.btn-holo .icon,
+.form-privacy .icon,
+.zoom-hint .icon {
+    margin-right: 0.3em;
+}
+
+/* --- BTS SIO : introduction alignée comme les autres pages --- */
+.bts-intro {
+    text-align: left;
+    max-width: none;
+    margin: 0 0 1.5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .icon-spin { animation-duration: 3s; }
+}
+
+/* =========================================
+   PAGE PROJETS (E6) : TERMINAL « git status »
+   ========================================= */
+.e6-intro {
+    color: var(--text-light);
+    line-height: 1.7;
+    max-width: 800px;
+    margin-bottom: 1.5rem;
+}
+
+.git-terminal {
+    max-width: 820px;
+    margin-bottom: 3rem;
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    border-radius: 12px;
+    background: #0b1222;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45), 0 0 25px rgba(56, 189, 248, 0.08);
+    overflow: hidden;
+}
+
+.git-terminal-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.7rem 1rem;
+    background: rgba(56, 189, 248, 0.06);
+    border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+.git-terminal-bar .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.git-terminal-bar .dot.red { background: #ff5f56; }
+.git-terminal-bar .dot.yellow { background: #ffbd2e; }
+.git-terminal-bar .dot.green { background: #27c93f; }
+
+.git-terminal-title {
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--gray-subtle);
+}
+
+.git-terminal-body {
+    padding: 1.25rem 1.5rem 1.5rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.92rem;
+    line-height: 1.75;
+    color: var(--text-light);
+    overflow-x: auto;
+}
+
+/* Les lignes s'affichent l'une après l'autre, comme une vraie sortie de commande */
+.git-line {
+    white-space: pre;
+    opacity: 0;
+    animation: gitLineIn 0.3s ease forwards;
+}
+
+.git-line:nth-child(1) { animation-delay: 0.9s; }
+.git-line:nth-child(2) { animation-delay: 1.3s; }
+.git-line:nth-child(3) { animation-delay: 1.45s; }
+.git-line:nth-child(4) { animation-delay: 1.6s; }
+.git-line:nth-child(5) { animation-delay: 1.75s; }
+.git-line:nth-child(6) { animation-delay: 1.9s; }
+.git-line:nth-child(7) { animation-delay: 2.05s; }
+.git-line:nth-child(8) { animation-delay: 2.3s; }
+
+@keyframes gitLineIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: none; }
+}
+
+.git-gap { margin-top: 0.9rem; }
+.git-prompt { color: #10b981; font-weight: 700; }
+.git-branch { color: var(--accent-color); }
+.git-muted { color: var(--gray-subtle); }
+.git-pending { color: #ffbd2e; }
+
+.git-cursor {
+    display: inline-block;
+    width: 9px;
+    height: 1.1em;
+    vertical-align: text-bottom;
+    background: var(--accent-color);
+    animation: blinkCursor 1s infinite step-end;
+}
+
+/* Liens « En attendant » */
+.e6-next {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    max-width: 820px;
+}
+
+.e6-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.2rem 1.3rem;
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    border-radius: 12px;
+    background: rgba(15, 23, 42, 0.6);
+    color: var(--text-light);
+    text-decoration: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.e6-link > .icon {
+    width: 2rem;
+    height: 2rem;
+    color: var(--accent-color);
+}
+
+.e6-link-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    font-size: 0.88rem;
+    line-height: 1.45;
+}
+
+.e6-link-text strong {
+    color: var(--text-white);
+    font-size: 1.05rem;
+}
+
+.e6-link-arrow {
+    margin-left: auto;
+    font-family: 'Space Mono', monospace;
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    transition: transform 0.3s ease;
+}
+
+.e6-link:hover {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 20px var(--accent-glow);
+    transform: translateY(-3px);
+}
+
+.e6-link:hover .e6-link-arrow { transform: translateX(4px); }
+
+@media (max-width: 768px) {
+    .e6-next { grid-template-columns: 1fr; }
+    .git-terminal-body { font-size: 0.8rem; padding: 1rem; }
+    /* Les lignes longues passent à la ligne au lieu d'obliger à glisser horizontalement */
+    .git-line { white-space: pre-wrap; overflow-wrap: anywhere; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .git-line { opacity: 1; animation: none; }
+}
