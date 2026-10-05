@@ -4,9 +4,40 @@
 const menuToggle = document.getElementById('mobile-menu');
 const navList = document.getElementById('nav-list');
 
+function setMenuOpen(open) {
+    navList.classList.toggle('active', open);
+    menuToggle.classList.toggle('open', open);
+    menuToggle.setAttribute('aria-expanded', open);
+    // Empêche la page de défiler derrière le menu plein écran
+    document.body.classList.toggle('menu-open', open);
+}
+
 if (menuToggle) {
+    // Le bouton est une <div> : on le rend accessible au clavier et aux lecteurs d'écran
+    menuToggle.setAttribute('role', 'button');
+    menuToggle.setAttribute('tabindex', '0');
+    menuToggle.setAttribute('aria-label', 'Ouvrir le menu');
+    menuToggle.setAttribute('aria-controls', 'nav-list');
+    menuToggle.setAttribute('aria-expanded', 'false');
+
     menuToggle.addEventListener('click', () => {
-        navList.classList.toggle('active');
+        setMenuOpen(!navList.classList.contains('active'));
+    });
+
+    menuToggle.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            setMenuOpen(!navList.classList.contains('active'));
+        }
+    });
+
+    // Ferme le menu quand on choisit une page ou qu'on appuie sur Échap
+    navList.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => setMenuOpen(false));
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navList.classList.contains('active')) setMenuOpen(false);
     });
 }
 
