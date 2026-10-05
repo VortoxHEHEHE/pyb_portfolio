@@ -2119,3 +2119,136 @@ body {
         transition: none;
     }
 }
+
+/* --- Lisibilité vidéoprojecteur (À propos) --- */
+.timeline-item p { font-size: 0.98rem; }
+.timeline-item li { font-size: 0.96rem; }
+.school-info h3 { font-size: 1.22rem; }
+.timeline-date { font-size: 0.9rem; }
+.logo-item span { font-size: 0.82rem; }
+.about-text p { font-size: 1.05rem; }
+
+/* =========================================
+   EFFETS D'INTERFACE
+   ========================================= */
+
+/* --- Barre de progression de lecture (ajoutée par script.js) --- */
+.scroll-progress {
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-darker), var(--accent-color), #10b981);
+    box-shadow: 0 0 8px var(--accent-glow);
+    transform: scaleX(0);
+    transform-origin: left;
+    pointer-events: none;
+}
+
+/* --- Bouton retour en haut (ajouté par script.js) --- */
+.back-to-top {
+    position: fixed;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    z-index: 900;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 0.9rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    background: rgba(11, 18, 34, 0.9);
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    border-radius: 10px;
+    backdrop-filter: blur(6px);
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0.3s, background 0.2s, color 0.2s;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s, background 0.2s, color 0.2s;
+}
+
+.back-to-top:hover,
+.back-to-top:focus-visible {
+    color: #0f172a;
+    background: var(--accent-color);
+    box-shadow: 0 0 15px var(--accent-glow);
+}
+
+.back-to-top-arrow { font-size: 1rem; }
+
+@media (max-width: 768px) {
+    .back-to-top { right: 1rem; bottom: 1rem; padding: 0.6rem 0.75rem; }
+    .back-to-top-label { display: none; }
+    /* Le bouton reste sous le menu plein écran quand celui-ci est ouvert */
+    body.menu-open .back-to-top { opacity: 0; visibility: hidden; }
+}
+
+/* --- Halo lumineux qui suit la souris (classe ajoutée par script.js) --- */
+.spotlight.spotlight {
+    background-image: radial-gradient(
+        320px circle at var(--mx, 50%) var(--my, 50%),
+        rgba(56, 189, 248, var(--spot, 0)),
+        transparent 70%
+    );
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, --spot 0.3s ease;
+}
+
+.spotlight.spotlight:hover {
+    --spot: 0.12;
+    border-color: rgba(56, 189, 248, 0.55);
+    box-shadow: 0 0 22px rgba(56, 189, 248, 0.12);
+}
+
+/* Permet d'animer en douceur l'apparition du halo */
+@property --spot {
+    syntax: '<number>';
+    inherits: false;
+    initial-value: 0;
+}
+
+/* --- Sélection de texte et barre de défilement aux couleurs du site --- */
+::selection {
+    background: rgba(56, 189, 248, 0.35);
+    color: #ffffff;
+}
+
+html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-darker) #0b1222;
+}
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #0b1222; }
+::-webkit-scrollbar-thumb {
+    background: var(--accent-darker);
+    border: 2px solid #0b1222;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--accent-color); }
+
+/* --- Contour visible pour la navigation au clavier --- */
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .scroll-progress { transition: none; }
+    .back-to-top,
+    .back-to-top.visible { transition: none; }
+}

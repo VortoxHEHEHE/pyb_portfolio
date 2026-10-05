@@ -670,3 +670,30 @@
     .grid-4,
     .tools-grid { grid-template-columns: 1fr; }
 }
+
+/* =========================================
+   LISIBILITÉ VIDÉOPROJECTEUR (textes un peu plus grands)
+   ========================================= */
+.veille-intro h3 { font-size: 1.55rem; }
+.veille-intro p { font-size: 1.03rem; }
+.method-step h4 { font-size: 1.12rem; }
+.method-step p { font-size: 0.93rem; }
+.theme-tab { font-size: 1rem; }
+.theme-desc { font-size: 1.02rem; }
+
+.theme-panel .holographic-card h3 { font-size: 1.22rem; }
+.theme-panel .card-header-line { font-size: 0.78rem; }
+.theme-panel .mission-desc { font-size: 0.93rem; line-height: 1.55; }
+.theme-panel .takeaway { font-size: 0.88rem; }
+.theme-panel .btn-holo { font-size: 0.86rem; }
+
+.synthesis-card p { font-size: 1.02rem; }
+.tool-card h4 { font-size: 1.08rem; }
+.tool-card p { font-size: 0.9rem; }
+
+/* Thématique 2 : 4 colonnes trop étroites avec un texte plus grand → 2 × 2 */
+.grid-4 { grid-template-columns: repeat(2, 1fr); }
+
+@media (max-width: 600px) {
+    .grid-4 { grid-template-columns: 1fr; }
+}

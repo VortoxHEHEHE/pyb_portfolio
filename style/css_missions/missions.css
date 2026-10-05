@@ -642,3 +642,36 @@
         font-size: 0.8rem;
     }
 }
+
+/* =========================================
+   LISIBILITÉ VIDÉOPROJECTEUR (textes un peu plus grands)
+   ========================================= */
+.e5-intro h3 { font-size: 1.25rem; }
+.e5-intro p { font-size: 1rem; }
+.comp-item { font-size: 0.92rem; }
+.comp-code { font-size: 0.85rem; }
+.table-hint { font-size: 0.9rem; }
+.synthese-table { font-size: 0.92rem; }
+
+@media (min-width: 601px) {
+    .synthese-table th, .synthese-table td { padding: 0.5rem 0.6rem; }
+}
+
+.holographic-card[data-comps] h3 { font-size: 1.25rem; }
+.holographic-card[data-comps] .mission-context { font-size: 0.88rem; }
+.holographic-card[data-comps] .mission-desc { font-size: 0.93rem; line-height: 1.55; }
+.holographic-card[data-comps] .spec-tag { font-size: 0.78rem; }
+.holographic-card[data-comps] .comp-badges span { font-size: 0.8rem; }
+.holographic-card[data-comps] .btn-holo { font-size: 0.86rem; }
+.holographic-card[data-comps] .card-header-line { font-size: 0.78rem; }
+
+/* 4 colonnes deviennent trop étroites avec un texte plus grand : 3 colonnes */
+#realisations + .filter-status + .diploma-grid { grid-template-columns: repeat(3, 1fr); }
+
+@media (max-width: 900px) {
+    #realisations + .filter-status + .diploma-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+    #realisations + .filter-status + .diploma-grid { grid-template-columns: 1fr; }
+}

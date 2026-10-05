@@ -130,3 +130,65 @@ localStorage.setItem('portfolioPage', pagePath);
 // On ajoute un timestamp (l'heure exacte) pour forcer le navigateur 
 // à envoyer un signal même si on recharge la même page
 localStorage.setItem('portfolioTrigger', Date.now());
+
+/* =========================================
+   EFFETS D'INTERFACE
+   ========================================= */
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* --- Commande du terminal tapée au chargement de la page --- */
+const terminalCommand = document.querySelector('.terminal-title .command');
+if (terminalCommand && !reduceMotion) {
+    const fullText = terminalCommand.textContent;
+    terminalCommand.textContent = '';
+    let i = 0;
+    const typeNext = () => {
+        terminalCommand.textContent = fullText.slice(0, ++i);
+        if (i < fullText.length) setTimeout(typeNext, 45);
+    };
+    setTimeout(typeNext, 350);
+}
+
+/* --- Barre de progression de lecture sous le menu --- */
+const nav = document.querySelector('nav');
+let progressBar = null;
+if (nav) {
+    progressBar = document.createElement('div');
+    progressBar.className = 'scroll-progress';
+    nav.appendChild(progressBar);
+}
+
+/* --- Bouton retour en haut --- */
+const backToTop = document.createElement('button');
+backToTop.type = 'button';
+backToTop.className = 'back-to-top';
+backToTop.setAttribute('aria-label', 'Revenir en haut de la page');
+backToTop.innerHTML = '<span class="back-to-top-arrow">↑</span><span class="back-to-top-label">cd ~</span>';
+backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+});
+document.body.appendChild(backToTop);
+
+function updateScrollUI() {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    if (progressBar) progressBar.style.transform = `scaleX(${max > 0 ? window.scrollY / max : 0})`;
+    backToTop.classList.toggle('visible', window.scrollY > 500);
+}
+window.addEventListener('scroll', updateScrollUI, { passive: true });
+window.addEventListener('resize', updateScrollUI);
+updateScrollUI();
+
+/* --- Halo lumineux qui suit la souris sur les cartes (ordinateur uniquement) --- */
+if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    const spotlightCards = document.querySelectorAll(
+        '.holographic-card, .glass-card, .method-step, .tool-card, .timeline-item, .spec-block, .comp-item'
+    );
+    spotlightCards.forEach(card => {
+        card.classList.add('spotlight');
+        card.addEventListener('pointermove', (e) => {
+            const r = card.getBoundingClientRect();
+            card.style.setProperty('--mx', `${e.clientX - r.left}px`);
+            card.style.setProperty('--my', `${e.clientY - r.top}px`);
+        });
+    });
+}
