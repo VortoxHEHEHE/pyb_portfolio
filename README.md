@@ -30,7 +30,7 @@ Ce site est réalisé "from scratch" (sans constructeur de site comme WordPress 
 * **Langages :** HTML5, CSS3, JavaScript (Vanilla).
 * **Hébergement :** GitHub Pages.
 * **Nom de domaine :** Configuré via OVH avec sécurisation SSL (HTTPS).
-* **Polices :** Google Fonts (Inter, Space Mono) hébergées localement pour la performance et le respect RGPD.
+* **Polices :** Inter et Space Mono (Google Fonts) hébergées localement dans `/assets/fonts/`, pour la performance et le respect du RGPD (aucune requête vers Google).
 * **Formulaire de contact :** Géré via l'API Formspree.
 
 ---
