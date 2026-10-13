@@ -117,7 +117,7 @@ Autre solution : ouvrir le dossier dans **VS Code**, puis clic droit sur `index.
 
 **Paul-Yann Bouvier**, étudiant en BTS SIO option SISR à Paris Ynov Campus, en alternance chez Paritel.
 
-* 📧 E-mail : [bouvier.py@gmail.com](mailto:bouvier.py@gmail.com)
+* 📬 Contact : [via mon portfolio](https://www.paulyannbouvier.fr/contact)
 * 🔗 LinkedIn : [Paul-Yann Bouvier](https://www.linkedin.com/in/paul-yann-bouvier-9a439b253/)
 * 🌐 Portfolio : [paulyannbouvier.fr](https://paulyannbouvier.fr)
 
