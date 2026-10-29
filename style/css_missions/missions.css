@@ -781,3 +781,163 @@
     border-radius: 8px;
     cursor: pointer;
 }
+
+/* =========================================
+   LOGOS DE TÉLÉCHARGEMENT (colonne Doc)
+   ========================================= */
+.synthese-table abbr {
+    text-decoration: none;
+    cursor: help;
+}
+
+.doc-logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 6px;
+    border-radius: 8px;
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    background: rgba(255, 255, 255, 0.92);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.doc-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.doc-logo .icon {
+    width: 22px;
+    height: 22px;
+    stroke: var(--background-dark);
+}
+
+.synthese-table a.doc-logo:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 12px var(--accent-glow);
+    text-decoration: none;
+}
+
+.doc-logo.disabled {
+    opacity: 0.35;
+    filter: grayscale(1);
+    cursor: not-allowed;
+}
+
+/* Sur mobile, l'en-tête ne sert plus de filtre : les pastilles C1 à C6 suffisent */
+@media (max-width: 600px) {
+    .synthese-table thead { display: none; }
+    .synthese-table td:last-child { margin-left: auto; }
+}
+
+/* =========================================
+   E5 : TABLEAU OFFICIEL INTÉGRÉ + LISTE DES RÉALISATIONS
+   ========================================= */
+.e5-intro {
+    display: block;
+}
+
+.e5-intro h3 { margin-bottom: 0.5rem; }
+
+#synthese, #realisations { scroll-margin-top: 6rem; }
+
+.pdf-viewer {
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    border-radius: 12px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 0 30px rgba(56, 189, 248, 0.08);
+}
+
+.pdf-viewer iframe {
+    display: block;
+    width: 100%;
+    height: 80vh;
+    min-height: 480px;
+    border: 0;
+}
+
+.pdf-open {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: auto;
+    margin: 1rem 0 3.5rem;
+    padding: 0.6rem 1.1rem;
+    font-size: 0.85rem;
+}
+
+.rp-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+    gap: 0.75rem;
+    margin: 1rem 0 4rem;
+}
+
+.rp-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    border-radius: 10px;
+    background: rgba(15, 23, 42, 0.6);
+    color: var(--text-light);
+    text-decoration: none;
+    transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.rp-item:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 0 14px var(--accent-glow);
+}
+
+.rp-item .doc-logo { flex-shrink: 0; }
+
+.rp-text {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+}
+
+.rp-ref {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--gray-subtle);
+}
+
+.rp-title {
+    color: var(--text-white);
+    font-weight: 500;
+}
+
+.rp-ctx {
+    font-size: 0.75rem;
+    color: var(--gray-subtle);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 999px;
+    padding: 2px 10px;
+}
+
+.rp-open {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--accent-color);
+    white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+    .rp-list { grid-template-columns: 1fr; }
+    .rp-ctx { display: none; }
+    .pdf-viewer iframe { height: 60vh; min-height: 360px; }
+}
+
+.pdf-actions { margin: 1rem 0 3.5rem; }
+.pdf-actions .pdf-open { margin: 0; }
+@media (max-width: 600px) { .rp-list { grid-template-columns: 1fr; } }

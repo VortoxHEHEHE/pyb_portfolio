@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 270" role="img" aria-label="Schéma : hôte VMware ESXi avec vSwitch interne, contrôleur de domaine Windows Server (AD DS, DNS) et postes clients joints au domaine">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#1e293b"/>
+    </linearGradient>
+  </defs>
+  <rect width="480" height="270" rx="14" fill="url(#bg)"/>
+
+  <!-- Hôte ESXi -->
+  <rect x="20" y="20" width="440" height="160" rx="10" fill="none" stroke="#38bdf8" stroke-opacity="0.6" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="34" y="42" font-family="monospace" font-size="13" font-weight="bold" fill="#38bdf8">Hôte VMware ESXi</text>
+
+  <!-- Contrôleur de domaine -->
+  <rect x="40" y="58" width="170" height="78" rx="8" fill="#38bdf8" fill-opacity="0.12" stroke="#38bdf8" stroke-width="2"/>
+  <text x="125" y="82" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#ffffff">Windows Server</text>
+  <text x="125" y="102" text-anchor="middle" font-family="monospace" font-size="11" fill="#cbd5e1">Contrôleur de domaine</text>
+  <text x="125" y="122" text-anchor="middle" font-family="monospace" font-size="11" fill="#10b981">AD DS · DNS · GPO</text>
+
+  <!-- VM supplémentaire -->
+  <rect x="270" y="58" width="170" height="78" rx="8" fill="#94a3b8" fill-opacity="0.08" stroke="#94a3b8" stroke-opacity="0.6" stroke-width="2"/>
+  <text x="355" y="90" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#ffffff">Machines virtuelles</text>
+  <text x="355" y="110" text-anchor="middle" font-family="monospace" font-size="11" fill="#cbd5e1">datastore · réseau interne</text>
+
+  <!-- vSwitch -->
+  <rect x="40" y="150" width="400" height="20" rx="4" fill="#38bdf8" fill-opacity="0.25"/>
+  <text x="240" y="164" text-anchor="middle" font-family="monospace" font-size="11" fill="#ffffff">vSwitch interne</text>
+  <line x1="125" y1="136" x2="125" y2="150" stroke="#38bdf8" stroke-width="2"/>
+  <line x1="355" y1="136" x2="355" y2="150" stroke="#94a3b8" stroke-width="2"/>
+
+  <!-- Clients -->
+  <g stroke="#38bdf8" stroke-width="2">
+    <line x1="110" y1="170" x2="110" y2="206"/>
+    <line x1="240" y1="170" x2="240" y2="206"/>
+    <line x1="370" y1="170" x2="370" y2="206"/>
+  </g>
+  <g font-family="monospace" font-size="11" text-anchor="middle">
+    <rect x="60" y="206" width="100" height="44" rx="6" fill="#0b1220" stroke="#38bdf8" stroke-opacity="0.6"/>
+    <text x="110" y="226" fill="#ffffff">Poste client</text>
+    <text x="110" y="242" fill="#10b981">joint au domaine</text>
+    <rect x="190" y="206" width="100" height="44" rx="6" fill="#0b1220" stroke="#38bdf8" stroke-opacity="0.6"/>
+    <text x="240" y="226" fill="#ffffff">Poste client</text>
+    <text x="240" y="242" fill="#10b981">joint au domaine</text>
+    <rect x="320" y="206" width="100" height="44" rx="6" fill="#0b1220" stroke="#38bdf8" stroke-opacity="0.6"/>
+    <text x="370" y="226" fill="#ffffff">Poste client</text>
+    <text x="370" y="242" fill="#10b981">joint au domaine</text>
+  </g>
+</svg>

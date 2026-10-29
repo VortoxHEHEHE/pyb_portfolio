@@ -13,7 +13,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: safe center; /* centre sans couper le haut des longues diapos */
             height: 100vh;
             margin: 0;
             padding: 0 8%;
@@ -60,32 +60,28 @@
     <script>
         const slides = [
             {
-                titre: "1. Accueil",
-                texte: "Bonjour à toutes et à tous. Je m'appelle Paul-Yann Bouvier et je suis ravi de vous présenter aujourd'hui mon portfolio.<br><br>Passionné par l'informatique et les nouvelles technologies, je suis actuellement étudiant en BTS SIO option SISR. Mon objectif à terme est de travailler dans le domaine des réseaux informatiques, bien que je n'aie pas encore défini vers quel métier spécifique je souhaite m'orienter concrètement pour la suite.<br><br>Dès la page d'accueil, j'ai voulu afficher clairement mon identité avec un design immersif. On y retrouve immédiatement ma Stack technique, c'est-à-dire les environnements sur lesquels je travaille : Windows, Linux, Cisco, VMware et les bases de données SQL. J'y ai également mis en évidence mon statut actuel : je suis en alternance chez Paritel, au sein du support technique client."
+                titre: "1. Accueil & Profil",
+                texte: "Bonjour à toutes et à tous. Je m'appelle Paul-Yann Bouvier, je suis étudiant en <span class='highlight'>BTS SIO option SISR</span> à Paris Ynov Campus, et je suis ravi de vous présenter mon portfolio.<br><br>La page d'accueil sert aussi de présentation : dès l'arrivée, on voit mon nom, mon poste d'apprenti technicien support et mon alternance chez <span class='highlight'>Paritel</span>, avec trois accès rapides : mon profil, mon CV et le contact.<br><br>Juste en dessous, mon profil : mes compétences en systèmes et virtualisation, en réseaux avec Cisco, et en développement et outils.<br><br>Puis mon parcours : mon alternance chez Paritel depuis août 2026, mon stage d'assistant informatique chez Global Knowledge cet été, mon BTS à Ynov, mon premier stage chez Global Knowledge en 2023, l'EPSI et mon Bac STI2D SIN."
             },
             {
-                titre: "2. À propos",
-                texte: "En passant sur la page À propos, je me présente plus en détail sous forme de terminal de commande. Je vis à Rueil-Malmaison et je me définis comme quelqu'un de curieux et rigoureux. J'ai classé mes compétences en trois catégories : les systèmes et la virtualisation, les réseaux avec l'écosystème Cisco, et enfin le développement et les outils.<br><br>Vous pouvez également y suivre mon parcours : l'obtention de mon Bac STI2D SIN au Lycée Richelieu, ma formation Socle Numérique à l'EPSI Paris, et mes stages chez Global Knowledge où j'ai pu configurer un réseau avec routeur Cisco, déployer des environnements virtualisés sous VMware et administrer des systèmes Windows et Linux.<br><br>Bien sûr, cette page permet de télécharger directement mon CV en PDF ou d'accéder à mon profil LinkedIn."
+                titre: "2. Épreuve E5",
+                texte: "Je passe à l'<span class='highlight'>épreuve E5</span>, Support et mise à disposition de services informatiques.<br><br>La page s'ouvre directement sur mon <span class='highlight'>tableau de synthèse officiel</span>, consultable en plein écran.<br><br>En dessous, la liste de mes réalisations : un clic sur le logo ouvre la documentation PDF.<br><br><span class='highlight'>Côté réseau :</span> DHCP avec relais, routage statique, VLAN et redondance avec Spanning Tree sur du matériel Cisco.<br><br><span class='highlight'>Côté système :</span> l'installation de Debian 12, un serveur web Apache sécurisé, GLPI pour la gestion de parc et OCS Inventory pour l'inventaire.<br><br>S'y ajoutent ce portfolio, pour la présence en ligne, et ma veille technologique."
             },
             {
-                titre: "3. BTS SIO",
-                texte: "La rubrique suivante est dédiée à mon diplôme, sur la page BTS SIO. J'y explique en détail les deux spécialités de ce cursus.<br><br>D'un côté, il y a la spécialité SLAM (Solutions Logicielles et Applications Métiers), qui forme au développement d'applications informatiques et de logiciels.<br><br>De l'autre côté, il y a la spécialité SISR (Solutions d'Infrastructure, Systèmes et Réseaux), qui forme des administrateurs et techniciens de réseaux et de systèmes.<br><br>C'est évidemment ce second parcours que j'ai choisi, pour apprendre à gérer des parcs informatiques, à sécuriser des systèmes d'information et surtout à administrer des réseaux."
+                titre: "3. Épreuve E6",
+                texte: "La page suivante présente l'<span class='highlight'>épreuve E6</span>, Administration des systèmes et des réseaux, qui évalue les compétences du bloc 2 : concevoir, déployer, administrer et sécuriser une infrastructure.<br><br>Elle repose sur <span class='highlight'>deux situations professionnelles</span> autour de la même entreprise : la première met en place l'infrastructure, la seconde la supervise.<br><br>Pour chaque projet, j'indique le contexte, l'architecture, ce que j'ai réalisé et les tests effectués.<br><br>Les deux <span class='highlight'>fiches descriptives</span> sont consultables en PDF directement depuis la page, et la documentation technique viendra les compléter."
             },
             {
-                titre: "4. École & Entreprise",
-                texte: "Dans la continuité de cette formation, nous passons à la page École & Entreprise, qui détaille ma situation du moment.<br><br>Je suis actuellement étudiant à Paris YNOV Campus pour la promotion 2025-2027.<br><br>Pour mettre en pratique mes apprentissages, je suis <span class='highlight'>apprenti support technique client chez Paritel</span>, à Bois-Colombes, depuis août 2026. J'y assiste les clients dans la résolution de leurs incidents réseaux et télécoms : diagnostic, suivi et accompagnement des utilisateurs."
+                titre: "4. Entreprise",
+                texte: "La page Entreprise présente mon alternance chez <span class='highlight'>Paritel</span>.<br><br>Paritel est un opérateur télécom et informatique pour les professionnels, créé en 1987. Il fournit aux TPE et PME leur téléphonie fixe et mobile, leur accès internet en fibre et la sécurité de leur réseau, avec 35 agences en France et plus de 15 000 clients.<br><br>Le siège est à Bois-Colombes, où je travaille depuis le 17 août 2026 comme <span class='highlight'>apprenti support technique client</span> : je diagnostique et je résous les incidents réseaux et télécoms des clients, et je les accompagne jusqu'à la résolution.<br><br>On y retrouve aussi la fiche d'identité de l'entreprise et sa localisation sur une carte."
             },
             {
-                titre: "5. Réalisations (E5)",
-                texte: "J'en viens au cœur de l'épreuve E5 : la page Réalisations professionnelles.<br><br>Elle s'ouvre sur les <span class='highlight'>six compétences du bloc 1</span>, puis sur mon <span class='highlight'>tableau de synthèse</span>, qui croise chaque réalisation avec les compétences qu'elle mobilise. En cliquant sur une compétence, je peux filtrer directement les réalisations correspondantes.<br><br>Chaque fiche précise le contexte, l'environnement technique, les compétences et donne accès à la documentation PDF complète.<br><br><span class='highlight'>Côté Réseau :</span> VLAN et trunks 802.1Q, redondance avec Spanning Tree, DHCP avec relais et routage statique sur Cisco.<br><br><span class='highlight'>Côté Système :</span> Debian 12, serveur Apache sécurisé en HTTPS, GLPI pour la gestion de parc et le helpdesk, OCS Inventory pour l'inventaire.<br><br>S'y ajoutent ce portfolio lui-même, pour la présence en ligne, et mon activité de support chez Paritel pour la gestion des incidents."
+                titre: "5. Veille technologique",
+                texte: "Ma <span class='highlight'>veille technologique</span> répond à la compétence C6, Organiser son développement professionnel.<br><br>Dès le haut de la page, on choisit l'une de mes <span class='highlight'>deux thématiques</span> en cliquant dessus, et les articles s'affichent juste en dessous.<br><br><span class='highlight'>Première thématique, la cybersécurité des systèmes d'exploitation :</span> la fin de la première année d'ESU de Windows 10, le Patch Tuesday record de septembre 2026 avec 966 failles, l'été record des rançongiciels, la faille Linux « Dirty Frag », la faille critique de WSUS et les zero-day des pare-feu Cisco ASA.<br><br><span class='highlight'>Seconde thématique, l'automatisation de l'administration système :</span> Ansible ouvert aux agents IA, Grafana 13, PowerShell 7.6 et Sysmon intégré à Windows.<br><br>Chaque article indique sa source et ce qu'il change concrètement pour un administrateur.<br><br>Ce que j'en retiens : l'IA est utilisée des deux côtés, mais les fondamentaux restent les mêmes : connaître son parc, corriger en priorisant, sauvegarder et superviser.<br><br>Ma méthode : collecter, trier, vérifier auprès d'une source officielle, puis synthétiser, avec Google Actualités, le CERT-FR, IT-Connect et LinkedIn."
             },
             {
-                titre: "6. Projets & Veille",
-                texte: "Concernant la page Projets (E6), elle est actuellement affichée en cours de déploiement. Les projets de professionnalisation relatifs à cette épreuve sont en cours de documentation et seront ajoutés très prochainement à mon portfolio.<br><br>Enfin, la page Veille présente ma veille technologique, qui répond à la compétence C6 « Organiser son développement professionnel ».<br><br>J'y applique une méthode en quatre étapes : collecter, trier, vérifier auprès d'une source officielle, puis synthétiser.<br><br>Elle couvre la période de <span class='highlight'>septembre 2025 à aujourd'hui</span>, sur deux thématiques. D'abord la cybersécurité des systèmes d'exploitation : les zero-day des pare-feu Cisco ASA en septembre 2025, la faille critique de WSUS en octobre, la faille Linux « Dirty Frag », le Patch Tuesday record de septembre 2026 avec 966 failles, et la fin de la première année d'ESU de Windows 10 le 13 octobre 2026. Ensuite l'automatisation de l'administration système : Sysmon intégré à Windows, PowerShell 7.6, Grafana 13, et l'ouverture d'Ansible aux agents IA.<br><br>Ce que j'en retiens : l'IA est désormais utilisée des deux côtés, mais les fondamentaux restent les mêmes : connaître son parc, corriger en priorisant, sauvegarder et superviser.<br><br>Mes sources principales sont Google Actualités, le CERT-FR, IT-Connect et LinkedIn."
-            },
-            {
-                titre: "7. Contact & Conclusion",
-                texte: "Enfin, la visite du site se termine logiquement par la page Contact. J'y ai regroupé l'ensemble de mes coordonnées : adresse e-mail, ma localisation à Rueil-Malmaison, ainsi qu'un lien direct vers mon profil LinkedIn. J'ai également intégré un formulaire de contact fonctionnel, pensé comme un protocole de message sécurisé, pour faciliter les échanges.<br><br>Pour conclure, ce portfolio a été conçu par mes soins pour montrer ma capacité à structurer l'information et à présenter mes premières compétences techniques en systèmes et réseaux. Je vous remercie pour votre attention, et je suis à votre disposition si vous souhaitez approfondir l'une des réalisations que je viens de vous présenter."
+                titre: "6. Contact & Conclusion",
+                texte: "La visite se termine par la page Contact : mon adresse e-mail, ma localisation, mon profil LinkedIn et un formulaire de contact fonctionnel.<br><br>Pour conclure, j'ai conçu ce portfolio moi-même, de son code jusqu'à son nom de domaine, pour présenter clairement mes réalisations et mes compétences en systèmes et réseaux.<br><br>Je vous remercie pour votre attention, et je suis à votre disposition pour approfondir l'une des réalisations que je viens de vous présenter."
             }
         ];
 
@@ -123,28 +119,26 @@
             if (event.key === 'portfolioTrigger') {
                 const page = localStorage.getItem('portfolioPage');
                 
-                if (page.includes('apropos')) {
-                    currentIndex = 1; 
-                } 
-                else if (page.includes('bts-sio')) {
-                    currentIndex = 2; 
-                } 
-                else if (page.includes('ecole-entreprise')) {
-                    currentIndex = 3; 
-                } 
-                else if (page.includes('missions')) {
-                    currentIndex = 4; 
-                } 
-                else if (page.includes('projets') || page.includes('veille')) {
-                    currentIndex = 5; 
-                } 
-                else if (page.includes('contact')) {
-                    currentIndex = 6; 
-                } 
-                else {
-                    currentIndex = 0; 
+                // Chaque page du portfolio affiche la diapo correspondante
+                if (page.includes('missions')) {
+                    currentIndex = 1;
                 }
-                
+                else if (page.includes('projets')) {
+                    currentIndex = 2;
+                }
+                else if (page.includes('entreprise')) {
+                    currentIndex = 3;
+                }
+                else if (page.includes('veille')) {
+                    currentIndex = 4;
+                }
+                else if (page.includes('contact')) {
+                    currentIndex = 5;
+                }
+                else {
+                    currentIndex = 0;
+                }
+
                 updateSlide();
             }
         });

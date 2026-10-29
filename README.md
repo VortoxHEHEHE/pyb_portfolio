@@ -75,11 +75,11 @@ Le fichier `CNAME` à la racine du dépôt indique à GitHub Pages le domaine pe
 
 ```
 pyb_portfolio/
-├── index.html               # Page d'accueil
+├── index.html               # Accueil + profil (parcours, compétences)
 ├── 404.html                 # Page d'erreur personnalisée
 ├── CNAME                    # Domaine personnalisé pour GitHub Pages
-├── pages/                   # Sous-pages : À propos, BTS SIO, École & Entreprise,
-│                            #   Réalisations (E5), Projets (E6), Veille, Contact, Mentions légales
+├── pages/                   # Sous-pages : Épreuve E5, Épreuve E6, Entreprise,
+│                            #   Veille, Contact, Mentions légales
 ├── style/
 │   ├── style.css            # Styles communs (thème, navigation, responsive, effets)
 │   ├── css_google/          # Déclaration des polices auto-hébergées
@@ -90,7 +90,7 @@ pyb_portfolio/
 └── assets/
     ├── docs/                # Documentations techniques (PDF), CV, tableau de synthèse
     ├── fonts/               # Polices Inter et Space Mono (WOFF2)
-    └── images/              # Logos, image d'aperçu et schémas des réalisations (schemas/)
+    └── images/              # Logos, image d'aperçu, illustrations (veille/, e6/)
 ```
 
 ---

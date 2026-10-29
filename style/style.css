@@ -2525,3 +2525,19 @@ footer a.footer-legal:hover { color: var(--text-white); }
 @media (prefers-reduced-motion: reduce) {
     .git-line { opacity: 1; animation: none; }
 }
+
+/* =========================================
+   ACCUEIL = PROFIL (ex-page À propos)
+   ========================================= */
+/* L'accueil défile désormais : le pied de page reprend sa place normale */
+body.home-page footer {
+    position: static;
+}
+
+.home-profile {
+    position: relative;
+    z-index: 1;
+    scroll-margin-top: 5rem;
+}
+
+#profil { scroll-margin-top: 4rem; }

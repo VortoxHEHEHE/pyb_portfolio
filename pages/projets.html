@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projets E6 - Paul-Yann Bouvier</title>
-    <meta name="description" content="Projets de l'épreuve E6 du BTS SIO SISR de Paul-Yann Bouvier.">
+    <title>Épreuve E6 - Paul-Yann Bouvier</title>
+    <meta name="description" content="Épreuve E6 du BTS SIO SISR : infrastructure Active Directory sous VMware ESXi et supervision Nagios.">
     <meta name="theme-color" content="#0f172a">
     <link rel="canonical" href="https://paulyannbouvier.fr/pages/projets.html">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="fr_FR">
     <meta property="og:site_name" content="Portfolio de Paul-Yann Bouvier">
-    <meta property="og:title" content="Projets E6 - Paul-Yann Bouvier">
-    <meta property="og:description" content="Projets de l&#x27;épreuve E6 du BTS SIO SISR de Paul-Yann Bouvier.">
+    <meta property="og:title" content="Épreuve E6 - Paul-Yann Bouvier">
+    <meta property="og:description" content="Épreuve E6 du BTS SIO SISR : infrastructure Active Directory sous VMware ESXi et supervision Nagios.">
     <meta property="og:url" content="https://paulyannbouvier.fr/pages/projets.html">
     <meta property="og:image" content="https://paulyannbouvier.fr/assets/images/og-image.png">
     <meta property="og:image:width" content="1200">
@@ -22,6 +22,7 @@
     <link href="../style/css_google/css2.css" rel="stylesheet">
     
     <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="../style/css_e6/e6.css">
     
 </head>
 <body>
@@ -38,11 +39,9 @@
             <div class="menu-toggle" id="mobile-menu"><span></span><span></span><span></span></div>
             <ul id="nav-list">
                 <li><a href="../index.html">Accueil</a></li>
-                <li><a href="apropos.html">À propos</a></li>
-                <li><a href="bts-sio.html">BTS SIO</a></li>
-                <li><a href="ecole-entreprise.html">École & Entreprise</a></li>
-                <li><a href="missions.html">Réalisations (E5)</a></li>
-                <li><a href="projets.html" class="active-link">Projets (E6)</a></li>
+                <li><a href="missions.html">Épreuve E5</a></li>
+                <li><a href="projets.html" class="active-link">Épreuve E6</a></li>
+                <li><a href="entreprise.html">Entreprise</a></li>
                 <li><a href="veille.html">Veille</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
@@ -55,54 +54,124 @@
     <main class="page-content">
         <section class="section-secondary-dark">
             <div class="container">
-                
+
                 <div class="terminal-title">
-                    <span class="prompt">root@paulyann:~/projets#</span> <span class="command">git status</span><span class="cursor">_</span>
+                    <span class="prompt">root@paulyann:~/e6#</span> <span class="command">cat presentation.txt</span><span class="cursor">_</span>
                 </div>
-                
-                <h3 class="section-subtitle">Projets de Professionnalisation</h3>
 
-                <p class="e6-intro">
-                    Cette page accueillera les projets de l'épreuve <strong>E6 — Administration des systèmes et des réseaux</strong>
-                    (option SISR). Leur documentation est en cours de rédaction.
-                </p>
-
-                <div class="git-terminal" role="img" aria-label="Terminal : la branche epreuve-e6 est en préparation, rien n'est encore publié">
-                    <div class="git-terminal-bar">
-                        <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
-                        <span class="git-terminal-title">bash — ~/projets</span>
-                    </div>
-                    <div class="git-terminal-body">
-                        <p class="git-line"><span class="git-prompt">paulyann@portfolio:~/projets$</span> git status</p>
-                        <p class="git-line">Sur la branche <span class="git-branch">epreuve-e6</span></p>
-                        <p class="git-line">Votre branche est à jour avec <span class="git-branch">'origin/epreuve-e6'</span>.</p>
-                        <p class="git-line git-gap">Projets en préparation :</p>
-                        <p class="git-line git-muted">  (documentation en cours de rédaction, publication à venir)</p>
-                        <p class="git-line git-pending">        en cours :   projets-e6/</p>
-                        <p class="git-line git-gap">Rien à publier pour le moment.</p>
-                        <p class="git-line"><span class="git-prompt">paulyann@portfolio:~/projets$</span> <span class="git-cursor"></span></p>
+                <!-- ===== PRÉSENTATION DE L'ÉPREUVE ===== -->
+                <div class="glass-card e6-presentation">
+                    <h3>Présentation de l'épreuve E6</h3>
+                    <p>L'épreuve E6, « <strong>Administration des systèmes et des réseaux</strong> », évalue les compétences du bloc 2 de l'option SISR : conception, déploiement, administration et sécurisation d'une infrastructure réseau.</p>
+                    <p>Elle s'appuie sur deux situations professionnelles, présentées par une fiche descriptive et une documentation technique. Les deux projets portent sur la même PME : le premier met en place l'infrastructure, le second la supervise.</p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">VMware ESXi</span>
+                        <span class="skill-tag">Windows Server</span>
+                        <span class="skill-tag">Active Directory</span>
+                        <span class="skill-tag">DNS</span>
+                        <span class="skill-tag">GPO</span>
+                        <span class="skill-tag">Linux</span>
+                        <span class="skill-tag">Nagios</span>
                     </div>
                 </div>
 
-                <h3 class="section-subtitle">En attendant</h3>
+                <!-- ===== LES DEUX PROJETS ===== -->
+                <h3 class="section-subtitle">Mes deux projets</h3>
 
-                <div class="e6-next">
-                    <a href="missions.html" class="e6-link">
-                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
-                        <span class="e6-link-text">
-                            <strong>Réalisations (E5)</strong>
-                            <span>10 réalisations, tableau de synthèse et documentations PDF</span>
-                        </span>
-                        <span class="e6-link-arrow">→</span>
-                    </a>
-                    <a href="veille.html" class="e6-link">
-                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1.5"/></svg>
-                        <span class="e6-link-text">
-                            <strong>Veille technologique</strong>
-                            <span>Cybersécurité des OS et automatisation, de septembre 2025 à aujourd'hui</span>
-                        </span>
-                        <span class="e6-link-arrow">→</span>
-                    </a>
+                <div class="e6-projects">
+                    <article class="e6-project glass-card">
+                        <div class="e6-project-head">
+                            <span class="e6-num">01</span>
+                            <div>
+                                <span class="e6-label">SITUATION PROFESSIONNELLE N°1</span>
+                                <h3>Déploiement d'une infrastructure Active Directory virtualisée sous VMware ESXi</h3>
+                            </div>
+                        </div>
+                        <figure class="e6-figure">
+                            <img src="../assets/images/e6/esxi-active-directory.svg" alt="Schéma : hôte VMware ESXi avec vSwitch interne, contrôleur de domaine Windows Server et postes clients joints au domaine">
+                            <figcaption>Architecture cible : hôte ESXi, contrôleur de domaine et postes clients</figcaption>
+                        </figure>
+                        <div class="e6-block">
+                            <h4>Contexte</h4>
+                            <p>Une PME n'a aucune gestion centralisée de ses utilisateurs et de ses postes. Objectif : déployer un domaine Active Directory sur un hyperviseur VMware ESXi pour centraliser l'authentification, le DNS et les règles de sécurité.</p>
+                        </div>
+                        <div class="e6-block">
+                            <h4>Architecture</h4>
+                            <ul>
+                                <li>Hôte VMware ESXi et vSwitch dédié au réseau interne</li>
+                                <li>Contrôleur de domaine Windows Server (AD DS et DNS)</li>
+                                <li>Postes clients Windows joints au domaine</li>
+                            </ul>
+                        </div>
+                        <div class="e6-block">
+                            <h4>Réalisations</h4>
+                            <ul>
+                                <li>Création des machines virtuelles sous ESXi</li>
+                                <li>Installation de Windows Server et promotion en contrôleur de domaine</li>
+                                <li>Configuration des zones DNS</li>
+                                <li>Création des unités d'organisation, groupes et utilisateurs</li>
+                                <li>Stratégies de groupe (GPO) : mots de passe, restrictions, lecteurs réseau</li>
+                            </ul>
+                        </div>
+                        <div class="e6-block">
+                            <h4>Tests</h4>
+                            <ul>
+                                <li>Jonction des postes au domaine et ouverture de session</li>
+                                <li>Résolution DNS et application des GPO (<code>gpresult</code>)</li>
+                            </ul>
+                        </div>
+                        <div class="e6-docs">
+                            <a href="../assets/docs/BTS_SIO_E6_Réalisation_1_PYB.pdf" class="e6-doc" target="_blank" rel="noopener" title="Ouvrir la fiche descriptive (PDF)"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/></svg> Fiche descriptive E6 n°1</a>
+                            <span class="e6-doc disabled" title="Document en cours de rédaction"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/></svg> Documentation technique</span>
+                        </div>
+                    </article>
+
+                    <article class="e6-project glass-card">
+                        <div class="e6-project-head">
+                            <span class="e6-num">02</span>
+                            <div>
+                                <span class="e6-label">SITUATION PROFESSIONNELLE N°2</span>
+                                <h3>Mise en place d'une solution de supervision Nagios avec alertes et tableaux de bord</h3>
+                            </div>
+                        </div>
+                        <figure class="e6-figure">
+                            <img src="../assets/images/e6/nagios-supervision.svg" alt="Schéma : tableau de bord Nagios avec l'état des services et une alerte envoyée par mail">
+                            <figcaption>Supervision : état des services et alertes par mail</figcaption>
+                        </figure>
+                        <div class="e6-block">
+                            <h4>Contexte</h4>
+                            <p>La même PME n'a aucun outil de supervision : les pannes sont découvertes par les utilisateurs. Objectif : déployer une surveillance centralisée pour détecter les incidents avant qu'ils ne gênent l'activité.</p>
+                        </div>
+                        <div class="e6-block">
+                            <h4>Architecture</h4>
+                            <ul>
+                                <li>Serveur Nagios virtualisé sous ESXi</li>
+                                <li>Contrôleur de domaine Windows Server</li>
+                                <li>Client Windows et serveur Linux supervisés</li>
+                            </ul>
+                        </div>
+                        <div class="e6-block">
+                            <h4>Fonctionnalités</h4>
+                            <ul>
+                                <li>Supervision CPU, RAM et disque des hôtes</li>
+                                <li>Surveillance des services Windows et Linux</li>
+                                <li>Seuils d'avertissement et critiques personnalisés</li>
+                                <li>Notifications par mail</li>
+                                <li>Tableaux de bord et carte du réseau</li>
+                            </ul>
+                        </div>
+                        <div class="e6-block">
+                            <h4>Tests</h4>
+                            <ul>
+                                <li>Arrêt d'un service, surcharge CPU et saturation disque</li>
+                                <li>Vérification de la remontée des alertes et des mails</li>
+                            </ul>
+                        </div>
+                        <div class="e6-docs">
+                            <a href="../assets/docs/BTS_SIO_E6_Réalisation_2_PYB.pdf" class="e6-doc" target="_blank" rel="noopener" title="Ouvrir la fiche descriptive (PDF)"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/></svg> Fiche descriptive E6 n°2</a>
+                            <span class="e6-doc disabled" title="Document en cours de rédaction"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/></svg> Documentation technique</span>
+                        </div>
+                    </article>
                 </div>
 
             </div>
